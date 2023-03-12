@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/oop002.iml" filepath="$PROJECT_DIR$/oop002.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ch.hslu.oop.oop02.iml" filepath="$PROJECT_DIR$/ch.hslu.oop.oop02.iml" />
     </modules>
   </component>
 </project>

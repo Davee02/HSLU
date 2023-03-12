@@ -1,41 +1,36 @@
 public class Temperatur {
-    private double earthTemperatureCelsius;
-
-    public Temperatur(double temperature) {
-        this.earthTemperatureCelsius = temperature;
-    }
+    private double temperaturInCelsius;
 
     public Temperatur() {
-        this.earthTemperatureCelsius = 20;
+        this.temperaturInCelsius = 20;
     }
 
-    public double getTemperatureCelsius() {
-        return this.earthTemperatureCelsius;
+    public Temperatur(double temperaturInCelsius) {
+        this.temperaturInCelsius = temperaturInCelsius;
     }
 
-    public void setTemperatureCelsius(float temperature) {
-        this.earthTemperatureCelsius = temperature;
+    public double getTemperaturInCelsius() {
+        return temperaturInCelsius;
     }
 
-    public double getTemperatureKelvin() {
-        return this.earthTemperatureCelsius + 273.15;
+    public void setTemperaturInCelsius(double temperaturInCelsius) {
+        this.temperaturInCelsius = temperaturInCelsius;
     }
 
-    public double getTemperatureFahrenheit() {
-        return this.earthTemperatureCelsius * 1.8 + 32;
+    public double getTemperaturInKelvin() {
+        return temperaturInCelsius + 27.15;
     }
 
-    public void changeTemperature(double temperatureChangeInKelvin) {
-        this.earthTemperatureCelsius = this.earthTemperatureCelsius + temperatureChangeInKelvin;
+    public double getTemperaturInFahrenheit() {
+        return temperaturInCelsius * 1.8 + 32;
     }
 
-    public AggregateState getAggregateState(Element element) {
-        if (this.earthTemperatureCelsius <= element.getMeltingTemperatureCelsius()) {
-            return AggregateState.SOLID;
-        } else if (this.earthTemperatureCelsius >= element.getBoilingTemperatureCelsius()) {
-            return AggregateState.GAS;
-        } else {
-            return AggregateState.LIQUID;
-        }
+    public void changeTemperaturCelsius(double temperaturInCelsius) {
+        this.temperaturInCelsius += temperaturInCelsius;
+    }
+
+    public void changeTemperaturKelvin(double temperaturInKelvin) {
+        double celsius = temperaturInKelvin - 27.15;
+        this.temperaturInCelsius += celsius;
     }
 }
