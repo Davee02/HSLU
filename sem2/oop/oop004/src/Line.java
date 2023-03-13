@@ -8,25 +8,25 @@ public class Line {
     /**
      * Creates a line with the given start and end points.
      */
-    public Line(int x1, int y1, int x2, int y2) {
+    public Line(final int x1, final int y1, final int x2, final int y2) {
         startPoint = new Point(x1, y1);
         endPoint = new Point(x2, y2);
     }
 
-    public Point getStartPoint() {
+    public final Point getStartPoint() {
         return startPoint;
     }
 
-    public Point getEndPoint() {
+    public final Point getEndPoint() {
         return endPoint;
     }
 
-    public void setStartPoint(int x, int y) {
+    public final void setStartPoint(final int x, final int y) {
         startPoint.setXCoordinate(x);
         startPoint.setYCoordinate(y);
     }
 
-    public void setEndPoint(int x, int y) {
+    public final void setEndPoint(final int x, final int y) {
         endPoint.setXCoordinate(x);
         endPoint.setYCoordinate(y);
     }

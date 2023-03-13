@@ -2,7 +2,7 @@ public class Point {
     private int xCoordinate;
     private int yCoordinate;
 
-    public Point(int xCoordinate, int yCoordinate) {
+    public Point(final int xCoordinate, final int yCoordinate) {
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
     }
@@ -21,19 +21,19 @@ public class Point {
         }
     }
 
-    public int getXCoordinate() {
+    public final int getXCoordinate() {
         return xCoordinate;
     }
 
-    public void setXCoordinate(int xCoordinate) {
+    public final void setXCoordinate(final int xCoordinate) {
         this.xCoordinate = xCoordinate;
     }
 
-    public int getYCoordinate() {
+    public final int getYCoordinate() {
         return yCoordinate;
     }
 
-    public void setYCoordinate(int yCoordinate) {
+    public final void setYCoordinate(final int yCoordinate) {
         this.yCoordinate = yCoordinate;
     }
 }

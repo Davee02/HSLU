@@ -25,11 +25,11 @@ public class Engine implements ISwitchable {
         return rotationsPerMinute == 0;
     }
 
-    public int getRotationsPerMinute() {
+    public final int getRotationsPerMinute() {
         return rotationsPerMinute;
     }
 
-    public void setRotationsPerMinute(int rotationsPerMinute) {
+    public final void setRotationsPerMinute(final int rotationsPerMinute) {
         if (rotationsPerMinute < 0) {
             throw new IllegalArgumentException("Rotations per minute must be positive.");
         }
