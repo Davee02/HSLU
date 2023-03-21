@@ -9,7 +9,9 @@ public class Car implements ISwitchable {
     private boolean isSwitchedOn;
 
     public Car() {
-        engine = new Engine();
+        Engine engine = new Engine();
+        engine.setRotationsPerMinute(600);
+        this.engine = engine;
         wipers = new Wipers();
     }
 

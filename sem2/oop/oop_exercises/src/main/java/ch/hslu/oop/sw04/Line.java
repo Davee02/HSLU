@@ -16,11 +16,11 @@ public class Line {
     }
 
     public final Point getStartPoint() {
-        return startPoint;
+        return new Point(startPoint.getXCoordinate(), startPoint.getYCoordinate());
     }
 
     public final Point getEndPoint() {
-        return endPoint;
+        return new Point(endPoint.getXCoordinate(), endPoint.getYCoordinate());
     }
 
     public final void setStartPoint(final int x, final int y) {

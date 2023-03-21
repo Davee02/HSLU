@@ -16,11 +16,13 @@ public interface ISwitchable {
 
     /**
      * Returns true if the device is switched on.
+     * @return true if the device is switched on.
      */
     boolean isSwitchedOn();
 
     /**
      * Returns true if the device is switched off.
+     * @return true if the device is switched off.
      */
     boolean isSwitchedOff();
 }
