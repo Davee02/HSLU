@@ -1,4 +1,4 @@
-package ch.hslu.oop.sw07.Elements;
+package ch.hslu.oop.sw07.elements;
 
 import java.util.Objects;
 

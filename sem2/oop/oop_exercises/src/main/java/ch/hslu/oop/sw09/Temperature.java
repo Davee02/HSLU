@@ -1,7 +1,7 @@
 package ch.hslu.oop.sw09;
 
-import ch.hslu.oop.sw05.elements.AggregateState;
-import ch.hslu.oop.sw05.elements.Element;
+import ch.hslu.oop.sw09.elements.AggregateState;
+import ch.hslu.oop.sw09.elements.Element;
 
 public final class Temperature implements Comparable<Temperature> {
     public static final double KELVIN_OFFSET = 273.15;
@@ -41,16 +41,6 @@ public final class Temperature implements Comparable<Temperature> {
 
     public void changeTemperature(double temperatureChangeInKelvin) {
         this.earthTemperatureCelsius = this.earthTemperatureCelsius + temperatureChangeInKelvin;
-    }
-
-    public AggregateState getAggregateState(Element element) {
-        if (this.earthTemperatureCelsius <= element.getMeltingTemperatureCelsius()) {
-            return AggregateState.SOLID;
-        } else if (this.earthTemperatureCelsius >= element.getBoilingTemperatureCelsius()) {
-            return AggregateState.GAS;
-        } else {
-            return AggregateState.LIQUID;
-        }
     }
 
     @Override

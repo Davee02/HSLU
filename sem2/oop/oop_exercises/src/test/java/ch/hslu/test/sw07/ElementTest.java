@@ -1,8 +1,8 @@
 package ch.hslu.test.sw07;
 
-import ch.hslu.oop.sw07.Elements.Lead;
-import ch.hslu.oop.sw07.Elements.Mercury;
-import ch.hslu.oop.sw07.Elements.Nitrogen;
+import ch.hslu.oop.sw07.elements.Lead;
+import ch.hslu.oop.sw07.elements.Mercury;
+import ch.hslu.oop.sw07.elements.Nitrogen;
 import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 

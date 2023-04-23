@@ -1,7 +1,7 @@
 package ch.hslu.oop.sw07;
 
-import ch.hslu.oop.sw05.elements.AggregateState;
-import ch.hslu.oop.sw05.elements.Element;
+import ch.hslu.oop.sw07.elements.AggregateState;
+import ch.hslu.oop.sw07.elements.Element;
 
 public class Temperatur implements Comparable<Temperatur> {
     private double earthTemperatureCelsius;
