@@ -1,4 +1,4 @@
-package ch.hslu.oop.sw10;
+package ch.hslu.oop.sw11.temperature;
 
 public final class Temperature implements Comparable<Temperature> {
     public static final double KELVIN_OFFSET = 273.15;

@@ -1,4 +1,4 @@
-package ch.hslu.oop.sw05.interfaces;
+package ch.hslu.oop.sw11.car;
 
 /**
  * Interface for devices that have a name.
