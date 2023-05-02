@@ -55,6 +55,15 @@ class TemperatureTest {
     }
 
     @Test
+    void testGetTemperatureCelsiusAfterCreateWithKelvin() {
+        // arrange
+        Temperature temp = Temperature.createFromKelvin(0);
+
+        // assert
+        assertThat(temp.getTemperatureCelsius()).isEqualTo(-Temperature.KELVIN_OFFSET);
+    }
+
+    @Test
     void testGetTemperatureFahrenheit() {
         // arrange
         Temperature temp = Temperature.createFromCelsius(1);

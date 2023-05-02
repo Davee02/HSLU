@@ -21,10 +21,13 @@ public class Demo {
                 Temperature temperature = Temperature.createFromCelsius(value);
 
                 LOG.info("Temperature: {}°C", temperature.getTemperatureCelsius());
+                LOG.info("Temperature: {} K", temperature.getTemperatureKelvin());
             } catch (NumberFormatException e) {
                 if (!"exit".equals(input)) {
                     LOG.error("Invalid input: {}", input, e);
                 }
+            } catch (IllegalArgumentException e) {
+                LOG.error("Invalid input: {}", input, e);
             }
         } while (!"exit".equals(input));
 
