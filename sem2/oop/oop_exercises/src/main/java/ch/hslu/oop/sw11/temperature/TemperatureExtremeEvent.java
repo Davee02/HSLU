@@ -3,6 +3,7 @@ package ch.hslu.oop.sw11.temperature;
 import java.util.EventObject;
 
 public final class TemperatureExtremeEvent extends EventObject {
+    private static final long serialVersionUID = 1L;
     private final ExtremeTypes extremeType;
     private final Temperature temperature;
 
