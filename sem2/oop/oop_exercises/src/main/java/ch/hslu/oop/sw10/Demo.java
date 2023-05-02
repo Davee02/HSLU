@@ -24,10 +24,10 @@ public class Demo {
                 LOG.info("Temperature: {} K", temperature.getTemperatureKelvin());
             } catch (NumberFormatException e) {
                 if (!"exit".equals(input)) {
-                    LOG.error("Invalid input: {}", input, e);
+                    LOG.error("Invalid number input: {}", input, e);
                 }
             } catch (IllegalArgumentException e) {
-                LOG.error("Invalid input: {}", input, e);
+                LOG.error("Invalid temperature input: {}", input, e);
             }
         } while (!"exit".equals(input));
 
