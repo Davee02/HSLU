@@ -13,7 +13,7 @@ public class Demo {
         String input;
         Scanner scanner = new Scanner(System.in);
         TemperatureHistory history = new TemperatureHistory();
-        history.addTemperatureExtremeListener(Demo::onExtremeTemperatureReached);
+        history.addTemperatureExtremeListener(e -> onExtremeTemperatureReached(e));
 
         do {
             System.out.print("Please input temperature (or 'exit' for terminating): ");
@@ -25,10 +25,13 @@ public class Demo {
                 history.add(temperature);
 
                 LOG.info("Temperature: {}°C", temperature.getTemperatureCelsius());
+                LOG.info("Temperature: {} K", temperature.getTemperatureKelvin());
             } catch (NumberFormatException e) {
                 if (!"exit".equals(input)) {
                     LOG.error("Invalid input: {}", input, e);
                 }
+            } catch (IllegalArgumentException e) {
+                LOG.error("Invalid temperature input: {}", input, e);
             }
         } while (!"exit".equals(input));
 
