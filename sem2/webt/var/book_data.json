@@ -1,0 +1,75 @@
+{
+    "genres": [
+        "Abenteuerroman",
+        "Biografie",
+        "Bildungsroman",
+        "Cyberpunk",
+        "Drama",
+        "Dystopie",
+        "Essays",
+        "Erotik",
+        "Fabel",
+        "Fantasy",
+        "Geschichte",
+        "Gesundheit und Fitness",
+        "Graphic Novel",
+        "Historischer Roman",
+        "Horror",
+        "Humor",
+        "Jugendbuch",
+        "Kinderbuch",
+        "Klassiker",
+        "Kochbuch",
+        "Krimi",
+        "Kurzgeschichten",
+        "Liebesroman",
+        "Märchen",
+        "Memoiren",
+        "Mystery",
+        "Mythologie",
+        "Poesie",
+        "Politik",
+        "Philosophische Literatur",
+        "Reiseberichte",
+        "Religiöse Literatur",
+        "Sachbuch",
+        "Satire",
+        "Science",
+        "Science-Fiction",
+        "Selbsthilfe",
+        "Steampunk",
+        "Thriller",
+        "Utopie",
+        "Wirtschaft"
+    ],
+    "topBooks": [
+        {
+            "titel": "Der alte Mann und das Meer",
+            "autor": "Ernest Hemingway",
+            "genre": "Literatur & Fiktion",
+            "erscheinungsjahr": 1952,
+            "monat": "Mai"
+        },
+        {
+            "titel": "Harry Potter und der Stein der Weisen",
+            "autor": "J.K. Rowling",
+            "genre": "Fantasy",
+            "erscheinungsjahr": 1997,
+            "monat": "April"
+        },
+        {
+            "titel": "Der Da Vinci Code",
+            "autor": "Dan Brown",
+            "genre": "Thriller",
+            "erscheinungsjahr": 2003,
+            "monat": "März"
+        },
+        {
+            "titel": "Die Tribute von Panem - Tödliche Spiele",
+            "autor": "Suzanne Collins",
+            "genre": "Dystopie",
+            "erscheinungsjahr": 2008,
+            "monat": "Februar"
+        }
+    ]
+}

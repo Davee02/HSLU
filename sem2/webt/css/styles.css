@@ -1,0 +1,85 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+nav {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+section {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  width: 40%;
+}
+
+input,
+select {
+  margin-bottom: 16px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: all 0.3s ease-in;
+}
+
+input:focus,
+select:focus {
+  border: 10px solid #333;
+}
+
+label {
+  margin-bottom: 8px;
+}
+
+#location-map {
+  width: 50%;
+  margin: 30px;
+  transition: all 0.5s ease-in-out;
+}
+
+#location-map:hover {
+  width: 80%;
+}
+
+#countdown {
+  height: 150px;
+}
+
+#information:hover,
+#formular:hover {
+  background-color: rgb(230, 222, 230);
+  transition: all 0.5s ease-in-out;
+}
+
+@media only screen and (max-width: 768px) {
+  form {
+    width: 80%;
+  }
+
+  #location-map {
+    width: 100%;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  h2 {
+    font-weight: bold;
+  }
+}
