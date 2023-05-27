@@ -1,9 +1,7 @@
 package ch.hslu.oop.sw13;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,13 +38,13 @@ public final class MeasurementHistory {
     public Measurement getMax() {
         return measurements.stream()
                 .max(Measurement::compareTo)
-                .orElse(Measurement.Empty());
+                .orElse(Measurement.empty());
     }
 
     public Measurement getMin() {
         return measurements.stream()
                 .min(Measurement::compareTo)
-                .orElse(Measurement.Empty());
+                .orElse(Measurement.empty());
     }
 
     public double getAverage() {

@@ -12,7 +12,7 @@ public final class Measurement implements Comparable<Measurement> {
         this.timestamp = timestamp;
     }
 
-    public static Measurement Empty() {
+    public static Measurement empty() {
         return new Measurement(Temperature.createFromCelsius(0), LocalDateTime.MIN);
     }
 

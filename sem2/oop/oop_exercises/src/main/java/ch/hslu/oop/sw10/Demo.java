@@ -1,8 +1,9 @@
 package ch.hslu.oop.sw10;
 
-import java.util.Scanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.Scanner;
 
 public class Demo {
     private static final Logger LOG =
