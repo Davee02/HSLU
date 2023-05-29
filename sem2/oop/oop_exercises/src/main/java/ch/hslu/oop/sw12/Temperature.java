@@ -50,7 +50,7 @@ public final class Temperature implements Comparable<Temperature> {
     }
 
     @Override
-    public final boolean equals(final Object object) {
+    public boolean equals(final Object object) {
         if (this == object) {
             return true;
         }
@@ -60,12 +60,12 @@ public final class Temperature implements Comparable<Temperature> {
     }
 
     @Override
-    public final int hashCode() {
+    public int hashCode() {
         return Double.hashCode(temperatureInKelvin);
     }
 
     @Override
-    public final int compareTo(final Temperature other) {
+    public int compareTo(final Temperature other) {
         return Double.compare(this.temperatureInKelvin, other.temperatureInKelvin);
     }
 }

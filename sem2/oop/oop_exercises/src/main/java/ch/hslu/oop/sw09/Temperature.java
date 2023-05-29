@@ -1,8 +1,5 @@
 package ch.hslu.oop.sw09;
 
-import ch.hslu.oop.sw09.elements.AggregateState;
-import ch.hslu.oop.sw09.elements.Element;
-
 public final class Temperature implements Comparable<Temperature> {
     public static final double KELVIN_OFFSET = 273.15;
     private double earthTemperatureCelsius;

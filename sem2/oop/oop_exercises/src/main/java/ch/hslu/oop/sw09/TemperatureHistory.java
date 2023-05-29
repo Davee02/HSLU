@@ -3,7 +3,6 @@ package ch.hslu.oop.sw09;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 
 public final class TemperatureHistory {
     private final Collection<Temperature> temperatures;
