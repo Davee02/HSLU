@@ -47,6 +47,7 @@ if ($conn->query($sql) !== TRUE) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
+// Save recommendation count in cookie
 if(isset($_COOKIE["recommendation_count"])){
     $count = $_COOKIE["recommendation_count"] + 1;
 } else {

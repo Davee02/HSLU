@@ -101,6 +101,7 @@ function loadBookData() {
     });
 }
 
+// used additional technology #3 (web services)
 function loadLocationData() {
   fetch("https://api.zippopotam.us/ch/6343")
     .then((response) => response.json())
