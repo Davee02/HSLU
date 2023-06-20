@@ -2,11 +2,12 @@
 
 ## Values saved in TinyDB
 
-| Key              | Description / format                                                                                                                                                                                    | Initialized in screen |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `AuthToken`      | The ID token for the google identitykit                                                                                                                                                                 | `SignUp`              |
-| `MyAccountData`  | The JSON object of the current logged in user, loaded from firebase DB (`GET https://globalharmony-39de6-default-rtdb.europe-west1.firebasedatabase.app/users.json?orderBy="uid"&equalTo="[USER UID]"`) | `Swiper`              |
-| `AllAccountData` | All users from the firebase DB as a JSON array (`GET https://globalharmony-39de6-default-rtdb.europe-west1.firebasedatabase.app/users.json`)                                                            | `Swiper`              |
+| Key                | Description / format                                                                                                                                                                                    | Initialized in screen |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `AuthToken`        | The ID token for the google identitykit                                                                                                                                                                 | `SignUp`              |
+| `MyAccountData`    | The JSON object of the current logged in user, loaded from firebase DB (`GET https://globalharmony-39de6-default-rtdb.europe-west1.firebasedatabase.app/users.json?orderBy="uid"&equalTo="[USER UID]"`) | `Swiper`              |
+| `AllAccountData`   | All users from the firebase DB as a JSON array (`GET https://globalharmony-39de6-default-rtdb.europe-west1.firebasedatabase.app/users.json`)                                                            | `Swiper`              |
+| `[user uid]_liked` | A list of user uids the user liked                                                                                                                                                                      | `Swiper`              |
 
 ## Changelog
 
