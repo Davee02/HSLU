@@ -1,0 +1,53 @@
+---
+title: "Quarto Basics"
+execute:
+  echo: false
+jupyter: python3
+---
+
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Sample data for the charts
+years = np.arange(2000, 2024)
+electricity_demand = np.random.normal(loc=100, scale=15, size=len(years)).cumsum()
+demand_growth = np.random.uniform(low=0.5, high=2.0, size=5)  # For 5 regions
+energy_mix_2000 = {'Fossil Fuels': 60, 'Nuclear': 20, 'Hydro': 10, 'Renewables': 10}
+energy_mix_2020 = {'Fossil Fuels': 45, 'Nuclear': 15, 'Hydro': 10, 'Renewables': 30}
+renewable_usage = np.random.normal(loc=50, scale=10, size=len(years)).cumsum()
+renewable_price = np.random.normal(loc=100, scale=5, size=len(years)).cumsum()[::-1]  # Decreasing prices
+```
+
+# Towards a Brighter Tomorrow: A Data-Driven Journey into an Optimistic Human Future
+
+In a world that often seems overwhelmed by negative headlines, it's easy to overlook the remarkable progress humanity has made. Contrary to popular belief, our current era is marked by unprecedented advancements and improvements in the quality of life. From breakthroughs in medical technology to the rapid expansion of the internet, we've witnessed a transformation that has reshaped our world.
+
+Yet, these advancements come with an increasing demand for energy. Over the past two decades, global energy consumption has soared, with some regions experiencing a doubling in demand. This rise in energy needs poses a significant challenge, calling for innovative solutions and a rethinking of our energy sources.
+
+```{python}
+#| label: global-electricity-demand
+#| fig-cap: "Global electricity demand over time"
+
+# Create a stacked area chart for electricity demand
+plt.figure(figsize=(10, 6))
+plt.fill_between(years, electricity_demand, color="skyblue", alpha=0.4)
+plt.title("Global Electricity Demand Over Time")
+plt.xlabel("Year")
+plt.ylabel("Electricity Demand (arbitrary units)")
+plt.grid(True)
+plt.show()
+```
+
+<<- Insert stacked area chart and bar chart of electricity demand ->>
+
+This surge in energy demand is not just a matter of quantity; it's a call to action for a sustainable approach to energy generation. Fortunately, there's a silver lining. The past twenty years have seen a significant shift from traditional fossil fuels to renewable energy sources. This transition is evident in the changing landscape of our energy mix.
+
+<<-Insert treemaps for energy mix 2000 vs 2020 ->>
+
+The move towards renewable energy isn't just a technological leap; it's an economic revolution. Renewable energy technologies have seen a dramatic decrease in cost, making them more accessible and appealing than ever. This cost reduction, combined with growing environmental awareness and supportive policies, has fueled a rapid increase in the adoption of renewables like solar, wind, and hydro power.
+
+<<- Insert chart showing the rising usage of renewable energies and decreasing prices from 2000 to 2023 ->>
+
+This shift towards renewable energy is more than just a trend; it's a testament to our capacity for adaptation and innovation. As we continue to refine renewable technologies and make them even more cost-effective, we pave the way for a future dominated by clean, sustainable energy. This transition not only powers our daily lives but also propels us towards a brighter, more sustainable future, showcasing the best of human ingenuity and resilience.
