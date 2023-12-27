@@ -1,0 +1,81 @@
+---
+execute:
+  echo: false
+jupyter: python3
+---
+
+```{python}
+#| label: electricity-demand-per-region
+#| fig-cap: "Chart 2: Electricity demand per region 2000 vs 2020"
+
+fig, ax = plt.subplots(figsize=(15, 5))
+
+df = pd.DataFrame(columns=['year', 'region', 'electricity_demand'],
+                  data=[[from_year, region, first_year_demand_data[region]] for region in regions] + [[to_year, region, last_year_demand_data[region]] for region in regions])
+
+x = np.arange(len(regions)) # the label locations
+width = 0.47 # the width of the bars
+multiplier = 0
+
+for year in [from_year, to_year]:
+    measurement = df[df['year'] == year]['electricity_demand']
+
+    offset = width * multiplier
+    alpha = 0.5 if year == from_year else 0.8
+
+    rects = ax.bar(x + offset, measurement, width, label=year, color=region_colors.values(), alpha=alpha)
+    ax.bar_label(rects, padding=3, fmt='{:,.0f} TWh', fontweight="bold")
+    multiplier += 1
+
+ax.minorticks_off()
+
+ax.set_xticks(x + width / 2, regions, minor=False)
+ax.tick_params(axis='x', which='major' ,colors='black', labelsize=12)
+
+ax.set_yticks([0, 5000, 10000, 15000])
+ax.tick_params(axis='y', which='both', colors='gray')
+
+ax.set_yticklabels(["0", "5k", "10k", "15k"])
+
+ax.set_ylim(0, 15000)
+
+# Remove spines
+ax.spines['left'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+ax.spines['bottom'].set_visible(False)
+
+# Add arrow for Asia
+ax.annotate("", xytext=(1, 5500), xy=(1 + width / 2, 14500),
+            arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=-0.15"))
+
+relative_increase_asia = 207.56
+annotext = ax.text(x=-0.28, y=8000, s=f"Asia had the biggest electricity\n demand increase of {relative_increase_asia:.0f}%",
+                   color="black", fontsize=10)
+
+# Add arrow for Europe
+ax.annotate("", xytext=(2, 5500), xy=(2 + width, 5800),
+            arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=-3"))
+
+relative_increase_europe = 7.24
+annotext = ax.text(x=1.9, y=11000, s=f"Europe remained on a a similar level\nwith the smallest increase of just {relative_increase_europe:.0f}%",
+                   color="black", fontsize=10)
+
+ax.grid(True, color="grey", alpha=0.3, linestyle="--", axis="y")
+
+# Place text so that y label isn't cutted away
+ax.text(0, 1.1,
+         ' ',
+         transform=ax.transAxes)
+
+ax.set_ylabel("Electricity demand\n[TWh]", rotation="horizontal", color="grey", fontsize=10)
+ax.yaxis.set_label_coords(-0.01, 1.05)
+
+# Draw the legend as a separate plot
+axin = ax.inset_axes([0.01, 0.8, 0.1, 0.1])
+axin.set_xticks([0, 0.8])
+axin.set_xticklabels([from_year, to_year])
+axin.set_yticks([])
+axin.bar(x=[0], height=[1], color="gray", alpha=0.5)
+axin.bar(x=[0.8], height=[2], color="gray", alpha=0.8);
+```

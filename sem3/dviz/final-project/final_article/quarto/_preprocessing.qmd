@@ -1,0 +1,76 @@
+---
+execute:
+  echo: false
+jupyter: python3
+---
+
+```{python}
+# Define some variables
+from_year = 2000
+to_year = 2020
+
+regions = ['Europe', 'Asia', 'South America', 'North America', 'Africa', 'Oceania']
+regions.sort()
+region_colors = {
+    'Africa': 'brown',
+    'Asia': 'red',
+    'Europe': 'blue',
+    'North America': 'purple',
+    'Oceania': 'teal',
+    'South America': 'orange',
+}
+
+technology_color_dict = { 
+    "Solar": "orange",
+    "Offshore wind": "slateblue",
+    "Onshore wind": "blue",
+}
+
+# Load the data
+energy_demand_data = pd.read_csv('../World Energy Demand.csv')
+energy_demand_data.sort_values(by=['year'], inplace=True)
+
+renewable_energy_costs_data = pd.read_csv('../lcoe_renewable_energy.csv', delimiter=";")
+renewable_energy_costs_data.set_index('year', inplace=True)
+
+energy_capacity_data = pd.read_csv('../RECAP_20231127-154011.csv', delimiter=",")
+
+# Apply some preprocessing & transformation
+capacity_data_melted = energy_capacity_data.melt(id_vars=['Region/country/area', 'Technology'], var_name='Year', value_name='Capacity')
+capacity_data_melted['Year'] = capacity_data_melted['Year'].astype(int)
+
+capacity_data_agg = capacity_data_melted.groupby(['Year', 'Technology']).sum().reset_index()
+
+for column in renewable_energy_costs_data.columns[1:]:
+    # multiply each column with 1000 to convert from kWh to MWh
+    renewable_energy_costs_data[column] = renewable_energy_costs_data[column].apply(lambda x: x * 1000)
+
+renewable_energy_costs_data.rename(columns={"lcoe usd per kwh bioenergy": "Bioenergy", "lcoe usd per kwh geothermal": "Geothermal", "lcoe usd per kwh hydropower": "Hydropower", "lcoe usd per kwh solar": "Solar", "lcoe usd per kwh csp": "CSP", "lcoe usd per kwh onshore wind": "Onshore wind", "lcoe usd per kwh offshore wind": "Offshore wind"},
+                  inplace=True)
+
+technologies_to_chart = ["Solar", "Offshore wind", "Onshore wind"]
+
+capacity_years = [int(year) for year in energy_capacity_data.columns[2:]]
+capacity_first_common_year = max(renewable_energy_costs_data.index.min(), min(capacity_years))
+capacity_latest_common_year = min(renewable_energy_costs_data.index.max(), max(capacity_years))
+
+combined_plot_data = []
+for year in range(capacity_first_common_year, capacity_latest_common_year):
+    for technology in technologies_to_chart:
+        cost = renewable_energy_costs_data.loc[year][technology]
+        capacity = capacity_data_agg.query("Technology == @technology and Year == @year")["Capacity"]
+        combined_plot_data.append({"year": year, "technology": technology, "cost": cost, "capacity": int(capacity.iloc[0])})
+
+combined_plot_data_df = pd.DataFrame(combined_plot_data)
+
+electricity_demand_data = energy_demand_data[['country', 'year', 'electricity_demand']]
+electricity_demand_data = electricity_demand_data.dropna(subset=['electricity_demand'])
+electricity_demand_data = electricity_demand_data[electricity_demand_data['year'] >= from_year]
+electricity_demand_data = electricity_demand_data[electricity_demand_data['year'] <= to_year]
+electricity_demand_data = electricity_demand_data[(electricity_demand_data['country'].isin(regions))]
+
+electricity_mix_data = energy_demand_data[['country', 'year', 'iso_code', 'coal_share_elec', 'oil_share_elec', 'gas_share_elec', 'hydro_share_elec', 'nuclear_share_elec', 'wind_share_elec', 'solar_share_elec', 'biofuel_share_elec']]
+electricity_mix_data = electricity_mix_data[electricity_mix_data['year'] >= from_year]
+electricity_mix_data = electricity_mix_data[electricity_mix_data['year'] <= to_year]
+electricity_mix_data = electricity_mix_data[electricity_mix_data['country'] == "World"]
+```

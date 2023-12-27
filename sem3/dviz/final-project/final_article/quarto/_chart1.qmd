@@ -1,0 +1,126 @@
+---
+execute:
+  echo: false
+jupyter: python3
+---
+
+```{python}
+#| label: global-electricity-demand
+#| fig-cap: "Chart 1: Global electricity demand over time (from 2000 to 2020)"
+
+fig, ax = plt.subplots(figsize=(15, 5))
+
+electricity_demand_pivot = electricity_demand_data.pivot(index='year', columns='country', values='electricity_demand').fillna(0)
+first_year_demand_data = electricity_demand_pivot.loc[from_year]
+last_year_demand_data = electricity_demand_pivot.loc[to_year]
+
+ax.stackplot(electricity_demand_pivot.index, electricity_demand_pivot.T, labels=electricity_demand_pivot.columns, alpha=0.4,
+             colors=[region_colors[region] for region in regions])
+
+ax.set_xlabel('')
+ax.set_ylabel("Electricity demand\n[TWh]", rotation="horizontal", color="grey", fontsize=10)
+ax.yaxis.set_label_coords(-0.01, 1.02)
+
+ax_set_ylim = ax.set_ylim(0, 33000)
+
+x_ticks = [year for year in range(from_year, to_year + 1, 5)]
+ax.set_xticks(x_ticks)
+
+ax.set_yticks([10000, 20000, 30000])
+ax.set_yticklabels(["10k", "20k", "30k"], color="grey")
+
+# Place text so that y label isn't cutted away
+ax.text(0, 1.1,
+         ' ',
+         transform=ax.transAxes)
+
+# Remove spines
+ax.spines['left'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+ax.spines['bottom'].set_visible(False)
+
+# Annotations for the values per country
+def add_annotations_country(region, value_placement, amount, color):
+    """
+    Adds an annotation to a plot at a specific location with information about a region's amount in TwH.
+
+    Parameters:
+        region (str): The name of the region for which the annotation is being added.
+        value_placement (float): The vertical position where the annotation will be placed on the plot.
+        amount (float): The amount that will be displayed in the annotation.
+        color (str): The color of the annotation text.
+    """
+    ax.text(2020.3, value_placement, f'{region} {amount:.0f} TWh', fontsize=9, color=color, fontweight='bold', alpha=0.8)
+
+
+# We manually define the labels, values and position that will be displayed on the right of the graph
+values_placement = np.array([0.12, 8, 17, 22, 24.5, 25.5]) * 1000
+amounts = electricity_demand_pivot.query("year == @to_year").values[0][0:]
+
+# Iterate over all countries and add the name with the right value and color
+for region, value, amount in zip(regions, values_placement, amounts):
+    add_annotations_country(region, value, amount, region_colors[region])
+
+# Annotations for the values per year
+def add_annotations_year(year):
+    """
+    Input: a year
+    Apply: add to the graph the total demand of all countries at a given date
+           and a line from the bottom of the graph to the total value of demand
+    """
+    
+    # Calculate total amount of demand at a given year
+    y_end = electricity_demand_pivot.query("year == @year").values.sum()
+
+    # Set values in areas where the graph does not appear
+    modif_xaxis = -1
+    modif_yaxis = 2000
+    
+    # Add the values, with a specific position, in bold, black and a fontsize of 10
+    ax.text(year+modif_xaxis,
+             y_end+modif_yaxis,
+             f'{y_end:,.0f} TWh',
+             fontsize=10,
+             color='black',
+             fontweight = 'bold')
+    
+    # Add line 
+    ax.plot([year, year], # x-axis position
+            [0, y_end*1.05], # y-axis position (*1.05 is used to make a it little bit longer)
+            color='black', # Color
+            linewidth=1) # Width of the line
+    
+    # Add a point at the top of the line
+    ax.plot(year, # x-axis position
+            y_end*1.05, # y-axis position (*1.05 is used to make a it little bit longer)
+            marker='o', # Style of the point
+            markersize=5, # Size of the point
+            color='black') # Color
+
+# Add the line and the values for each of the following years
+for year in x_ticks:
+    add_annotations_year(year)
+
+## Add arrow from 2000 to 2020
+ax.annotate("", xytext=(2000, 18200), xy=(2019, 28700),
+            arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=-0.15"))
+
+relative_increase = ((last_year_demand_data.sum() / first_year_demand_data.sum()) - 1) * 100
+annotext = ax.text(x=2009, y=31500, s=f"Global electricity demand increased by {relative_increase:.0f}% from {from_year} to {to_year}",
+                   color="black", fontsize=10)
+
+## Add arrow for 2008 financial crisis
+ax.annotate("", xytext=(2007, 11500), xy=(2009, 19600),
+            arrowprops=dict(arrowstyle="->"))
+annotext = ax.text(x=2006, y=9000, s="0.5% decrease due to\n2008 financial crisis",
+                   color="black", fontsize=10)
+
+## Add arrow for 2020 covid pandemic
+ax.annotate("", xytext=(2017, 11500), xy=(2019.7, 26200),
+            arrowprops=dict(arrowstyle="->"))
+annotext = ax.text(x=2016, y=9000, s="0.3% decrease due to\nCOVID-19 pandemic",
+                   color="black", fontsize=10)
+
+ax.grid(True, color="grey", alpha=0.3, linestyle="--");
+```

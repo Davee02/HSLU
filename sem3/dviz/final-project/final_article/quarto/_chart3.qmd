@@ -1,0 +1,63 @@
+---
+execute:
+  echo: false
+jupyter: python3
+---
+
+```{python}
+#| label: change-of-electricity-mix
+#| fig-cap: "Chart 3: Change of electricity mix from 2000 to 2020"
+
+fig, axs = plt.subplots(2, 1, figsize=(10, 10))
+
+first_year_data = electricity_mix_data[electricity_mix_data['year'] == from_year].drop(columns=['country', 'year', 'iso_code']).T
+last_year_data = electricity_mix_data[electricity_mix_data['year'] == to_year].drop(columns=['country', 'year', 'iso_code']).T
+
+#        Coal      Oil       Gas       Hydro   Nuclear    Wind     Solar     Biofuel
+colors= ['#333333','#555555','#888888','blue','#cccccc','#7767D1','#FFAD17', 'yellow']
+
+first_year_labels = [str.capitalize(str.split(first_year_data.index[i], "_")[0]) for i in range(len(first_year_data))]
+last_year_labels = [str.capitalize(str.split(last_year_data.index[i], "_")[0]) for i in range(len(last_year_data))]
+
+# add the percentage to the label
+for i in range(len(first_year_data)):
+    tech = first_year_labels[i]
+    value = first_year_data.values[i][0]
+
+    line_sep = " " if tech == "Biofuel" else "\n"
+    first_year_labels[i] += f'{line_sep}({value:.1f}%)'
+
+    if value < 0.5:
+        first_year_labels[i] = ""
+
+
+for i in range(len(last_year_data)):
+    last_year_labels[i] += f'\n({last_year_data.values[i][0]:.1f}%)'
+
+text_kwargs = {
+    'fontsize': 11,
+    'fontweight': 'bold'
+}
+
+squarify.plot(sizes=first_year_data.values, label=first_year_labels, alpha=0.6, ax=axs[0], color=colors, text_kwargs=text_kwargs)
+squarify.plot(sizes=last_year_data.values, label=last_year_labels, alpha=0.6, ax=axs[1], color=colors, text_kwargs=text_kwargs)
+axs[0].set_axis_off()
+axs[1].set_axis_off()
+
+axs[0].set_title(f'{from_year}', fontsize=20, fontweight = 'bold')
+axs[1].set_title(f'{to_year}', fontsize=20, fontweight = 'bold')
+
+# Add annotation for wind in 2000
+axs[0].annotate("", xytext=(69, 110), xy=(72, 99),
+            arrowprops=dict(arrowstyle="->"), transform=axs[0].transAxes)
+
+axs[0].text(x=60, y=110, s=f"Wind (0.208%)",
+                   color="black", fontsize=12)
+
+# Add annotation for solar in 2000
+axs[0].annotate("", xytext=(83, 110), xy=(74, 99),
+            arrowprops=dict(arrowstyle="->"), transform=axs[0].transAxes)
+
+axs[0].text(x=80, y=110, s=f"Solar (0.007%)",
+                   color="black", fontsize=12);
+```

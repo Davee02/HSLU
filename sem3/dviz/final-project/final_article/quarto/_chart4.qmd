@@ -1,0 +1,102 @@
+---
+execute:
+  echo: false
+jupyter: python3
+---
+
+```{python}
+#| label: renewable-energy-cost-vs-capacity
+#| fig-cap: "Chart 4: Change of cost vs. capacity for renewable energy on logarithmic scales"
+
+fig, ax = plt.subplots(figsize=(8, 8))
+
+for technology in technologies_to_chart:
+    data = combined_plot_data_df.query("technology == @technology")
+    color = technology_color_dict[technology]
+    alphas = [0.3] * len(data)
+    alphas[0] = 1    # highlight first point
+    alphas[-1] = 1   # highlight last point
+
+    for i in range(1, len(data)):
+        ax.plot([data["capacity"].iloc[i-1], data["capacity"].iloc[i]], 
+                [data["cost"].iloc[i-1], data["cost"].iloc[i]],
+                color=color, alpha=0.3)
+
+    ax.scatter(data["capacity"], data["cost"], color=color, alpha=alphas)
+
+    (cost_beginning, capacity_beginning) = data["cost"].iloc[0], data["capacity"].iloc[0]
+    (cost_end, capacity_end) = data["cost"].iloc[-1], data["capacity"].iloc[-1]
+
+    # arrow from first point to last point
+    ax.annotate("", xy=(capacity_end, cost_end), 
+                xytext=(capacity_beginning, cost_beginning),
+                arrowprops=dict(arrowstyle="simple", color=color, alpha=0.9))
+    
+
+def add_data_start_end_labels(x_start, y_start, x_end, y_end, technology):
+    technology_data = combined_plot_data_df.query("technology == @technology")
+    cost_beginning = technology_data["cost"].iloc[0]
+    cost_end = technology_data["cost"].iloc[-1]
+
+    ax.text(s=f"${cost_beginning:.0f}/MWh", x=x_start, y=y_start, color=technology_color_dict[technology],
+            fontsize=10,
+            transform=ax.transAxes)
+    ax.text(s=capacity_first_common_year, x=x_start, y=y_start - 0.02, color="grey",
+            fontsize=8,
+            transform=ax.transAxes)
+    ax.text(s=f"${cost_end:.0f}/MWh", x=x_end, y=y_end, color=technology_color_dict[technology],
+            fontsize=10,
+            transform=ax.transAxes)
+    ax.text(s=capacity_latest_common_year, x=x_end, y=y_end - 0.02, color="grey",
+            fontsize=8,
+            transform=ax.transAxes)
+
+def add_technology_label(x, y, technology):
+    ax.text(s=technology, x=x, y=y, color=technology_color_dict[technology],
+            fontsize=15,
+            fontweight="bold",
+            transform=ax.transAxes)
+
+def add_learning_rate_label(x, y, technology, text):
+    ax.text(s=text, x=x, y=y, alpha=0.9, color=technology_color_dict[technology],
+        fontsize=9,
+        transform=ax.transAxes)
+
+# Remove spines
+ax.spines['left'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+ax.spines['bottom'].set_visible(False)
+
+ax.set_xscale('log')
+ax.set_yscale('log')
+ax.set_xlabel("Cumulative installed capacity\n[MW]", color="grey", fontsize=10)
+ax.set_ylabel("Price per megawatt hour of electicity\n[$]", rotation="horizontal", color="grey", fontsize=10)
+ax.yaxis.set_label_coords(-0.01, 1.01)
+ax.grid(True, color="grey", alpha=0.3, linestyle="--")
+ax.minorticks_off()
+
+# Place text so that y label isn't cutted away
+ax.text(0, 1.1,
+         ' ',
+         transform=ax.transAxes)
+
+ax.tick_params(colors='gray', which='both')
+ax.set_yticks([50, 60, 70, 80, 100, 120, 150, 180, 220, 250, 300, 350, 450], minor=False)
+ax.set_yticklabels(["50", "60", "70", "80", "100", "120", "150", "180", "220", "250", "300", "350", "450"])
+
+ax.set_xticks([5000, 10000, 20000, 50000, 100000, 500000, 2000000], minor=False)
+ax.set_xticklabels(["5k", "10k", "20k", "50k", "100k", "500k", "2M"])
+
+add_data_start_end_labels(0.29, 0.95, 0.89, 0.18, "Solar")
+add_data_start_end_labels(0.02, 0.7, 0.48, 0.33, "Offshore wind")
+add_data_start_end_labels(0.5, 0.43, 0.72, 0.029, "Onshore wind")
+
+add_technology_label(0.62, 0.73, "Solar")
+add_technology_label(0.0, 0.45, "Offshore wind")
+add_technology_label(0.47, 0.2, "Onshore wind")
+
+add_learning_rate_label(0.62, 0.71, "Solar", "Learning rate: 38%")
+add_learning_rate_label(0.0, 0.35, "Offshore wind", "At each doubling of installed\noffshore wind capacity the price\ndeclined by 11%.\n11% is the learning rate.")
+add_learning_rate_label(0.47, 0.18, "Onshore wind", "Learning rate: 23%");
+```
