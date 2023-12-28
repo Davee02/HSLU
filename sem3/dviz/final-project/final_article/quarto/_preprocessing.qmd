@@ -20,7 +20,7 @@ region_colors = {
     'South America': 'orange',
 }
 
-technology_color_dict = { 
+technology_color_dict = {
     "Solar": "orange",
     "Offshore wind": "slateblue",
     "Onshore wind": "blue",

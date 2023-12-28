@@ -1,1 +1,6 @@
 **/*.pyc
+**/*.aux
+**/*.fls
+**/*.fdb_latexmk
+**/*.toc
+**/*.synctex.gz
