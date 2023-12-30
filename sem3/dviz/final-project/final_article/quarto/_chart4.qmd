@@ -6,7 +6,7 @@ jupyter: python3
 
 ```{python}
 #| label: renewable-energy-cost-vs-capacity
-#| fig-cap: "Chart 4: Change of cost vs. capacity for renewable energy on logarithmic scales"
+#| fig-cap: "Chart 4: Change of cost vs. capacity for renewable energy sources on logarithmic scales"
 
 fig, ax = plt.subplots(figsize=(8, 8))
 

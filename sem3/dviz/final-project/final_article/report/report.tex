@@ -2,7 +2,7 @@
 \usepackage{graphicx}
 \usepackage[raggedrightboxes]{ragged2e}
 
-\title{Data story report}
+\title{DVIZ Data story report}
 \author{David Hodel}
 \date{December 2023}
 
@@ -16,19 +16,33 @@
 
 \section{Project overview}
 
+For the HSLU fall semester 2023 module \textit{DVIZ: Data Visualisation for AI and Machine Learning} we were tasked to create a data story
+using one or more datasets of our choice. The focus was on the storytelling and design (conscious use of color, annotations, etc.) of the charts.
+The story was allowed to be static or interactive and had to include at least 4 charts. \newline
+I chose to create a static data story about the changing energy landscape of the world which allows humanity to progress into a brighter future.
+The first two charts show the massive increase in global electricity demand in the last 20 years, making the case that electricity is the key to a better future.
+The third chart shows the change of electricity mix between 2010 and 2020, showing that the world is moving away from fossil fuels and towards renewable energy sources.
+The fourth chart shows the change of cost vs. capacity for renewable energy sources, showing that the cost of renewable energy is decreasing while the capacity is increasing. \newline
 
 \newpage
 
 \section{Motivation}
-% - your motivation for picking up the topic 
 
+I regularly watch the YouTube channel \textit{melodysheep} which is ran by John D. Boswell, a filmmaker, composer, VFX artist, and editor from the pacific northwest. 
+His work spans from television and music production to viral remixes and mashups,
+and has drawn over a quarter billion views online. \newline
+In August 2023 he released the video \textit{THE HUMAN FUTURE: A Case for Optimism} (\texttt{https://www.youtube.com/watch?v=o48X3\_XQ9to})
+which is about the future of humanity and how we can use science and technology to make the world a better place.
+The video is very well made and made me think about ever-present bad news about war, poverty, climate change and other problems in the world. \newline
+I wanted to explore this topic in more depht and see if there is any truth to the claim that the world is getting better, and if there is any data to back it up.
+This motivated me to choose the topic as the subject for my data story.
 
 \newpage
 
 \section{Work Summary}
 
 The following table shows the work done for this project.
-The hours are estimated and rounded to the nearest half hour.
+The hours are estimated and rounded to the nearest full hour.
 
 \begin{table}[!ht]
     \centering
@@ -48,6 +62,7 @@ The hours are estimated and rounded to the nearest half hour.
         18.12.2023 & 5 & Annotating third and fourth chart, further annotating first chart \\ \hline
         19.12.2023 & 3 & Finish annotating all the charts \\ \hline
         27.12.2023 & 5 & Restructure Jupyter Notebook, extract individual steps for using it in Quarto, layouting in Quarto article, start writing project report \\ \hline
+        29.12.2023 & 3 & Continue writing the report \\ \hline
         \hline
         Total & 55 &  \\ \hline
     \end{tabular}
@@ -61,15 +76,83 @@ The hours are estimated and rounded to the nearest half hour.
 % peer-reviewed papers, but can also be web-apps, journal articles etc.) 
 % citations for the data source and other relevant sources
 
+At the beginning of the project I struggled to find a topic to write an interesting and meaningful data story about.
+I explored far too many datasets and topics and did not focus on a single one.
+This resulted in a lot of wasted time and effort as I had to research and understand many different datasets.
+The data cleaning and exploration for each dataset was very time consuming and didn't result in any meaningful insight as I did not have a clear goal in mind. \newline
+In the beginning of December I had a coaching session with the lecturer and we discussed my progress so far.
+She strongly adviced me to rethink the scope of my project and focus on a single topic.
+This helped me a lot and I decided to focus on the topic of energy consumption and production as it's a central topic for the future of humanity. \newline
+The following sections describe the exploratory work I did for the different datasets I explored.
+The datasets for topic I decided to use in the final article are described in more detail.
+
 \newpage
 
 \section{Data visualizations}
-% short description of the target audience of your visualizations and how it influenced your choices 
+% explanation why you chose particular chart types and other visualization elements like colors, annotations, insets, styling
+My data story targets an broad audience that ranges from environmentally conscious individuals and policymakers to business leaders and educators.
+The charts are made to be easy to understand and show the important points right away.
+This helps everyone get the big picture about strong increases of electricity demand and moving to cleaner energy sources like wind and solar power. \newline
+For my data story I chose to create four charts. The following sections describe the charts and the reasons for choosing particular types and visualization elements.
 
-\subsection{Chart 1}
-\subsection{Chart 2}
-\subsection{Chart 3}
-\subsection{Chart 4}
+\subsection{Chart 1: Global electricity demand over time}
+
+The first chart shows the global electricity demand from 2000 to 2020 using a stacked line chart.
+I chose a stacked line chart because it allows me to show the total electricity demand as well as the demand per region.
+For the regions I considered the following: Africa, Asia, Europe, North and South America and Oceania.
+These regions are also used in the OWID dataset and are a good representation of the world.
+The colors for the regions are consciously chosen to be easily distinguishable and to have a connection with attributes of the continents:
+\begin{itemize}
+    \item Africa: Brown. Represents the vast and diverse landscapes of Africa, including its deserts (like the Sahara), wildlife, and fertile lands.
+    \item Asia: Red: is a color of significance in many Asian cultures. In China, for example, it symbolizes good luck, joy, and prosperity.
+    \item Europe: Blue, because of the blue flag of the European Union
+    \item North America: Purple, because of the green flag of Mexico
+    \item South America: Orange, because of the orange flag of Venezuela
+    \item Oceania: Teal: unique and diverse marine environment of Oceania, especially the extensive and beautiful coral reefs like the Great Barrier Reef in Australia
+\end{itemize}
+
+
+\subsection{Chart 2: Electricity demand per region}
+\subsection{Chart 3: Change of electricity mix}
+\subsection{Chart 4: Change of cost vs. capacity for renewable energy sources}
+
+\newpage
+
+\section{Tooling}
+
+The following section describes the tools and libraries used for this project, as well as the reasons for choosing them.
+
+\subsection{Pandas}
+Project URL: \texttt{https://pandas.pydata.org/}.\newline
+Pandas is a powerful library for data analysis, cleaning and manipulation.
+I used Pandas for data exploration and data cleaning.
+It also provides a lot of useful functions for data visualization, but I did not use them for this project.
+
+\subsection{NumPy}
+Project URL: \texttt{https://numpy.org/}.\newline
+NumPy is a library for scientific computing and provides a lot of useful functions for linear algebra, Fourier transform and random number capabilities.
+I mainly used NumPy for the fast and efficient array operations.
+
+\subsection{Matplotlib}
+Project URL: \texttt{https://matplotlib.org/}.\newline
+Matplotlib is a library for data visualization and plotting.
+I used Matplotlib for creating the charts for this project.
+I chose it over other libraries like Seaborn or Plotly because I already had experience with it and it is very flexible.
+Furthermore, I like the fact that it is very low-level and gives you a lot of control over the charts.
+Seaborn is already too opinionated for my taste and Plotly is too high-level.
+
+\subsection{Squarify}
+Project URL: \texttt{https://github.com/laserson/squarify}.\newline
+Squarify is a pure Python implementation of the squarify treemap layout algorithm.
+I used it for the third chart which shows the change of electricity mix between two years.
+Again, I liked its simple to use API and the fact that is directly utilizes Matplotlib which allowed me to easily style the chart.
+The Plotly-alternative Treemap is too high-level and does not allow for the same level of customization.
+
+\subsection{Quarto}
+Project URL: \texttt{https://quarto.org/}.\newline
+Quarto is a document system that allows you to combine code, text and output in a single document.
+I used it for this project to create the actual article containing the data story.
+As my story is static and does not require any interactivity, I chose it over Streamlit or Dash.
 
 \newpage
 
