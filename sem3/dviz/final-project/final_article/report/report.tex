@@ -10,7 +10,7 @@
 
 \title{DVIZ Data story report}
 \author{David Hodel}
-\date{December 2023}
+\date{January 2024}
 
 \begin{document}
 
@@ -27,7 +27,7 @@ using one or more datasets of our choice. The focus was on the storytelling and 
 The story was allowed to be static or interactive and had to include at least 4 charts. \newline
 I chose to create a static data story about the changing energy landscape of the world which allows humanity to progress into a brighter future.
 The first two charts show the massive increase in global electricity demand in the last 20 years, making the case that electricity is the key to a better future.
-The third chart shows the change of electricity mix between 2010 and 2020, showing that the world is moving away from fossil fuels and towards renewable energy sources.
+The third chart shows the change of electricity mix between 2000 and 2020, showing that the world is moving away from fossil fuels and towards renewable energy sources.
 The fourth chart shows the change of cost vs. capacity for renewable energy sources, showing that the cost of renewable energy is decreasing while the capacity is increasing. \newline
 
 \newpage
@@ -149,24 +149,69 @@ For my data story I chose to create four charts. The following sections describe
 
 \subsection{Chart 1: Global electricity demand over time}
 
-The first chart shows the global electricity demand from 2000 to 2020 using a stacked line chart.
-I chose a stacked line chart because it allows me to show the total electricity demand as well as the demand per region.
-For the regions I considered the following: Africa, Asia, Europe, North and South America and Oceania.
-These regions are also used in the OWID dataset and are a good representation of the world.
-The colors for the regions are consciously chosen to be easily distinguishable and to have a connection with attributes of the continents:
 \begin{itemize}
-    \item Africa: Brown. Represents the vast and diverse landscapes of Africa, including its deserts (like the Sahara), wildlife, and fertile lands.
-    \item Asia: Red: is a color of significance in many Asian cultures. In China, for example, it symbolizes good luck, joy, and prosperity.
-    \item Europe: Blue, because of the blue flag of the European Union
-    \item North America: Purple, because of the green flag of Mexico
-    \item South America: Orange, because of the orange flag of Venezuela
-    \item Oceania: Teal: unique and diverse marine environment of Oceania, especially the extensive and beautiful coral reefs like the Great Barrier Reef in Australia
+    \item Shows the global electricity demand from 2000 to 2020 using a stacked area chart
+    \item I chose a stacked area chart because it allows me to show the evolution of the whole and the relative proportions of the different regions
+    \item For the regions I considered the following: Africa, Asia, Europe, North and South America and Oceania. These regions are also used in the OWID dataset and are a good representation of the world.
+    \item The colors for the regions are consciously chosen to be easily distinguishable and to have a connection with attributes of the continents:
+        \begin{itemize}
+            \item Africa: Brown. Represents the vast landscapes of Africa, including its deserts (like the Sahara), wildlife, and fertile lands.
+            \item Asia: Red. Is a color of significance in many Asian cultures. In China, for example, it symbolizes good luck, joy, and prosperity.
+            \item Europe: Blue. Because of the blue flag of the European Union
+            \item North America: Green. Because of its natural landscapes, especially the forests and the Rocky Mountains
+            \item South America: Orange. Vibrant cultures, warm climates and diverse ecosystemns
+            \item Oceania: Teal. Represents the unique and diverse marine environment of Oceania, especially the extensive  coral reefs like the Great Barrier Reef in Australia
+        \end{itemize}
+    \item The colors are muted and not too bright to not distract from the actual data
+    \item The chart is annotated with the most important insights:
+    \begin{itemize}
+        \item The total electricity demand has increased by 76\% from 2000 to 2020
+        \item There were two small dips in 2008 and 2020 due to big global events
+    \end{itemize}
 \end{itemize}
 
 
 \subsection{Chart 2: Electricity demand per region}
+
+\begin{itemize}
+    \item Shows the electricity demand for each region in 2000 and 2020 using a grouped bar chart
+    \item I chose a grouped bar chart because it allows me to directly compare the electricity demand for each region and showing an increase between the years
+    \item The colors for the regions are the same as in the first chart, allowing the reader to easily connect the two charts
+    \item The colors are again muted, where the color for 2020 is slightly darker to show that it is the more recent data
+    \item Because I didn't want to label the two years for every region I used a small inset chart which shows that the lighter and smaller bars represent the data for 2000 and the darker and bigger bars represent the data for 2020
+    \item The smallest and biggest increases are annotated to show that the increase happened everywhere and that Asia is the fastest growing region
+\end{itemize}
+
 \subsection{Chart 3: Change of electricity mix}
+
+\begin{itemize}
+    \item Shows electricity mixes for 2000 and 2020 using a treemap
+    \item For showing the proportions of each element compared to the whole I first tried to use a stacked bar chart but it was not easy to read and understand
+    \item Then I tried to use a pie chart but because we (humans) are not good at comparing angles the years were not easily comparable
+    \item The treemap allowed me to show the proportions more easily and also allows for easy comparison between the years
+    \item To highlight the renewable energy sources I chose a palette of different shades gray for the fossil fuels and distinct colors for the renewable energy sources:
+    \begin{itemize}
+        \item Hydro: Dark Blue. Because of the deep waters of oceans and lakes
+        \item Wind: Slate Blue. Because of the earthy tone of the color which reminds one of the wind
+        \item Solar: Yellow. Because of the sun
+        \item Biofuel: Green. Because of the green forests and fields which are used to grow the materials of the biofuel
+    \end{itemize}
+    \item The two values smaller than 1\% are labeled with an arrow because the text would be too big to fit in the rectangle
+    \item To better highlight the increase of renewable energy sources I used outlined the rectangles for the renewable energy sources with a faded yellow
+\end{itemize}
+
 \subsection{Chart 4: Change of cost vs. capacity for renewable energy sources}
+
+\begin{itemize}
+    \item Shows the decreasing costs and increasing installed capacities for solar, onshore and offshore wind energy from 2010 to 2022 using a connected scatter plot
+    \item I chose a connected scatter plot because it allows me to show the relationship between the two variables and the evolution over time
+    \item The colors for the renewable energy sources are the same as in the third chart, except that \textit{Wind} was split into \textit{Onshore Wind} and \textit{Offshore Wind}
+    \item I additionally muted the colors of the lines connecting the dots and made a thicker connection from the first to the last dot to emphasize the evolution
+    \item The logarithmic scales for the x and y axis are needed because the range of the values is really big
+    \item The first and last dot are annotated with the price and the year to enable the reader to easily compare the values
+    \item The labelling is done directly on the chart with texts that are in the same color as the corresponding line
+    \item For each technology the learning rate (rate at which the cost decreases with each doubling of capacity) is annotated
+\end{itemize}
 
 \newpage
 

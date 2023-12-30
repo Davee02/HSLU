@@ -15,7 +15,7 @@ region_colors = {
     'Africa': 'brown',
     'Asia': 'red',
     'Europe': 'blue',
-    'North America': 'purple',
+    'North America': 'green',
     'Oceania': 'teal',
     'South America': 'orange',
 }

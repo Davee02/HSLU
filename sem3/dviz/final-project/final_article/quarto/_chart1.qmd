@@ -51,7 +51,7 @@ def add_annotations_country(region, value_placement, amount, color):
         amount (float): The amount that will be displayed in the annotation.
         color (str): The color of the annotation text.
     """
-    ax.text(2020.3, value_placement, f'{region} {amount:.0f} TWh', fontsize=9, color=color, fontweight='bold', alpha=0.8)
+    ax.text(2020.3, value_placement, f'{region} {amount:,.0f} TWh', fontsize=9, color=color, fontweight='bold', alpha=0.8)
 
 
 # We manually define the labels, values and position that will be displayed on the right of the graph
