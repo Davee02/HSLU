@@ -1,7 +1,10 @@
 \documentclass{article}
-\usepackage{graphicx}
+
 \usepackage[raggedrightboxes]{ragged2e}
 \usepackage{hyperref}
+\usepackage{xurl}
+\usepackage[left=2cm,right=2cm]{geometry}
+
 
 \hypersetup{
     colorlinks=true,
@@ -10,7 +13,7 @@
 
 \title{DVIZ Data story report}
 \author{David Hodel}
-\date{January 2024}
+\date{November 2023 - January 2024}
 
 \begin{document}
 
@@ -21,32 +24,27 @@
 \newpage
 
 \section{Project overview}
-
 For the HSLU fall semester 2023 module \textit{DVIZ: Data Visualisation for AI and Machine Learning} we were tasked to create a data story
 using one or more datasets of our choice. The focus was on the storytelling and design (conscious use of color, annotations, etc.) of the charts.
-The story was allowed to be static or interactive and had to include at least 4 charts. \newline
+The story was allowed to be static or interactive and had to include at least 4 charts. \\
 I chose to create a static data story about the changing energy landscape of the world which allows humanity to progress into a brighter future.
 The first two charts show the massive increase in global electricity demand in the last 20 years, making the case that electricity is the key to a better future.
 The third chart shows the change of electricity mix between 2000 and 2020, showing that the world is moving away from fossil fuels and towards renewable energy sources.
-The fourth chart shows the change of cost vs. capacity for renewable energy sources, showing that the cost of renewable energy is decreasing while the capacity is increasing. \newline
-
-\newpage
+The fourth chart shows the change of cost vs. capacity for renewable energy sources, showing that the cost of renewable energy is decreasing while the capacity is increasing. \\
 
 \section{Motivation}
-
 I regularly watch the YouTube channel \textit{melodysheep} which is run by John D. Boswell, a filmmaker, composer, VFX artist, and editor from the pacific northwest. 
 His work spans from television and music production to viral remixes and mashups,
-and has drawn over a quarter billion views online. \newline
-In August 2023 he released the video \textit{THE HUMAN FUTURE: A Case for Optimism} (\texttt{https://www.youtube.com/watch?v=o48X3\_XQ9to})
+and has drawn over a quarter billion views online. \\
+In August 2023 he released the video \textit{THE HUMAN FUTURE: A Case for Optimism} (\url{https://www.youtube.com/watch?v=o48X3\_XQ9to})
 which is about the future of humanity and how we can use science and technology to make the world a better place.
-The video is very well-made and made me think about ever-present bad news about war, poverty, climate change and other problems in the world. \newline
+The video is very well-made and made me think about ever-present bad news about war, poverty, climate change and other problems in the world. \\
 I wanted to explore this topic in more depth and see if there is any truth to the claim that the world is getting better, and if there is any data to back it up.
 This motivated me to choose the topic as the subject for my data story.
 
 \newpage
 
 \section{Work Summary}
-
 The following table shows the work done for this project.
 The hours are estimated and rounded to the nearest full hour.
 
@@ -55,7 +53,7 @@ The hours are estimated and rounded to the nearest full hour.
     \begin{tabular}{|p{2cm}|p{1cm}|p{7.5cm}|}
     \hline
         \textbf{Date} & \textbf{Hours} & \textbf{Task description} \\ \hline
-        19.11.2023 & 5 & Create general overview of story, create venv, start searching for datasets \\ \hline
+        19.11.2023 & 4 & Create general overview of story, create venv, start searching for datasets \\ \hline
         20.11.2023 & 3 & Data exploration for global life expectancy \\ \hline
         26.11.2023 & 3 & Data exploration for global child mortality rate and polio cases \\ \hline
         30.11.2023 & 4 & Data exploration for global internet users and renewable energy share \\ \hline
@@ -63,92 +61,95 @@ The hours are estimated and rounded to the nearest full hour.
         09.12.2023 & 3 & Exploring OWID dataset for global energy \\ \hline
         10.12.2023 & 3 & Find \& explore suitable dataset for renewable energy costs and energy capacity \\ \hline
         11.12.2023 & 4 & Further exploring OWID dataset and create draft outline for data story \\ \hline
-        12.12.2023 & 4 & Set up Quarto, copy outline to Quarto notebook, began with annotating first chart \\ \hline
-        17.12.2023 & 4 & Annotating and designing first and second chart \\ \hline
-        18.12.2023 & 5 & Annotating third and fourth chart, further annotating first chart \\ \hline
+        12.12.2023 & 3 & Set up Quarto, copy outline to Quarto notebook, began with annotating first chart \\ \hline
+        17.12.2023 & 3 & Annotating and designing first and second chart \\ \hline
+        18.12.2023 & 4 & Annotating third and fourth chart, further annotating first chart \\ \hline
         19.12.2023 & 3 & Finish annotating all the charts \\ \hline
         27.12.2023 & 5 & Restructure Jupyter Notebook, extract individual steps for using it in Quarto, layouting in Quarto article, start writing project report \\ \hline
-        29.12.2023 & 3 & Continue writing the report \\ \hline
+        29.12.2023 & 2 & Continue writing the report (data visualizations, tooling) \\ \hline
         01.01.2024 & 2 & Continue writing the report (exploratory work, acknowledgements) \\ \hline
+        02.01.2024 & 2 & Finish report, polish data story, assemble deliverables \\ \hline
         \hline
-        Total & 55 &  \\ \hline
+        Total & 52 & \\ \hline
     \end{tabular}
 \end{table}
 
 \newpage
 
 \section{Exploritary Work}
-% description of the exploratory work you did (data exploration, an actual data analysis, but also
-% doing a review of similar work that has been already done with citations - these don’t have to be
-% peer-reviewed papers, but can also be web-apps, journal articles etc.) 
-% citations for the data source and other relevant sources
-
 At the beginning of the project I struggled to find a topic to write an interesting and meaningful data story about.
 I explored far too many datasets and topics and did not focus on a single one.
 This resulted in a lot of wasted time and effort as I had to research and understand many different datasets.
-The data cleaning and exploration for each dataset was very time-consuming and didn't result in any meaningful insight as I did not have a clear goal in mind. \newline
-In the beginning of December I had a coaching session with the lecturer, and we discussed my progress so far.
+The data cleaning and exploration for each dataset was very time-consuming and didn't result in any meaningful insight as I did not have a clear goal in mind. \\
+In the beginning of December I had a coaching session with Dr. Teresa Kubacka where we discussed my progress so far.
 She strongly advised me to rethink the scope of my project and focus on a single topic.
-This helped me a lot and I decided to focus on the topic of energy consumption and production as it's a central topic for the future of humanity. \newline
+This helped me a lot and I decided to focus on the topic of energy consumption and production as it's a central topic for the future of humanity. \\
 The following sections describe the exploratory work I did for the different datasets I explored.
-The datasets for topic I decided to use in the final article are described in more detail.
+The datasets for topic I decided to use in the final article (marked with a *) are described in more detail.
 
 \subsection{Life expectancy at birth}
 
-Dataset URL: \texttt{https://data.worldbank.org/indicator/SP.DYN.LE00.IN} \newline
+Dataset URL: \url{https://data.worldbank.org/indicator/SP.DYN.LE00.IN} \\
 This dataset contains the life expectancy at birth in years for all countries in the world from 1960 to 2021.
 I used the data to recognize the upward trend in life expectancy in all countries in the world and the average life expectancy.
 I noted the biggest differences in both relative and absolute terms. 
 
 \subsection{Infant mortality rate}
 
-Dataset URL: \texttt{https://data.worldbank.org/indicator/SP.DYN.IMRT.IN} \newline
+Dataset URL: \url{https://data.worldbank.org/indicator/SP.DYN.IMRT.IN} \\
 This dataset contains the infant mortality rate per 1000 live births for all countries in the world from 1960 to 2021.
 The insights I gained from this dataset were similar to the life expectancy dataset.
 the mortality rate is decreasing in all countries and the average mortality rate is decreasing as well.
 
-\subsection{Estimated polio cases by world region}
-
-Dataset URL: \texttt{https://ourworldindata.org/polio\#the-number-of-estimated-polio-cases-by-world-region} \newline
+\subsection{Estimated polio cases by world regionn}
+Dataset URL: \url{https://ourworldindata.org/polio#the-number-of-estimated-polio-cases-by-world-region} \\
 This dataset contains the estimated paralytic polio cases count for all countries from 1980 to 2020.
 I used the data to show the massive decrease in polio cases in all regions (continents) of the world.
 
 \subsection{Global internet users}
-
-Dataset URL: \texttt{https://www.kaggle.com/datasets/ashishraut64/internet-users} \newline
+Dataset URL: \url{https://www.kaggle.com/datasets/ashishraut64/internet-users} \\
 This dataset contains the number of internet users and the internet penetration rate for all countries in the world from 1980 to 2020.
 I used the data to show the increase in internet users and the internet penetration rate on a global scale.
 
 \subsection{Literacy rate}
-
-Dataset URL: \texttt{https://ourworldindata.org/literacy} \newline
+Dataset URL: \url{https://ourworldindata.org/literacy} \\
 This dataset contains the literacy rate of adults aged 15 or older for all countries in the world from 1475 to 2022.
 I used the data to show the increase in literacy rate over time on a map using the years as the animation variable.
 I also showed the inequality between sub-Saharan Africa and the rest of the world
 
-\subsection{Energy demand}
+\subsection{Energy demand *}
+Dataset URL: \url{https://www.kaggle.com/datasets/pralabhpoudel/world-energy-consumption/data} \\
+This dataset contains the energy consumption and demand for all countries in the world from 1900 to 2022.
+Because it's a very comprehensive dataset with a lot of different energy sources and energy types I used \href{https://github.com/owid/energy-data/blob/master/owid-energy-codebook.csv}{OWID's codebook} to understand the many columns. \\
+The \textit{country} column contains the name of the country and the \textit{year} column contains the year of the data point. These two columns are used to identify the data points. \\
+In chart 1 (global electricity demand over time) I used the \textit{electricity\_demand} column to show the total electricity demand for the world and in chart 2 (electricity demand per region) for the individual continents. \\
+In chart 4 (change of electricity mix) I used the shares of electricity (\textit{oil\_share\_elec}, \textit{solar\_share\_elec} etc.) to show the electricity mix for the two years. \\
 
-Dataset URL: \texttt{https://www.kaggle.com/datasets/pralabhpoudel/world-energy-consumption/data} \newline
 
-\subsection{Energy capacity}
+\subsection{Energy capacity *}
+Dataset URL: \url{https://pxweb.irena.org/pxweb/en/IRENASTAT/IRENASTAT\_\_Power\%20Capacity\%20and\%20Generation/RECAP\_2023\_cycle2.px/} \\
+The IRENA (International Renewable Energy Agency) online data query tool contains a lot of different datasets about renewable energy. It allows you to select the data you want and download it as a CSV file.
+I used the \textit{Capacity and Generation} dataset to get the installed capacity for all solar, wind and hydro for the years 2000 to 2022. \\
+I limited the \textit{Region/countryl/area} column to \textit{World} to get the global data. This data was used in chart 4 (change of cost vs. capacity for renewable energy sources) to plot the installed capacity for the three technologies. \\
 
-Dataset URL:  \newline
 
-\subsection{Renewable energy costs}
-
-Dataset URL:  \newline
+\subsection{Renewable energy costs *}
+Dataset URL: \url{https://www.irena.org/Publications/2023/Aug/Renewable-Power-Generation-Costs-in-2022} \\
+IRENA also publishes a lot of reports about renewable energy. The \textit{Renewable Power Generation Costs in 2022} report contains a lot of data about the costs of renewable energy sources.
+After having requested the raw data I received a download link to a ZIP file containing the data in an Excel file. \\
+For the data being usable for data analysis I had to extract the it by hand from the Excel file and save it as a CSV file.
+For the years 2010 to 2022 I extracted the LCOE (levelized cost of electricity) for all available technologies. \\
+This data was used in chart 4 (change of cost vs. capacity for renewable energy sources) to plot the cost for the three technologies.
 
 \newpage
 
 \section{Data visualizations}
-% explanation why you chose particular chart types and other visualization elements like colors, annotations, insets, styling
 My data story targets a broad audience that ranges from environmentally conscious individuals and policymakers to business leaders and educators.
 The charts are made to be easy to understand and show the important points right away.
-This helps everyone get the big picture about strong increases of electricity demand and moving to cleaner energy sources like wind and solar power. \newline
+This helps everyone get the big picture about strong increases of electricity demand and moving to cleaner energy sources like wind and solar power. \\
 For my data story I chose to create four charts. The following sections describe the charts and the reasons for choosing particular types and visualization elements.
 
 \subsection{Chart 1: Global electricity demand over time}
-
 \begin{itemize}
     \item Shows the global electricity demand from 2000 to 2020 using a stacked area chart
     \item I chose a stacked area chart because it allows me to show the evolution of the whole and the relative proportions of the different regions
@@ -172,7 +173,6 @@ For my data story I chose to create four charts. The following sections describe
 
 
 \subsection{Chart 2: Electricity demand per region}
-
 \begin{itemize}
     \item Shows the electricity demand for each region in 2000 and 2020 using a grouped bar chart
     \item I chose a grouped bar chart because it allows me to directly compare the electricity demand for each region and showing an increase between the years
@@ -183,7 +183,6 @@ For my data story I chose to create four charts. The following sections describe
 \end{itemize}
 
 \subsection{Chart 3: Change of electricity mix}
-
 \begin{itemize}
     \item Shows electricity mixes for 2000 and 2020 using a treemap
     \item For showing the proportions of each element compared to the whole I first tried to use a stacked bar chart but it was not easy to read and understand
@@ -201,7 +200,6 @@ For my data story I chose to create four charts. The following sections describe
 \end{itemize}
 
 \subsection{Chart 4: Change of cost vs. capacity for renewable energy sources}
-
 \begin{itemize}
     \item Shows the decreasing costs and increasing installed capacities for solar, onshore and offshore wind energy from 2010 to 2022 using a connected scatter plot
     \item I chose a connected scatter plot because it allows me to show the relationship between the two variables and the evolution over time
@@ -216,22 +214,21 @@ For my data story I chose to create four charts. The following sections describe
 \newpage
 
 \section{Tooling}
-
 The following section describes the tools and libraries used for this project, as well as the reasons for choosing them.
 
 \subsection{Pandas}
-Project URL: \texttt{https://pandas.pydata.org/}.\newline
+Project URL: \url{https://pandas.pydata.org/}.\\
 Pandas is a powerful library for data analysis, cleaning and manipulation.
 I used Pandas for data exploration and data cleaning.
 It also provides a lot of useful functions for data visualization, but I did not use them for this project.
 
 \subsection{NumPy}
-Project URL: \texttt{https://numpy.org/}.\newline
+Project URL: \url{https://numpy.org/}.\\
 NumPy is a library for scientific computing and provides a lot of useful functions for linear algebra, Fourier transform and random number capabilities.
 I mainly used NumPy for the fast and efficient array operations.
 
 \subsection{Matplotlib}
-Project URL: \texttt{https://matplotlib.org/}.\newline
+Project URL: \url{https://matplotlib.org/}.\\
 Matplotlib is a library for data visualization and plotting.
 I used Matplotlib for creating the charts for this project.
 I chose it over other libraries like Seaborn or Plotly because I already had experience with it and it is very flexible.
@@ -239,14 +236,14 @@ Furthermore, I like the fact that it is very low-level and gives you a lot of co
 Seaborn is already too opinionated for my taste and Plotly is too high-level.
 
 \subsection{Squarify}
-Project URL: \texttt{https://github.com/laserson/squarify}.\newline
+Project URL: \url{https://github.com/laserson/squarify}.\\
 Squarify is a pure Python implementation of the squarify treemap layout algorithm.
 I used it for the third chart which shows the change of electricity mix between two years.
 Again, I liked its simple to use API and the fact that is directly utilizes Matplotlib which allowed me to easily style the chart.
 The Plotly-alternative Treemap is too high-level and does not allow for the same level of customization.
 
 \subsection{Quarto}
-Project URL: \texttt{https://quarto.org/}.\newline
+Project URL: \url{https://quarto.org/}.\\
 Quarto is a document system that allows you to combine code, text and output in a single document.
 I used it for this project to create the actual article containing the data story.
 As my story is static and does not require any interactivity, I chose it over Streamlit or Dash.
@@ -254,43 +251,42 @@ As my story is static and does not require any interactivity, I chose it over St
 \newpage
 
 \section{Acknowledgements}
-
 During my research I found many interesting resources that helped me understand the topic better and find the right datasets.
 The following list contains the most important ones:
 
 \begin{itemize}
-    \item \textbf{Our World in Data} \newline
-    \texttt{https://ourworldindata.org/} \newline
+    \item \textbf{Our World in Data} \\
+    \url{https://ourworldindata.org/} \\
     Our World in Data is a scientific online publication that focuses on large global problems such as poverty, disease, hunger, climate change, war, existential risks, and inequality.
     It is run by a non-profit organization based in Oxford, England.
-    I used it to find the datasets for life expectancy, infant mortality rate, polio cases, internet users and literacy rate.\newline
+    I used it to find the datasets for life expectancy, infant mortality rate, polio cases, internet users and literacy rate.\\
     Furthermore, its phenomenal \href{https://ourworldindata.org/cheap-renewables-growth}{article about the decreasing cost of renewable energy sources} inspired me to use it as the topic for my data story.
 
-    \item \textbf{World Bank} \newline
-    \texttt{https://data.worldbank.org/} \newline
+    \item \textbf{World Bank} \\
+    \url{https://data.worldbank.org/} \\
     The World Bank is an international financial institution that provides loans and grants to the governments of low- and middle-income countries for the purpose of pursuing capital projects.
     I used it to find the datasets for life expectancy and infant mortality rate.
 
-    \item \textbf{Kaggle} \newline
-    \texttt{https://www.kaggle.com/} \newline
+    \item \textbf{Kaggle} \\
+    \url{https://www.kaggle.com/} \\
     Kaggle is an online community of data scientists and machine learners, owned by Google LLC.
     I used it to find the datasets for global internet users and global energy consumption.
 
-    \item \textbf{Tidy Tuesday} \newline
-    \texttt{https://www.tidytuesday.com/} \newline
+    \item \textbf{Tidy Tuesday} \\
+    \url{https://www.tidytuesday.com/} \\
     Tidy Tuesday is a weekly data project aimed at the R ecosystem.
     I used it as an inspiration for finding a topic for my story that is supported by high-quality datasets.
     The \href{https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-06-06/readme.md}{2023-06-06 edition} made me aware of the OWID dataset which I used for my story.
 
-    \item \textbf{World Economic Forum} \newline
-    \texttt{https://www.weforum.org/} \newline
+    \item \textbf{World Economic Forum} \\
+    \url{https://www.weforum.org/} \\
     The World Economic Forum is an international NGO that engages with political, business, cultural and other leaders of society to shape global, regional and industry agendas.
     In February 2023 the published the article \textit{\href{https://www.weforum.org/agenda/2023/02/renewables-world-top-electricity-source-data/}{Renewables will be world's top electricity source within three years, IEA data reveals
     }} which inspired me to explore and compare the energy consumption and demand for world regions.
     
     \newpage
-    \item \textbf{melodysheep} \newline
-    \texttt{https://www.melodysheep.com/} \newline
+    \item \textbf{melodysheep} \\
+    \url{https://www.melodysheep.com/} \\
     melodysheep is a YouTube channel run by John D. Boswell, a filmmaker, composer, VFX artist, and editor from the pacific northwest.
     I used it as inspiration for my data story.
 \end{itemize}
