@@ -1,0 +1,20 @@
+__pycache__
+__pycache__/
+
+archive
+archive/
+
+# credentials
+# credentials/
+
+dataset
+dataset/
+
+# predictions
+# predictions/
+
+# *.xlsx
+# *.csv
+
+german_sentiment_analysis.py
+MicrosoftSentiment.py
