@@ -10,7 +10,7 @@ os.chdir(sys.path[0])
 problemDataFileName = 'transhipmentInput.txt'
 
 demand = {} #nodes with demand, key = node, value = demand
-unitCost = {} #arcs with length, key = (start node, end node), value length
+unitCost = {} #arcs with length, key = (start, end), value length
 
 with open(problemDataFileName, "r", encoding="utf8") as tanshipmentFile:
     tsv_reader = csv.reader(tanshipmentFile, delimiter="\t")
@@ -50,31 +50,31 @@ model = pyo.ConcreteModel()
 # x_v,w variablen: flow
 model.x =  pyo.Var(A, within = pyo.NonNegativeReals)
 
-#Falls Sie Probleme mit der Implementation des generischen Modells (mit den Mengen) haben,
-#bitte einfach die konkrete Problemstellung (mit konkreten Werten) implementieren.
+# demand coverage
+model.demandCov = pyo.ConstraintList()
+for v in V:
+    if demand.get(v) == 0 :
+        model.demandCov.add(sum(model.x[a] for a in Aout[v]) - sum(model.x[a] for a in Ain[v])  == 0)
+    else :
+        model.demandCov.add(sum(model.x[a] for a in Aout[v]) - sum(model.x[a] for a in Ain[v])  <= demand.get(v))
 
-#constraints
-def kapazitaet(model, s):
-   return sum(model.x[s,m] for m in M) <= data['capa'][s] * model.y[s]
-model.kapa = pyo.Constraint(S, rule=kapazitaet)
-
-#objective
-# model.objective = pyo.Objective(expr = )
+#Zielfunktion
+model.obj = pyo.Objective(expr = sum(unitCost.get(a) * model.x[a] for a in A), sense = pyo.minimize)
 
 # Kreiere Solver und löse Problem mit 'cbc'
 opt = pyo.SolverFactory('cbc')
 # tee = true -> see solver output
 results = opt.solve(model, tee=True)
 
-model.pprint()
-model.display()
+# model.pprint()
+# model.display()
+# results.write()
 
 condition = results.solver.termination_condition
 print('Solver condition: ', condition)
 
 if condition == TerminationCondition.optimal or condition == TerminationCondition.maxTimeLimit :
     # Do something when the solution is optimal or feasible
-    #load results into model
     print('objective value is', pyo.value(model.obj))
     print('the positive arc flows are:')
     for (v,w) in A:
