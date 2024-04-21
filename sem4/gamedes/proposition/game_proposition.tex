@@ -1,0 +1,86 @@
+\documentclass{article}
+
+\usepackage[raggedrightboxes]{ragged2e}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage[left=2cm,right=2cm]{geometry}
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black
+}
+
+\title{Game Proposal: Invertigo}
+\author{David Hodel}
+\date{21.04.2024}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\section{Spielbeschreibung}
+Vertigo ist ein Puzzle-Plattformspiel, bei dem der Spieler die Schwerkraft manipulieren muss,
+um Rätsel zu lösen und durch die Levels zu navigieren. Der Spieler steuert einen Charakter,
+der die Fähigkeit besitzt, die Richtung der Schwerkraft zu ändern, sodass "oben" und "unten" vertauscht werden können.
+Dies wird genutzt, um verschiedene Hindernisse zu überwinden, von einfachen Plattformen bis hin zu komplexen Mechanismen,
+die nur unter bestimmten Schwerkraftbedingungen funktionieren.
+\\
+Der Titel "Vertigo" spiegelt die desorientierende und verwirrende Erfahrung wider, die die Spieler durchleben,
+wenn sie die Schwerkraft umkehren und somit die gesamte Spielwelt auf den Kopf stellen.
+
+\section{Fokus des Spiels}
+
+\begin{itemize}
+    \item \textbf{Spielmechanik}: Das zentrale Element des Spiels ist die Schwerkraftwechsel-Mechanik.
+    Spieler müssen lernen, diese Mechanik strategisch zu nutzen, um durch komplex gestaltete Räume zu navigieren.
+    \item \textbf{Leveldesign}: Das Design der Levels ist entscheidend, um eine steigende Herausforderung und Abwechslung zu bieten.
+    Jedes Level führt neue Elemente ein, die den Spieler zwingen, seine bisherigen Strategien zu überdenken und anzupassen.
+    \item \textbf{Storytelling}: Die Geschichte wird minimalistisch durch Texteinblendungen zwischen den Levels und durch die Spielumgebung selbst erzählt.
+    Sie thematisiert das Konzept der Perspektive und wie die Änderung der eigenen Sichtweise Probleme lösen kann.
+\end{itemize}
+
+\section{Grafikstil und Atmosphäre}
+
+Der Grafikstil von Vertigo ist minimalistisch und geometrisch, um die Fokussierung auf die Spielmechanik zu unterstützen.
+Der Pixel-Art-Stil soll mit begrenzten grafischen Ressourcen eine gut verständliche Darstellung der Spielwelt ermöglichen.
+\\
+Damit soll folgende Atmosphäre erzeugt werden, bei der ein Gefühl von Neugier und Verunsicherung entsteht.
+Die Spieler sollen sich herausgefordert fühlen, jedoch nicht überfordert, wodurch sie stets im Flow bleiben sollen.
+
+\section{Techniken}
+Das Spiel wird in Puzzlescript entwickelt, da es sich um ein einfaches, aber leistungsstarkes Werkzeug handelt.
+Es ermöglicht die schnelle Entwicklung von Prototypen und die einfache Iteration von Spielmechaniken.
+Puzzlescript ist ein Open-Source-Tool, das speziell für die Entwicklung von Puzzle-Spielen entwickelt wurde.
+Es verwendet eine einfache, auf Text basierende Sprache, um die Spiellogik zu definieren, und bietet eine Vielzahl von Funktionen,
+um die Entwicklung zu beschleunigen.
+
+\section{Notwendige Entwicklungsschritte und Assets}
+\subsection{Asset-Liste}
+Die Assets sind in Puzzlescript integriert und bestehen aus einfachen, geometrischen Formen wie Quadraten, Kreisen und Linien.
+Die visuelle Darstellung ist minimalistisch und auf das Wesentliche reduziert, um die Spielmechanik in den Vordergrund zu stellen.
+\\
+Die folgenden Assets sind erforderlich:
+\begin{itemize}
+    \item Sprites für den Spielercharakter, verschiedene Boden- und Wandtypen, Schalter, Türen, und gefährliche Hindernisse.
+    \item Spezielle Tiles für die Darstellung veränderter Schwerkraftbereiche.
+    \item Texteinbledungen für die Story-Elemente.
+    \item Soundeffekte für Bewegungen, Schwerkraftwechsel und Interaktionen.
+\end{itemize}
+
+\subsection{Skripting}
+
+Die Logik des Spiels wird in Puzzlescript durch einfache Skripte definiert, die die Spielmechanik und das Leveldesign steuern.
+Die Skripte umfassen:
+\begin{itemize}
+    \item Implementierung der Schwerkraftwechsel-Mechanik.
+    \item Erstellung von Logik für Türen, Schalter und bewegliche Plattformen.
+    \item Festlegung der Levelziele und -bedingungen.
+    \item Einrichtung von Gefahren und Hindernissen, die mit der Schwerkraft interagieren.
+\end{itemize}
+
+\section{Moodboard}
+
+
+\end{document}
