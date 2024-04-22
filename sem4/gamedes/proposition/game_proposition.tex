@@ -2,9 +2,10 @@
 
 \usepackage[raggedrightboxes]{ragged2e}
 \usepackage{hyperref}
+\usepackage{graphicx}
 \usepackage{xurl}
-\usepackage[left=2cm,right=2cm]{geometry}
-
+\usepackage[left=2cm,right=2cm,bottom=2cm]{geometry}
+\graphicspath{ {./img/} }
 
 \hypersetup{
     colorlinks=true,
@@ -12,6 +13,10 @@
 }
 
 \title{Game Proposal: Invertigo}
+\title{%
+Invertigo \\
+\large Game Proposal für GAMEDES \\
+  Abschlussprojekt FS24}
 \author{David Hodel}
 \date{21.04.2024}
 
@@ -21,13 +26,13 @@
 \newpage
 
 \section{Spielbeschreibung}
-Vertigo ist ein Puzzle-Plattformspiel, bei dem der Spieler die Schwerkraft manipulieren muss,
+Invertigo ist ein Puzzle-Plattformspiel, bei dem der Spieler die Schwerkraft manipulieren muss,
 um Rätsel zu lösen und durch die Levels zu navigieren. Der Spieler steuert einen Charakter,
 der die Fähigkeit besitzt, die Richtung der Schwerkraft zu ändern, sodass "oben" und "unten" vertauscht werden können.
 Dies wird genutzt, um verschiedene Hindernisse zu überwinden, von einfachen Plattformen bis hin zu komplexen Mechanismen,
 die nur unter bestimmten Schwerkraftbedingungen funktionieren.
 \\
-Der Titel "Vertigo" spiegelt die desorientierende und verwirrende Erfahrung wider, die die Spieler durchleben,
+Der Titel "Invertigo" spiegelt die desorientierende und verwirrende Erfahrung wider, die die Spieler durchleben,
 wenn sie die Schwerkraft umkehren und somit die gesamte Spielwelt auf den Kopf stellen.
 
 \section{Fokus des Spiels}
@@ -37,20 +42,28 @@ wenn sie die Schwerkraft umkehren und somit die gesamte Spielwelt auf den Kopf s
     Spieler müssen lernen, diese Mechanik strategisch zu nutzen, um durch komplex gestaltete Räume zu navigieren.
     \item \textbf{Leveldesign}: Das Design der Levels ist entscheidend, um eine steigende Herausforderung und Abwechslung zu bieten.
     Jedes Level führt neue Elemente ein, die den Spieler zwingen, seine bisherigen Strategien zu überdenken und anzupassen.
+    Für das Spiel sollen insgesamt 4-6 Levels entwickelt werden.
     \item \textbf{Storytelling}: Die Geschichte wird minimalistisch durch Texteinblendungen zwischen den Levels und durch die Spielumgebung selbst erzählt.
     Sie thematisiert das Konzept der Perspektive und wie die Änderung der eigenen Sichtweise Probleme lösen kann.
 \end{itemize}
 
 \section{Grafikstil und Atmosphäre}
 
-Der Grafikstil von Vertigo ist minimalistisch und geometrisch, um die Fokussierung auf die Spielmechanik zu unterstützen.
+Der Grafikstil von Invertigo ist minimalistisch und geometrisch, um die Fokussierung auf die Spielmechanik zu unterstützen.
 Der Pixel-Art-Stil soll mit begrenzten grafischen Ressourcen eine gut verständliche Darstellung der Spielwelt ermöglichen.
 \\
-Damit soll folgende Atmosphäre erzeugt werden, bei der ein Gefühl von Neugier und Verunsicherung entsteht.
-Die Spieler sollen sich herausgefordert fühlen, jedoch nicht überfordert, wodurch sie stets im Flow bleiben sollen.
+Die Atmosphäre der Spielwelt in "Invertigo" ist geheimnisvoll und ein wenig beunruhigend, was die Spieler ständig auf der Hut sein lässt.
+Die Umgebung spielt mit dem Konzept von Perspektive und Desorientierung, was die Spieler dazu bringt, ihre Wahrnehmungen und Annahmen ständig zu hinterfragen.
+\\
+Die Welt von "Invertigo" nutzt eine Palette aus kühlen Blau- und Grautönen für Szenarien mit normaler Schwerkraft, die eine beruhigende, aber sterile Atmosphäre schaffen.
+Wenn die Schwerkraft umgekehrt wird, wechseln die Farben zu warmen Orange- und Rottönen, die eine intensivere, fast alarmierende Stimmung erzeugen.
+Diese Farbwechsel sind nicht nur visuelle Hinweise auf die Schwerkraftveränderung, sondern beeinflussen auch die emotionale Reaktion der Spieler.
+\\
+Die Atmospähre erinnert an ein steriles Labor in der Zukunft, das von einer unbekannten Macht kontrolliert wird.
+Die Spieler sind die einzigen, die die Kontrolle über die Schwerkraft haben und müssen diese Macht nutzen, um zu überleben.
 
 \section{Techniken}
-Das Spiel wird in Puzzlescript entwickelt, da es sich um ein einfaches, aber leistungsstarkes Werkzeug handelt.
+Das Spiel wird in Puzzlescript entwickelt.
 Es ermöglicht die schnelle Entwicklung von Prototypen und die einfache Iteration von Spielmechaniken.
 Puzzlescript ist ein Open-Source-Tool, das speziell für die Entwicklung von Puzzle-Spielen entwickelt wurde.
 Es verwendet eine einfache, auf Text basierende Sprache, um die Spiellogik zu definieren, und bietet eine Vielzahl von Funktionen,
@@ -82,5 +95,15 @@ Die Skripte umfassen:
 
 \section{Moodboard}
 
+Die folgenden Bilder wurden mithilfe von DALLE 3 erstellt und dienen als Inspiration für den Grafikstil und die Atmosphäre von "Invertigo".
+
+\includegraphics[width=7cm]{image1}
+\includegraphics[width=7cm]{image2}
+\\
+\includegraphics[width=7cm]{image3}
+\includegraphics[width=7cm]{image4}
+\\
+\includegraphics[width=7cm]{image5}
+\includegraphics[width=7cm]{image6}
 
 \end{document}
