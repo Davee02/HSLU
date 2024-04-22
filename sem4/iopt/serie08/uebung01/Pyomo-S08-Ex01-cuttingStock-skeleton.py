@@ -14,7 +14,7 @@ os.chdir(sys.path[0])
 problemDataFileName = 'inputCuttingPatterns.txt'
 
 breadth = (90, 80, 70, 60) #in cm
-demands  = {90 : 18, 80 : 13, 70: 55, 60 : 36}  #in number of rolls of given breadth
+demands  = {90 : 17, 80 : 12, 70: 53, 60 : 34}  #in number of rolls of given breadth
 
 patterns = {} #map of patterns, each pattern has an id and a map giving the number of pieces for each length
 
