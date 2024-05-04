@@ -17,7 +17,7 @@ Invertigo \\
 \large Game Proposal für GAMEDES \\
   Abschlussprojekt FS24}
 \author{David Hodel}
-\date{21.04.2024}
+\date{04.05.2024}
 
 \begin{document}
 
@@ -25,8 +25,10 @@ Invertigo \\
 \newpage
 
 \section{Spielbeschreibung}
-Invertigo ist ein Puzzle-Plattformspiel, bei dem der Spieler die Schwerkraft manipulieren muss,
-um Rätsel zu lösen und durch die Levels zu navigieren. Der Spieler steuert einen Charakter,
+Invertigo ist ein 2D-Puzzle-Plattformspiel, bei dem der Spieler die Schwerkraft manipulieren muss,
+um Rätsel zu lösen und durch die Levels zu navigieren.
+Die Spielerperspektive ist seitlich (Side-View), ähnlich wie bei klassischen Plattformspielen.
+Der Spieler steuert einen Charakter,
 der die Fähigkeit besitzt, die Richtung der Schwerkraft zu ändern, sodass "oben" und "unten" vertauscht werden können.
 Dies wird genutzt, um verschiedene Hindernisse zu überwinden, von einfachen Plattformen bis hin zu komplexen Mechanismen,
 die nur unter bestimmten Schwerkraftbedingungen funktionieren.
@@ -46,6 +48,22 @@ wenn sie die Schwerkraft umkehren und somit die gesamte Spielwelt auf den Kopf s
     Sie thematisiert das Konzept der Perspektive und wie die Änderung der eigenen Sichtweise Probleme lösen kann.
 \end{itemize}
 
+\section{Elemente}
+
+Die Levels sollen aufeinander aufbauen und eine steigende Schwierigkeit bieten.
+Es sollen verschiedene Elemente eingeführt werden, die das Lösen von neuartigen Problemen ermöglichen.
+\\
+Folgende Elemente sind geplant:
+\begin{itemize}
+    \item \textbf{Doppelseitige Plattformen}: Plattformen, die nur von einer bestimmten Gravitationsrichtung aus zugänglich sind.
+    Spieler müssen die Gravitation umkehren, um diese Plattformen zu erreichen oder zu aktivieren.
+    \item \textbf{Gravitationssensitive Schalter}: Schalter, die nur aktiviert werden können, wenn die Gravitation in eine bestimmte Richtung zeigt.
+    Diese könnten Türen öffnen oder andere Mechanismen auslösen.
+    \item \textbf{Mobile Gefahren}: Gefahren, die sich mit der Schwerkraft ändern, wie fallende Blöcke, die zu Plattformen werden, wenn die Schwerkraft umgekehrt wird.
+    \item \textbf{Gravitationsverzerrungs-Zonen}: Bereiche, in denen die Schwerkraft verzerrt oder unregelmässig ist. Diese Zonen kehren die Schwerkraft nicht nur um,
+    sonderm lassen sie in variablen Mustern rotieren. Dies erlaubt Timing-Puzzles.
+\end{itemize}
+
 \section{Grafikstil und Atmosphäre}
 
 Der Grafikstil von Invertigo ist minimalistisch und geometrisch, um die Fokussierung auf die Spielmechanik zu unterstützen.
@@ -61,16 +79,29 @@ Diese Farbwechsel sind nicht nur visuelle Hinweise auf die Schwerkraftveränderu
 Die Atmospähre erinnert an ein steriles Labor in der Zukunft, das von einer unbekannten Macht kontrolliert wird.
 Die Spieler sind die einzigen, die die Kontrolle über die Schwerkraft haben und müssen diese Macht nutzen, um zu überleben.
 
+\section{Vergleich mit anderen Spielen}
+
+Ähnliche Spiele, wie "VVVVVV" und "Gravity Guy", nutzen Gravitationswechsel als zentrales Spielelement.
+"VVVVVV" verwendet einen kontinuierlichen Wechsel zwischen Boden und Decke, während "Gravity Guy" schnelle Wechsel zwischen Laufen auf dem Boden und der Decke erlaubt.
+\\
+Im Vergleich zu diesen zwei spielen soll Invertigo jedoch eine stärkere Integration von Umgebungsrätseln, bei denen der Schwerkraftwechsel nicht nur zur Navigation,
+sondern auch zur Lösung von Rätseln durch Interaktion mit Objekten und Mechanismen in der Spielwelt genutzt wird, haben.
+Ausserdem soll Invertigo eine stärkere narrative Komponente haben, die das Thema Perspektivwechsel sowohl in der Spielmechanik als auch in der Story aufgreift
+\\
+Auch "Portal" und "Portal 2" nutzen Gravitation als zentrales Element, um Räume (welche abgekapselte Rätsel sind) auf nicht-lineare Weise zu überqueren.
+Dort liegt jedoch der Fokus ganz klar auf den Portalen. Die Gravitation ist mehr ein Hilfsmittel, um die Portale effektiv zu nutzen.
+Ausserdem sind die Portal-Spiele in 3D, was eine andere Art von Rätseln ermöglicht.
+
 \section{Techniken}
-Das Spiel wird in Puzzlescript entwickelt.
+Das Spiel wird in Scratch entwickelt.
 Es ermöglicht die schnelle Entwicklung von Prototypen und die einfache Iteration von Spielmechaniken.
-Puzzlescript ist ein Open-Source-Tool, das speziell für die Entwicklung von Puzzle-Spielen entwickelt wurde.
-Es verwendet eine einfache, auf Text basierende Sprache, um die Spiellogik zu definieren, und bietet eine Vielzahl von Funktionen,
-um die Entwicklung zu beschleunigen.
+Die visuelle Programmierung von Scratch erleichtert die Implementierung der Schwerkraftwechsel-Mechanik und die Erstellung von Level-Designs.
+\\
+Die Verwendung von Scratch ermöglicht es ausserdem, das Spiel direkt im Browser zu spielen und zu teilen, ohne etwas installieren zu müssen.
 
 \section{Notwendige Entwicklungsschritte und Assets}
 \subsection{Asset-Liste}
-Die Assets sind in Puzzlescript integriert und bestehen aus einfachen, geometrischen Formen wie Quadraten, Kreisen und Linien.
+Die Assets werden direkt in Scratch erstellt oder aus vorhandenen Bibliotheken importiert.
 Die visuelle Darstellung ist minimalistisch und auf das Wesentliche reduziert, um die Spielmechanik in den Vordergrund zu stellen.
 \\
 Die folgenden Assets sind erforderlich:
@@ -82,8 +113,7 @@ Die folgenden Assets sind erforderlich:
 \end{itemize}
 
 \subsection{Skripting}
-
-Die Logik des Spiels wird in Puzzlescript durch einfache Skripte definiert, die die Spielmechanik und das Leveldesign steuern.
+Die Entwicklung von "Invertigo" erfordert die Erstellung von Skripten in Scratch, um die Spielmechanik und das Leveldesign zu implementieren.
 Die Skripte umfassen:
 \begin{itemize}
     \item Implementierung der Schwerkraftwechsel-Mechanik.
