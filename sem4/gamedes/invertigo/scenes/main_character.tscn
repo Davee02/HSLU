@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvcr1sjube4rj"]
+
+[ext_resource type="Script" path="res://scenes/main_character.cs" id="1_3icwb"]
+[ext_resource type="Texture2D" uid="uid://brakhi07g6f4s" path="res://tile_0363.png" id="1_j4nfh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mc8v2"]
+size = Vector2(23.5, 23)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_3icwb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -1)
+scale = Vector2(1.875, 1.875)
+texture = ExtResource("1_j4nfh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.25, 0.5)
+shape = SubResource("RectangleShape2D_mc8v2")
