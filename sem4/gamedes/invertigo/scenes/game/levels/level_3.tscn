@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjjqrbttay0p0"]
+
+[ext_resource type="PackedScene" uid="uid://dxmty5p8kbln0" path="res://scenes/game/misc/tile_map.tscn" id="1_2eemd"]
+[ext_resource type="PackedScene" uid="uid://cvcr1sjube4rj" path="res://scenes/game/misc/main_character.tscn" id="4_mibgo"]
+[ext_resource type="PackedScene" uid="uid://dvdna1vfv60lj" path="res://scenes/game/misc/parallax_background.tscn" id="5_w8j7w"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_2eemd")]
+layer_0/tile_data = PackedInt32Array(786432, 524288, 4, 786433, 524288, 4, 786434, 524288, 4, 786435, 524288, 4, 786436, 524288, 4, 786437, 524288, 4, 786438, 524288, 4, 786439, 524288, 4, 786440, 524288, 4, 786441, 524288, 4, 786442, 524288, 4, 786443, 524288, 4, 786444, 524288, 4, 786445, 524288, 4, 786446, 524288, 4, 0, 262144, 65540, 1, 262144, 65540, 2, 262144, 65540, 3, 262144, 65540, 4, 262144, 65540, 5, 262144, 65540, 6, 262144, 65540, 7, 262144, 65540, 8, 262144, 65540, 9, 262144, 65540, 10, 262144, 65540, 11, 262144, 65540, 12, 262144, 65540, 13, 262144, 65540, 14, 262144, 65540, 15, 262144, 65540, 16, 262144, 65540, 65536, 655360, 6, 131072, 655360, 6, 196608, 655360, 6, 262144, 655360, 6, 327680, 655360, 6, 393216, 655360, 6, 458752, 655360, 6, 524288, 655360, 6, 589824, 655360, 6, 655360, 655360, 6, 720896, 655360, 6)
+
+[node name="MainCharacter" parent="." instance=ExtResource("4_mibgo")]
+position = Vector2(101, 566)
+
+[node name="Camera2D" type="Camera2D" parent="MainCharacter"]
+position = Vector2(243, -80)
+limit_left = -400
+limit_top = 0
+limit_bottom = -720
+position_smoothing_speed = 2.0
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("5_w8j7w")]

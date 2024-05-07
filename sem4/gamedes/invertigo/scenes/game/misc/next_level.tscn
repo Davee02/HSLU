@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cewuen76uhpf8"]
+
+[ext_resource type="Script" path="res://scenes/game/misc/next_level.cs" id="1_h7pro"]
+[ext_resource type="Texture2D" uid="uid://dna4slw65wnxm" path="res://assets/sprites/monochrome_tilemap_transparent_packed.png" id="1_ybve3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iejv1"]
+atlas = ExtResource("1_ybve3")
+region = Rect2(128, 192, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pnq2d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iejv1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34ryx"]
+size = Vector2(21, 30)
+
+[node name="NextLevel" type="Area2D"]
+script = ExtResource("1_h7pro")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_pnq2d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_34ryx")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cvcr1sjube4rj"]
+
+[ext_resource type="Script" path="res://scenes/game/misc/main_character.cs" id="1_3icwb"]
+[ext_resource type="Texture2D" uid="uid://dna4slw65wnxm" path="res://assets/sprites/monochrome_tilemap_transparent_packed.png" id="2_jqt2n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mc8v2"]
+size = Vector2(30, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u8npv"]
+atlas = ExtResource("2_jqt2n")
+region = Rect2(0, 256, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w7frj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u8npv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="MainCharacter" type="CharacterBody2D" groups=["MainCharacter"]]
+script = ExtResource("1_3icwb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_mc8v2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -7)
+scale = Vector2(2.9375, 2.625)
+sprite_frames = SubResource("SpriteFrames_w7frj")

@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bljcxl82hqs23"]
+
+[ext_resource type="PackedScene" uid="uid://dxmty5p8kbln0" path="res://scenes/game/misc/tile_map.tscn" id="1_ayipk"]
+[ext_resource type="PackedScene" uid="uid://dvdna1vfv60lj" path="res://scenes/game/misc/parallax_background.tscn" id="1_lxaig"]
+[ext_resource type="PackedScene" uid="uid://cewuen76uhpf8" path="res://scenes/game/misc/next_level.tscn" id="4_7jcrl"]
+[ext_resource type="PackedScene" uid="uid://cvcr1sjube4rj" path="res://scenes/game/misc/main_character.tscn" id="5_e6o27"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_ayipk")]
+
+[node name="NextLevel" parent="." instance=ExtResource("4_7jcrl")]
+position = Vector2(2363, 567)
+
+[node name="MainCharacter" parent="." instance=ExtResource("5_e6o27")]
+position = Vector2(101, 566)
+
+[node name="Camera2D" type="Camera2D" parent="MainCharacter"]
+position = Vector2(243, -80)
+limit_left = -400
+limit_top = 0
+limit_bottom = -720
+position_smoothing_speed = 2.0
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_lxaig")]
