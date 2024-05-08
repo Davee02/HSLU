@@ -1,9 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://bl8cemg1qlfcp"]
+[gd_scene load_steps=6 format=3 uid="uid://bl8cemg1qlfcp"]
 
 [ext_resource type="Script" path="res://scenes/main.cs" id="1_7akpl"]
-[ext_resource type="PackedScene" uid="uid://bljcxl82hqs23" path="res://scenes/game/levels/level_1.tscn" id="1_k7kr6"]
+[ext_resource type="PackedScene" uid="uid://dvdna1vfv60lj" path="res://scenes/game/misc/parallax_background.tscn" id="2_ma3k4"]
+[ext_resource type="PackedScene" uid="uid://j8xyb3l6qkul" path="res://scenes/game/misc/fallzone.tscn" id="3_tuprg"]
+[ext_resource type="PackedScene" uid="uid://cvcr1sjube4rj" path="res://scenes/game/misc/main_character.tscn" id="4_0wuj7"]
+[ext_resource type="Script" path="res://scenes/MainCharacterCamera.cs" id="5_kfevq"]
 
-[node name="main" type="Node"]
+[node name="Main" type="Node"]
 script = ExtResource("1_7akpl")
 
-[node name="Level1" parent="." instance=ExtResource("1_k7kr6")]
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_ma3k4")]
+
+[node name="Level" type="Node" parent="."]
+
+[node name="FallzoneUp" parent="." instance=ExtResource("3_tuprg")]
+position = Vector2(0, -368)
+
+[node name="FallzoneDown" parent="." instance=ExtResource("3_tuprg")]
+position = Vector2(0, 876)
+
+[node name="MainCharacter" parent="." instance=ExtResource("4_0wuj7")]
+position = Vector2(101, 566)
+
+[node name="MainCharacterCamera" type="Camera2D" parent="."]
+position = Vector2(344, 486)
+limit_left = -400
+limit_top = 0
+limit_bottom = -720
+position_smoothing_speed = 2.0
+script = ExtResource("5_kfevq")

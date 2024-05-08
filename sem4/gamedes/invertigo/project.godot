@@ -60,6 +60,7 @@ interact={
 
 2d_physics/layer_1="Ground"
 2d_physics/layer_2="Interactions"
+2d_physics/layer_10="Upside only ground"
 
 [physics]
 

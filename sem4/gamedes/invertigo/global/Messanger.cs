@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class Messanger : Node
 {
@@ -10,6 +9,9 @@ public partial class Messanger : Node
 
     [Signal]
     public delegate void LevelCompletedEventHandler();
+
+    [Signal]
+    public delegate void CharacterDiedEventHandler();
 
     public static Messanger Instance
     {

@@ -1,5 +1,4 @@
-using Godot;
-using System;
+using Godot; 
 
 public partial class main_character : CharacterBody2D
 {
@@ -16,14 +15,8 @@ public partial class main_character : CharacterBody2D
 		Messanger.Instance.Connect(Messanger.SignalName.GravitySwitched, Callable.From(OnGravitySwitched));
 	}
 
-    public override void _Process(double delta)
-    {
-        RotationDegrees = _isGravityFlipped ? 180 : 0;
-    }
-
     public override void _PhysicsProcess(double delta)
 	{
-        UpDirection = _isGravityFlipped ? Vector2.Up.Rotated(Mathf.Pi) : Vector2.Up;
         Vector2 velocity = Velocity;
 		var sign = _isGravityFlipped ? -1 : 1;
 
@@ -36,7 +29,6 @@ public partial class main_character : CharacterBody2D
 			velocity.Y = sign * JumpVelocity;
 
 		// Get the input direction and handle the movement/deceleration.
-		// As good practice, you should replace UI actions with custom right actions.
 		var direction = Input.GetAxis("left", "right");
 		if (direction != 0)
 		{
@@ -54,5 +46,7 @@ public partial class main_character : CharacterBody2D
 	public void OnGravitySwitched()
 	{
         _isGravityFlipped = !_isGravityFlipped;
+		RotationDegrees = _isGravityFlipped ? 180 : 0;
+		UpDirection = _isGravityFlipped ? Vector2.Up.Rotated(Mathf.Pi) : Vector2.Up;
     }
 }
