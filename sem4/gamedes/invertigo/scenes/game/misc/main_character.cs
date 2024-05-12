@@ -15,9 +15,9 @@ public partial class main_character : CharacterBody2D
 		Messanger.Instance.Connect(Messanger.SignalName.GravitySwitched, Callable.From(OnGravitySwitched));
 	}
 
-    public override void _PhysicsProcess(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
-        Vector2 velocity = Velocity;
+		Vector2 velocity = Velocity;
 		var sign = _isGravityFlipped ? -1 : 1;
 
 		// Add the gravity.
@@ -45,8 +45,8 @@ public partial class main_character : CharacterBody2D
 
 	public void OnGravitySwitched()
 	{
-        _isGravityFlipped = !_isGravityFlipped;
+		_isGravityFlipped = !_isGravityFlipped;
 		RotationDegrees = _isGravityFlipped ? 180 : 0;
 		UpDirection = _isGravityFlipped ? Vector2.Up.Rotated(Mathf.Pi) : Vector2.Up;
-    }
+	}
 }

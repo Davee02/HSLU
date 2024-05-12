@@ -8,27 +8,53 @@
 [node name="Level4" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_oigre")]
-layer_0/tile_data = PackedInt32Array(786432, 524288, 4, 786433, 524288, 4, 786434, 524288, 4, 786435, 524288, 4, 786436, 524288, 4, 786437, 524288, 4, 786438, 524288, 4, 786439, 524288, 4, 786442, 524288, 4, 786443, 524288, 4, 786444, 524288, 4, 786445, 524288, 4, 786446, 524288, 4, 655375, 524288, 5, 0, 262144, 65540, 1, 262144, 65540, 2, 262144, 65540, 3, 262144, 65540, 4, 262144, 65540, 5, 262144, 65540, 6, 262144, 65540, 9, 262144, 65540, 10, 262144, 65540, 11, 262144, 65540, 12, 262144, 65540, 13, 262144, 65540, 14, 262144, 65540, 20, 262144, 65540, 21, 262144, 65540, 65536, 655360, 6, 131072, 655360, 6, 196608, 655360, 6, 262144, 655360, 6, 327680, 655360, 6, 393216, 655360, 6, 458752, 655360, 6, 524288, 655360, 6, 589824, 655360, 6, 655360, 655360, 6, 720896, 655360, 6, 720908, 524288, 5, 589842, 524288, 5, 524289, 196608, 65541, 524290, 196608, 65541, 720900, 196608, 65541, 655366, 196608, 65541, 458756, 196608, 65541)
+layer_0/tile_data = PackedInt32Array(786432, 524288, 4, 786433, 524288, 4, 786434, 524288, 4, 786435, 524288, 4, 786436, 524288, 4, 786437, 524288, 4, 786438, 524288, 4, 0, 262144, 65540, 1, 262144, 65540, 65536, 655360, 6, 131072, 655360, 6, 196608, 655360, 6, 262144, 655360, 6, 327680, 655360, 6, 393216, 655360, 6, 458752, 655360, 6, 524288, 655360, 6, 589824, 655360, 6, 655360, 655360, 6, 720896, 655360, 6)
 
 [node name="GravitySwitcher1" parent="." instance=ExtResource("2_us4mq")]
-position = Vector2(164, 571)
+position = Vector2(800, 432)
 
 [node name="GravitySwitcher2" parent="." instance=ExtResource("2_us4mq")]
-position = Vector2(244, 577)
+position = Vector2(675, 572)
 rotation = 3.14159
 
 [node name="GravitySwitcher3" parent="." instance=ExtResource("2_us4mq")]
-position = Vector2(160, 68)
+position = Vector2(465, 446)
 rotation = 3.14159
 
 [node name="NextLevel" parent="." instance=ExtResource("3_1e4ph")]
-position = Vector2(1045, 71)
+position = Vector2(82, 71)
 rotation = 3.14159
 
 [node name="ContextualPlatform" parent="." instance=ExtResource("4_d7dkk")]
-position = Vector2(134, 502)
+position = Vector2(390, 508)
 
 [node name="ContextualPlatform2" parent="." instance=ExtResource("4_d7dkk")]
-position = Vector2(173, 532)
+position = Vector2(776, 415)
+rotation = 3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform3" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(488, 461)
+
+[node name="ContextualPlatform4" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(594, 435)
+
+[node name="ContextualPlatform5" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(488, 179)
+
+[node name="ContextualPlatform6" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(649, 449)
+rotation = 3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform7" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(699, 584)
+
+[node name="ContextualPlatform8" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(837, 106)
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform9" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(998, 326)
 rotation = 3.14159
 WorkOnlyInFlippedGravity = true
