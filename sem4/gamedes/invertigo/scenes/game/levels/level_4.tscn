@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl0ifin63kh6q"]
+[gd_scene load_steps=6 format=3 uid="uid://cl0ifin63kh6q"]
 
+[ext_resource type="Script" path="res://scenes/game/levels/level_4.cs" id="1_btlwu"]
 [ext_resource type="PackedScene" uid="uid://dxmty5p8kbln0" path="res://scenes/game/misc/tile_map.tscn" id="1_oigre"]
 [ext_resource type="PackedScene" uid="uid://2ytp1cxdg6b3" path="res://scenes/game/misc/gravity_switcher.tscn" id="2_us4mq"]
 [ext_resource type="PackedScene" uid="uid://cewuen76uhpf8" path="res://scenes/game/misc/next_level.tscn" id="3_1e4ph"]
 [ext_resource type="PackedScene" uid="uid://b7x277p67f52d" path="res://scenes/game/misc/ContextualPlatform.tscn" id="4_d7dkk"]
 
 [node name="Level4" type="Node2D"]
+script = ExtResource("1_btlwu")
+CharacterStartPosition = Vector2(100, 560)
 
 [node name="TileMap" parent="." instance=ExtResource("1_oigre")]
 layer_0/tile_data = PackedInt32Array(786432, 524288, 4, 786433, 524288, 4, 786434, 524288, 4, 786435, 524288, 4, 786436, 524288, 4, 786437, 524288, 4, 786438, 524288, 4, 0, 262144, 65540, 1, 262144, 65540, 65536, 655360, 6, 131072, 655360, 6, 196608, 655360, 6, 262144, 655360, 6, 327680, 655360, 6, 393216, 655360, 6, 458752, 655360, 6, 524288, 655360, 6, 589824, 655360, 6, 655360, 655360, 6, 720896, 655360, 6)
@@ -22,7 +25,7 @@ position = Vector2(465, 446)
 rotation = 3.14159
 
 [node name="NextLevel" parent="." instance=ExtResource("3_1e4ph")]
-position = Vector2(82, 71)
+position = Vector2(37, 70)
 rotation = 3.14159
 
 [node name="ContextualPlatform" parent="." instance=ExtResource("4_d7dkk")]
@@ -52,9 +55,45 @@ position = Vector2(699, 584)
 
 [node name="ContextualPlatform8" parent="." instance=ExtResource("4_d7dkk")]
 position = Vector2(837, 106)
-WorkOnlyInFlippedGravity = true
 
 [node name="ContextualPlatform9" parent="." instance=ExtResource("4_d7dkk")]
 position = Vector2(998, 326)
 rotation = 3.14159
 WorkOnlyInFlippedGravity = true
+
+[node name="GravitySwitcher" parent="." instance=ExtResource("2_us4mq")]
+position = Vector2(1021, 338)
+
+[node name="ContextualPlatform10" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(1122, 95)
+rotation = 3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform11" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(1117, 187)
+
+[node name="ContextualPlatform12" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(979, 160)
+
+[node name="GravitySwitcher4" parent="." instance=ExtResource("2_us4mq")]
+position = Vector2(1148, 106)
+
+[node name="GravitySwitcher5" parent="." instance=ExtResource("2_us4mq")]
+position = Vector2(956, 146)
+
+[node name="ContextualPlatform13" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(661, 95)
+
+[node name="GravitySwitcher6" parent="." instance=ExtResource("2_us4mq")]
+position = Vector2(642, 74)
+
+[node name="ContextualPlatform15" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(260, 97)
+rotation = -3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform14" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(346, 254)
+
+[node name="GravitySwitcher7" parent="." instance=ExtResource("2_us4mq")]
+position = Vector2(321, 239)

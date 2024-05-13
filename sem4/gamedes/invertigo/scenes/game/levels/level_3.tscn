@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjjqrbttay0p0"]
+[gd_scene load_steps=5 format=3 uid="uid://cjjqrbttay0p0"]
 
 [ext_resource type="PackedScene" uid="uid://dxmty5p8kbln0" path="res://scenes/game/misc/tile_map.tscn" id="1_2eemd"]
+[ext_resource type="Script" path="res://scenes/game/levels/level_3.cs" id="1_48fh2"]
 [ext_resource type="PackedScene" uid="uid://2ytp1cxdg6b3" path="res://scenes/game/misc/gravity_switcher.tscn" id="2_0imbb"]
 [ext_resource type="PackedScene" uid="uid://cewuen76uhpf8" path="res://scenes/game/misc/next_level.tscn" id="3_jx70l"]
 
 [node name="Level3" type="Node2D"]
+script = ExtResource("1_48fh2")
+StartWithFlippedGravity = true
+CharacterStartPosition = Vector2(100, 50)
 
 [node name="TileMap" parent="." instance=ExtResource("1_2eemd")]
 layer_0/tile_data = PackedInt32Array(786432, 524288, 4, 786433, 524288, 4, 786434, 524288, 4, 786435, 524288, 4, 786436, 524288, 4, 786437, 524288, 4, 786438, 524288, 4, 786439, 524288, 4, 786442, 524288, 4, 786443, 524288, 4, 786444, 524288, 4, 786445, 524288, 4, 786446, 524288, 4, 655375, 524288, 5, 0, 262144, 65540, 1, 262144, 65540, 2, 262144, 65540, 3, 262144, 65540, 4, 262144, 65540, 5, 262144, 65540, 6, 262144, 65540, 9, 262144, 65540, 10, 262144, 65540, 11, 262144, 65540, 12, 262144, 65540, 13, 262144, 65540, 14, 262144, 65540, 20, 262144, 65540, 21, 262144, 65540, 65536, 655360, 6, 131072, 655360, 6, 196608, 655360, 6, 262144, 655360, 6, 327680, 655360, 6, 393216, 655360, 6, 458752, 655360, 6, 524288, 655360, 6, 589824, 655360, 6, 655360, 655360, 6, 720896, 655360, 6, 65540, 524288, 5, 131078, 524288, 5, 131081, 524288, 5, 196618, 524288, 5, 262156, 524288, 5, 327689, 524288, 5, 720908, 524288, 5, 589842, 524288, 5)

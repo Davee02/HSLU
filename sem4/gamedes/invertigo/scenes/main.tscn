@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl8cemg1qlfcp"]
+[gd_scene load_steps=7 format=3 uid="uid://bl8cemg1qlfcp"]
 
 [ext_resource type="Script" path="res://scenes/main.cs" id="1_7akpl"]
 [ext_resource type="PackedScene" uid="uid://dvdna1vfv60lj" path="res://scenes/game/misc/parallax_background.tscn" id="2_ma3k4"]
+[ext_resource type="Script" path="res://scenes/Level.cs" id="3_3f8qy"]
 [ext_resource type="PackedScene" uid="uid://j8xyb3l6qkul" path="res://scenes/game/misc/fallzone.tscn" id="3_tuprg"]
 [ext_resource type="PackedScene" uid="uid://cvcr1sjube4rj" path="res://scenes/game/misc/main_character.tscn" id="4_0wuj7"]
 [ext_resource type="Script" path="res://scenes/MainCharacterCamera.cs" id="5_kfevq"]
@@ -12,6 +13,8 @@ script = ExtResource("1_7akpl")
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_ma3k4")]
 
 [node name="Level" type="Node" parent="."]
+script = ExtResource("3_3f8qy")
+StartWithLevel = 5
 
 [node name="FallzoneUp" parent="." instance=ExtResource("3_tuprg")]
 position = Vector2(0, -368)

@@ -8,7 +8,6 @@ public partial class ContextualPlatform : Node2D
     [Export]
 	public bool WorkOnlyInFlippedGravity { get; set; }
 
-
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
@@ -26,10 +25,8 @@ public partial class ContextualPlatform : Node2D
     private void SetCollisionBasedOnGravity()
     {
         bool enableCollision = WorkOnlyInFlippedGravity == _isGravityFlipped;
-        GD.Print($"Collision enabled: {enableCollision}");
 
         _staticBody.SetCollisionMaskValue(1, enableCollision);
         _staticBody.SetCollisionLayerValue(1, enableCollision);
-
     }
 }

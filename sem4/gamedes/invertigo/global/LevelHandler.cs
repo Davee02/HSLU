@@ -2,8 +2,8 @@ using Godot;
 
 public partial class LevelHandler : Node
 {
-    private int _currentLevel = 4;
-    private Node _levelNode;
+    private int _currentLevel;
+    private Level _levelNode;
     private main_character _mainCharacter;
 
     public override void _Ready()
@@ -11,8 +11,11 @@ public partial class LevelHandler : Node
         Messanger.Instance.Connect(Messanger.SignalName.LevelCompleted, Callable.From(OnLevelCompleted));
         Messanger.Instance.Connect(Messanger.SignalName.CharacterDied, Callable.From(OnCharacterDied));
 
-        _levelNode = GetNode("/root/Main/Level");
+        _levelNode = GetNode<Level>("/root/Main/Level");
+        _currentLevel = _levelNode.StartWithLevel;
+
         _mainCharacter = GetNode<main_character>("/root/Main/MainCharacter");
+
         LoadLevel();
     }
 
@@ -31,10 +34,19 @@ public partial class LevelHandler : Node
             _levelNode.GetChild(0).QueueFree();
         }
 
-        var newLevel = ResourceLoader.Load<PackedScene>($"res://scenes/game/levels/level_{_currentLevel}.tscn");
-        _levelNode.AddChild(newLevel.Instantiate());
-        _mainCharacter.Position = new Vector2(100, 560);
-        //Messanger.Instance.EmitSignal(Messanger.SignalName.GravitySwitched);
+        var currentLevelScenePath = $"res://scenes/game/levels/level_{_currentLevel}.tscn";
+        if (!ResourceLoader.Exists(currentLevelScenePath))
+        {
+            GD.Print($"Level {_currentLevel} does not exist.");
+            return;
+        }
+
+        var currentLevelScene = ResourceLoader.Load<PackedScene>(currentLevelScenePath);
+        var instance = currentLevelScene.Instantiate<base_level>();
+        _levelNode.AddChild(instance);
+
+        _mainCharacter.Position = instance.CharacterStartPosition;
+        _mainCharacter.SetGravityFlipped(instance.StartWithFlippedGravity);
     }
 
     private void OnCharacterDied()

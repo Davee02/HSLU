@@ -3,13 +3,13 @@
 [ext_resource type="Script" path="res://scenes/game/misc/fallzone.cs" id="1_ve0y6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dneh"]
-size = Vector2(3444, 238.5)
+size = Vector2(3876, 238.5)
 
 [node name="Fallzone" type="Area2D"]
 script = ExtResource("1_ve0y6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1722, 118.75)
+position = Vector2(1506, 118.75)
 shape = SubResource("RectangleShape2D_0dneh")
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
