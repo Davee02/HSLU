@@ -30,30 +30,23 @@ jobEndTimes = {}
 IVVars = {}
 machineInvervals = [[] for i in range(anzMa)]
 precCons = []
-dynamicDurations = {}
 
 # Creates job intervals and add to the corresponding machine lists.
 countOps = 0
 for job in data:
     firstOfJob = True
-    prev_op_index = None  # Track index of the previous operation
     for op in job:
         machine = op[0]
-        base_duration = op[1]
+        duration = model.NewIntVar(op[1], H, 'x_{}'.format(countOps))
         jobStartTimes[countOps] = model.NewIntVar(0, H, 'x_{}'.format(countOps))
         jobEndTimes[countOps] = model.NewIntVar(0, H, 'y_{}'.format(countOps))
-        dynamicDurations[countOps] = model.NewIntVar(base_duration, H, 'd_{}'.format(countOps))
-        intervalVar = model.NewIntervalVar(jobStartTimes[countOps], base_duration, jobEndTimes[countOps],
+        intervalVar = model.NewIntervalVar(jobStartTimes[countOps], duration, jobEndTimes[countOps],
                                                 'IV_{}'.format(countOps))
         IVVars[countOps] = intervalVar
         machineInvervals[machine].append(intervalVar)
-        if prev_op_index is not None:
-            # Ensure the previous operation extends until this operation can start
-            model.Add(jobEndTimes[prev_op_index] <= jobStartTimes[countOps])
-            # Optional: Add constraint to dynamically adjust duration based on next job start
-            # model.Add(dynamicDurations[prev_op_index] == jobStartTimes[countOps] - jobStartTimes[prev_op_index])
-
-        prev_op_index = countOps
+        if not(firstOfJob):
+            precCons.append((countOps-1, countOps))
+        firstOfJob = False
         countOps += 1
 
 #makespan variable
@@ -61,7 +54,9 @@ z = model.NewIntVar(0, H, 'x_{}'.format(countOps))
 
 #Präzedenzbedingungen erfüllen
 for precCon in precCons:
-    model.Add(jobStartTimes[precCon[1]] >= jobEndTimes[precCon[0]])
+    # NO WAIT CONDITION CHANGED IN THE FOLLOWING LINE
+    model.Add(jobStartTimes[precCon[1]] == jobEndTimes[precCon[0]]) # this condition was changed from <= to ==
+    # NO WAIT CONDITION CHANGED IN THE PREVIOUS LINE
 
 #Ende nach allen anderen Operationen
 for i in range(countOps):
