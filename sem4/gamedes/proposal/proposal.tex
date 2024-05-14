@@ -1,0 +1,130 @@
+\documentclass{article}
+
+\usepackage[raggedrightboxes]{ragged2e}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{xurl}
+\usepackage[left=2cm,right=2cm,bottom=1.7cm]{geometry}
+\graphicspath{ {./img/} }
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black
+}
+
+\title{%
+Invertigo \\
+\large Game Proposal für GAMEDES \\
+  Abschlussprojekt FS24}
+\author{David Hodel}
+\date{14.05.2024}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\section{Spielbeschreibung}
+Invertigo ist ein 2D-Puzzle-Plattformspiel, bei dem der Spieler die Schwerkraft manipulieren muss,
+um Rätsel zu lösen und durch die Levels zu navigieren.
+Die Spielerperspektive ist seitlich (Side-View), ähnlich wie bei klassischen Plattformspielen.
+Der Spieler steuert einen Charakter, der mithilfe von speziellen Blöcken die Richtung der Schwerkraft zu ändern kann.
+sodass "oben" und "unten" vertauscht werden können.
+Dies wird genutzt, um verschiedene Hindernisse zu überwinden, von einfachen Plattformen bis hin zu komplexen Mechanismen,
+die nur unter bestimmten Schwerkraftbedingungen funktionieren.
+\\
+Der Titel "Invertigo" spiegelt die desorientierende und verwirrende Erfahrung wider, die die Spieler durchleben,
+wenn sie die Schwerkraft umkehren und somit die gesamte Spielwelt auf den Kopf stellen.
+
+\section{Fokus des Spiels}
+
+\begin{itemize}
+    \item \textbf{Spielmechanik}: Das zentrale Element des Spiels ist die Schwerkraftwechsel-Mechanik.
+    Spieler müssen lernen, diese Mechanik strategisch zu nutzen, um durch zunehmend komplex gestaltete Räume zu navigieren.
+    \item \textbf{Leveldesign}: Jedes Level führt neue Elemente ein, die zuerst isoliert vorgestellt und dann in Kombinationen verwendet werden.
+    Die vorhandenen Elemente werden in immer komplexeren Rätseln kombiniert, um die Spieler herauszufordern.
+    Für das Spiel sollen insgesamt 4-6 Levels entwickelt werden.
+\end{itemize}
+
+\section{Elemente}
+
+Die Levels sollen aufeinander aufbauen und eine steigende Schwierigkeit bieten.
+Es sollen verschiedene Elemente eingeführt werden, die das Lösen von neuartigen Problemen ermöglichen.
+\\
+Folgende Elemente soll das Spiel enthalten:
+\begin{itemize}
+    \item \textbf{Gravitationsschalter}: Schaltflächen, die die Schwerkraft umkehren, wenn der Spieler sie berührt und aktiviert.
+    \item \textbf{Einseitige Plattformen}: Plattformen, die nur von einer bestimmten Gravitationsrichtung aus zugänglich sind.
+    Spieler müssen die Gravitation umkehren, um diese Plattformen zu erreichen. Wird versucht, sie von der falschen Seite zu erreichen, fallen sie durch.
+    \item \textbf{Mobile Kisten}: Kisten, die sich durch den Spieler bewegen lassen und als Hilfsmittel dienen, um sonst unerreichbare Bereiche zu erreichen.
+    Die Kisten werden ebenfalls durch die wechselnde Schwerkraft beeinflusst und fallen durch die doppelseitigen Plattformen.
+    \item \textbf{Void}: Unter- und oberhalb der Spielwelt befindet sich ein "Void", das eine allgegenwärtige Gefahr darstellt. Fällt der Spieler hinein, stirbt er und muss das Level neu starten.
+    \item \textbf{Schwerkraftfelder}: Bereiche, in denen die Schwerkraft stärker oder schwächer ist, was die Bewegung des Spielers beeinflusst.
+\end{itemize}
+
+\section{Grafikstil und Atmosphäre}
+
+Der Grafikstil von "Invertigo" ist minimalistisch und abstrakt, um die Schwerpunkt auf die Spielmechanik zu legen. Die Spielwelt besteht aus einfachen geometrischen Formen und klaren Linien.
+Es werden ausschliesslich Sprites in einer 1-Bit-Farbpalette verwendet (schwarz \& weiss) um die visuelle Darstellung zu vereinfachen.
+Der Fokus liegt auf der Klarheit und Lesbarkeit der Spielwelt und auf den Mechaniken des Spiels.
+\\
+Die Atmosphäre des Spiels ist düster und mysteriös, um die desorientierende Natur der Schwerkraftwechsel zu betonen.
+Die Spieler sollen sich absichtlich unwohl fühlen, wenn sie die Schwerkraft umkehren und die Welt auf den Kopf stellen.
+
+\section{Techniken}
+Das Spiel wird in der Engine \hyperlink{https://godotengine.org/}{Godot} entwickelt. Die Verwendung von Godot ist kostenlos und es existieren viele Einsteiger-Tutorials für 2D-Spiele.
+Die Entwicklung erfolgt in der Programmiersprache C\#, welche von Godot von Haus aus unterstützt wird.
+
+\section{Vergleich mit anderen Spielen}
+
+Ähnliche Spiele, wie "VVVVVV" und "Gravity Guy", nutzen Gravitationswechsel als zentrales Spielelement.
+"VVVVVV" verwendet einen kontinuierlichen Wechsel zwischen Boden und Decke, während "Gravity Guy" schnelle Wechsel zwischen Laufen auf dem Boden und der Decke erlaubt.
+\\
+Im Vergleich zu diesen zwei spielen soll Invertigo jedoch eine stärkere Integration von Umgebungsrätseln, bei denen der Schwerkraftwechsel nicht nur zur Navigation,
+sondern auch zur Lösung von Rätseln durch Interaktion mit Objekten und Mechanismen in der Spielwelt genutzt wird, haben.
+Ausserdem erfolgt der Schwerkraftwechsel bei Invertigo nicht kontinuierlich, sondern durch Schalter, die vom Spieler aktiviert werden.
+\\
+Auch "Portal" und "Portal 2" nutzen Gravitation als zentrales Element, um Räume (welche abgekapselte Rätsel sind) auf nicht-lineare Weise zu überqueren.
+Dort liegt jedoch der Fokus ganz klar auf den Portalen. Die Gravitation ist mehr ein Hilfsmittel, um die Portale effektiv zu nutzen.
+Ausserdem sind die Portal-Spiele in 3D, was eine andere Art von Rätseln ermöglicht.
+
+\section{Notwendige Entwicklungsschritte und Assets}
+\subsection{Asset-Liste}
+Es wird das kostenfreie \hyperlink{https://kenney.nl/assets/1-bit-platformer-pack}{1-Bit Platformer Pack} von Kenney für jegliche Sprites verwendet.
+Dieses enthält insgesamt 400 Tiles in der Grösse 16x16 Pixel und kann direkt in Godot importiert werden.
+\\
+Die folgenden Assets werden aus der Tilemap benötigt
+\begin{itemize}
+    \item Spielcharakter
+    \item Boden
+    \item Wände
+    \item Decke
+    \item Gravitationsschalter
+    \item Einseitige Plattformen
+    \item Mobile Kisten
+    \item Levelziel
+\end{itemize}
+
+Im folgenden Bild sind alle Assets aus dem 1-Bit Platformer Pack sichtbar:
+
+\includegraphics[width=11cm]{kenney_assets}
+
+Ein beispielhaftes Level könnte dann wie folgt aussehen:
+
+\includegraphics[width=11cm]{example_level.png}
+
+\subsection{Skripting}
+Die Entwicklung von "Invertigo" erfordert die Erstellung von Skripten in C\#, um die Spielmechanik und das Leveldesign zu implementieren.
+Die Skripte umfassen:
+\begin{itemize}
+    \item \textbf{Spielersteuerung}: Grundlegende Steuerung des Spielcharakters (laufen, springen) inkl. Kamera
+    \item \textbf{Gravitationsschalter}: Aktivierung der Schwerkraftwechsel-Mechanik
+    \item \textbf{Kistensteuerung}: Bewegung der Kisten durch den Spieler und Interaktion mit der Schwerkraft
+    \item \textbf{Einseitige Plattformen}: Überprüfung, ob der Spieler von der richtigen Seite auf die Plattformen zugreift
+    \item \textbf{Level-Manager}: Anzeigen des neuen Levels, wenn der Spieler das Ziel erreicht
+    \item \textbf{Void-Check}: Überprüfung, ob der Spieler in den "Void" gefallen ist und das Level neu starten
+    \item \textbf{Schwerkraftfelder}: Anpassung der Spielerbewegung basierend auf der Schwerkraftstärke
+    \item \textbf{Kollisionsabfrage}: Überprüfung der Kollisionen zwischen dem Spieler und den Objekten in der Spielwelt
+\end{itemize}
+
+\end{document}
