@@ -46,7 +46,7 @@ public partial class LevelHandler : Node
         _levelNode.AddChild(instance);
 
         _mainCharacter.Position = instance.CharacterStartPosition;
-        _mainCharacter.SetGravityFlipped(instance.StartWithFlippedGravity);
+        _mainCharacter.SetGravityDirection(instance.StartWithFlippedGravity ? Vector2.Down : Vector2.Up);
     }
 
     private void OnCharacterDied()

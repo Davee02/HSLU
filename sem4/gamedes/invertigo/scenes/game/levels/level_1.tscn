@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bljcxl82hqs23"]
+[gd_scene load_steps=6 format=3 uid="uid://bljcxl82hqs23"]
 
 [ext_resource type="PackedScene" uid="uid://dxmty5p8kbln0" path="res://scenes/game/misc/tile_map.tscn" id="1_ayipk"]
 [ext_resource type="Script" path="res://scenes/game/levels/level_1.cs" id="1_eican"]
+[ext_resource type="PackedScene" uid="uid://bedxk4a154y14" path="res://scenes/game/misc/gravity_area.tscn" id="4_0i15v"]
 [ext_resource type="PackedScene" uid="uid://cewuen76uhpf8" path="res://scenes/game/misc/next_level.tscn" id="4_7jcrl"]
+[ext_resource type="PackedScene" uid="uid://2ytp1cxdg6b3" path="res://scenes/game/misc/gravity_switcher.tscn" id="5_gk4v1"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_eican")
@@ -13,3 +15,12 @@ layer_0/tile_data = PackedInt32Array(786432, 524288, 4, 786433, 524288, 4, 78643
 
 [node name="NextLevel" parent="." instance=ExtResource("4_7jcrl")]
 position = Vector2(2485, 563)
+
+[node name="GravitySwitcher" parent="." instance=ExtResource("5_gk4v1")]
+position = Vector2(318, 568)
+
+[node name="GravitySwitcher2" parent="." instance=ExtResource("5_gk4v1")]
+position = Vector2(350, 64)
+
+[node name="GravityArea" parent="." instance=ExtResource("4_0i15v")]
+position = Vector2(786, 278)

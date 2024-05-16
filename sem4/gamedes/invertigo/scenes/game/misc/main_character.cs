@@ -2,7 +2,6 @@ using Godot;
 
 public partial class main_character : CharacterBody2D
 {
-    private bool _isGravityFlipped = false;
     private AnimatedSprite2D _animatedSprite;
 
     public const float Speed = 300.0f;
@@ -21,22 +20,23 @@ public partial class main_character : CharacterBody2D
     public override void _PhysicsProcess(double delta)
     {
         Vector2 velocity = Velocity;
-        var sign = _isGravityFlipped ? -1 : 1;
+        Vector2 gravityDirection = -UpDirection;
 
         // Set animation
         _animatedSprite.Animation = GetAnimationToPlay();
 
-
         // Add the gravity.
         if (!IsOnFloor())
         {
-            velocity.Y += sign * Gravity * (float)delta;
-  
+            // calculate y velocity with gravity and gravity direction
+            velocity.Y += (float)(Gravity * gravityDirection.Y * delta);
         }
 
         // Handle Jump.
         if (Input.IsActionJustPressed("jump") && IsOnFloor())
-            velocity.Y = sign * JumpVelocity;
+        {
+            velocity.Y = gravityDirection.Y * JumpVelocity;
+        }
 
         // Get the input direction and handle the movement/deceleration.
         var direction = Input.GetAxis("left", "right");
@@ -46,25 +46,24 @@ public partial class main_character : CharacterBody2D
         }
         else
         {
-            velocity.X = Mathf.MoveToward(Velocity.X, 0, 100);
+            velocity.X = 0;
         }
 
         Velocity = velocity;
-        MoveAndSlide();
 
+        MoveAndSlide();
         HandleRigidBodyCollisions();
     }
 
     public void OnGravitySwitched()
     {
-        SetGravityFlipped(!_isGravityFlipped);
+        SetGravityDirection(UpDirection.Rotated(Mathf.Pi));
     }
 
-    public void SetGravityFlipped(bool flipped)
+    public void SetGravityDirection(Vector2 direction)
     {
-        _isGravityFlipped = flipped;
-        RotationDegrees = _isGravityFlipped ? 180 : 0;
-        UpDirection = _isGravityFlipped ? Vector2.Up.Rotated(Mathf.Pi) : Vector2.Up;
+        UpDirection = direction;
+        Rotation = direction.AngleTo(Vector2.Up);
     }
 
     private string GetAnimationToPlay()
