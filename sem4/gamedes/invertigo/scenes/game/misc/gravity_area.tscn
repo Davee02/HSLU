@@ -10,9 +10,9 @@ size = Vector2(0.999011, 0.9974)
 shader = ExtResource("1_gdwvd")
 shader_parameter/color_gap = Vector4(0.25, 0.25, 0.25, 0.25)
 shader_parameter/color_stripe = Vector4(1, 1, 1, 0.5)
-shader_parameter/divisions = 200.0
+shader_parameter/divisions = 100.0
 shader_parameter/stripe_bias = 2.0
-shader_parameter/speed = 0.1
+shader_parameter/speed = 0.05
 shader_parameter/angle = 0.0
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_bm0sv"]

@@ -15,8 +15,19 @@ public partial class gravity_area : Area2D
     {
         if (body.IsInGroup("MainCharacter"))
         {
-            _gravityDirectionBeforeChange = _mainCharacter.UpDirection;
-            _mainCharacter.SetGravityDirection(AreFloatsEqual(RotationDegrees, 90) ? Vector2.Up : Vector2.Down);
+            _gravityDirectionBeforeChange = -_mainCharacter.UpDirection;
+            if (AreFloatsEqual(RotationDegrees, 90))
+            {
+                GD.Print("Set gravity to normal");
+                Messanger.Instance.EmitSignal(Messanger.SignalName.GravitySetToNormal);
+            }
+            else
+            {
+                GD.Print("Set gravity to inverted");
+                Messanger.Instance.EmitSignal(Messanger.SignalName.GravitySetToInverted);
+            }
+            //_gravityDirectionBeforeChange = _mainCharacter.UpDirection;
+            //_mainCharacter.SetGravityDirection(AreFloatsEqual(RotationDegrees, 90) ? Vector2.Up : Vector2.Down);
         }
     }
 
@@ -24,7 +35,18 @@ public partial class gravity_area : Area2D
     {
         if (body.IsInGroup("MainCharacter"))
         {
-            _mainCharacter.SetGravityDirection(_gravityDirectionBeforeChange);
+            GD.Print($"_gravityDirectionBeforeChange: {_gravityDirectionBeforeChange}");
+            GD.Print($"RotationDegrees: {RotationDegrees}");
+            if ((AreFloatsEqual(RotationDegrees, 90) && _gravityDirectionBeforeChange.IsEqualApprox(Vector2.Down)) || (AreFloatsEqual(RotationDegrees, -90) && _gravityDirectionBeforeChange.IsEqualApprox(Vector2.Down)))
+            {
+                GD.Print("Set gravity to normal");
+                Messanger.Instance.EmitSignal(Messanger.SignalName.GravitySetToNormal);
+            }
+            else
+            {
+                GD.Print("Set gravity to inverted");
+                Messanger.Instance.EmitSignal(Messanger.SignalName.GravitySetToInverted);
+            }
         }
     }
 

@@ -13,7 +13,6 @@ public partial class main_character : CharacterBody2D
 
     public override void _Ready()
     {
-        Messanger.Instance.Connect(Messanger.SignalName.GravitySwitched, Callable.From(OnGravitySwitched));
         _animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
     }
 
@@ -53,17 +52,6 @@ public partial class main_character : CharacterBody2D
 
         MoveAndSlide();
         HandleRigidBodyCollisions();
-    }
-
-    public void OnGravitySwitched()
-    {
-        SetGravityDirection(UpDirection.Rotated(Mathf.Pi));
-    }
-
-    public void SetGravityDirection(Vector2 direction)
-    {
-        UpDirection = direction;
-        Rotation = direction.AngleTo(Vector2.Up);
     }
 
     private string GetAnimationToPlay()

@@ -20,6 +20,7 @@ config/icon="res://assets/sprites/icon.svg"
 
 Messanger="*res://global/Messanger.cs"
 LevelHandler="*res://global/LevelHandler.cs"
+GravityHandler="*res://global/GravityHandler.cs"
 
 [display]
 

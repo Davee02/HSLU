@@ -3,7 +3,6 @@ using Godot;
 public partial class gravity_switcher : Area2D
 {
 	private bool _isReachable = false;
-    private main_character _character;
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
     public override void _Process(double delta)

@@ -1,4 +1,5 @@
 using Godot;
+using static Godot.TextServer;
 
 public partial class LevelHandler : Node
 {
@@ -46,7 +47,8 @@ public partial class LevelHandler : Node
         _levelNode.AddChild(instance);
 
         _mainCharacter.Position = instance.CharacterStartPosition;
-        _mainCharacter.SetGravityDirection(instance.StartWithFlippedGravity ? Vector2.Down : Vector2.Up);
+        _mainCharacter.UpDirection = instance.StartWithFlippedGravity ? Vector2.Down : Vector2.Up;
+        _mainCharacter.Rotation = _mainCharacter.UpDirection.AngleTo(Vector2.Up);
     }
 
     private void OnCharacterDied()

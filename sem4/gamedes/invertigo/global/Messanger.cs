@@ -8,6 +8,12 @@ public partial class Messanger : Node
     public delegate void GravitySwitchedEventHandler();
 
     [Signal]
+    public delegate void GravitySetToNormalEventHandler();
+
+    [Signal]
+    public delegate void GravitySetToInvertedEventHandler();
+
+    [Signal]
     public delegate void LevelCompletedEventHandler();
 
     [Signal]
