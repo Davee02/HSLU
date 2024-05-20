@@ -8,7 +8,6 @@ public partial class ContextualPlatform : Node2D
     [Export]
 	public bool WorkOnlyInFlippedGravity { get; set; }
 
-    // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
         Messanger.Instance.Connect(Messanger.SignalName.GravitySwitched, Callable.From(OnGravitySwitched));

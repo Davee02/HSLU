@@ -3,6 +3,7 @@ using Godot;
 public partial class main_character : CharacterBody2D
 {
     private AnimatedSprite2D _animatedSprite;
+    private AudioStreamPlayer _jumpAudioPlayer;
 
     public const float Speed = 300.0f;
     public const float JumpVelocity = -400.0f;
@@ -14,6 +15,7 @@ public partial class main_character : CharacterBody2D
     public override void _Ready()
     {
         _animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        _jumpAudioPlayer = GetNode<AudioStreamPlayer>("JumpAudioPlayer");
     }
 
     public override void _PhysicsProcess(double delta)
@@ -35,6 +37,7 @@ public partial class main_character : CharacterBody2D
         if (Input.IsActionJustPressed("jump") && IsOnFloor())
         {
             velocity.Y = gravityDirection.Y * JumpVelocity;
+            _jumpAudioPlayer.Play();
         }
 
         // Get the input direction and handle the movement/deceleration.

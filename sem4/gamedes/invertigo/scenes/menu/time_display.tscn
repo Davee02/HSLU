@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgpd0u0a1h32j"]
+
+[ext_resource type="Script" path="res://scenes/menu/time_display.cs" id="1_s8nvw"]
+
+[node name="TimeDisplay" type="RichTextLabel"]
+offset_right = 198.0
+offset_bottom = 58.0
+theme_override_font_sizes/normal_font_size = 38
+text = "00:00:00"
+script = ExtResource("1_s8nvw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="OnTimerTimeout"]

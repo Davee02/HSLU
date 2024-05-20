@@ -17,6 +17,12 @@ public partial class Messanger : Node
     public delegate void LevelCompletedEventHandler();
 
     [Signal]
+    public delegate void GameRestartedEventHandler();
+
+    [Signal]
+    public delegate void GameFinishedEventHandler();
+
+    [Signal]
     public delegate void CharacterDiedEventHandler();
 
     public static Messanger Instance

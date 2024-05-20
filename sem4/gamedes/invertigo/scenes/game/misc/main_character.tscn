@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvcr1sjube4rj"]
+[gd_scene load_steps=10 format=3 uid="uid://cvcr1sjube4rj"]
 
 [ext_resource type="Script" path="res://scenes/game/misc/main_character.cs" id="1_3icwb"]
 [ext_resource type="Texture2D" uid="uid://dna4slw65wnxm" path="res://assets/sprites/monochrome_tilemap_transparent_packed.png" id="2_jqt2n"]
+[ext_resource type="AudioStream" uid="uid://ckiwaqk633pee" path="res://assets/audio/jump.wav" id="3_st61k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mc8v2"]
 size = Vector2(30, 27)
@@ -67,3 +68,6 @@ scale = Vector2(2.9375, 2.625)
 sprite_frames = SubResource("SpriteFrames_w7frj")
 animation = &"jumping"
 autoplay = "standing"
+
+[node name="JumpAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_st61k")

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpxeug5xguise"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1b38j"]
+b = Vector2(0, 33)
+
+[node name="InvisibleBarrier" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(2, 2)
+shape = SubResource("SegmentShape2D_1b38j")

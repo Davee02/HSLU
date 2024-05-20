@@ -39,6 +39,51 @@ WorkOnlyInFlippedGravity = true
 [node name="ContextualPlatform3" parent="." instance=ExtResource("4_d7dkk")]
 position = Vector2(488, 461)
 
+[node name="ContextualPlatform16" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(411, 357)
+rotation = -3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform17" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(362, 357)
+rotation = -3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform18" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(313, 357)
+rotation = -3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform19" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(264, 357)
+rotation = -3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform20" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(216, 357)
+rotation = -3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform21" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(167, 357)
+rotation = -3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform22" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(118, 357)
+rotation = -3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform23" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(70, 357)
+rotation = -3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform24" parent="." instance=ExtResource("4_d7dkk")]
+position = Vector2(22, 357)
+rotation = -3.14159
+WorkOnlyInFlippedGravity = true
+
 [node name="ContextualPlatform4" parent="." instance=ExtResource("4_d7dkk")]
 position = Vector2(594, 435)
 

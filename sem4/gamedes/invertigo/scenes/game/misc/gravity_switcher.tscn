@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://2ytp1cxdg6b3"]
+[gd_scene load_steps=7 format=3 uid="uid://2ytp1cxdg6b3"]
 
 [ext_resource type="Script" path="res://scenes/game/misc/gravity_switcher.cs" id="1_bbvuj"]
 [ext_resource type="Texture2D" uid="uid://dna4slw65wnxm" path="res://assets/sprites/monochrome_tilemap_transparent_packed.png" id="2_cflu0"]
+[ext_resource type="AudioStream" uid="uid://bv0lrmduae0b5" path="res://assets/audio/switch_gravity.wav" id="3_o36eh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5sba0"]
 size = Vector2(30, 27)
@@ -35,6 +36,9 @@ texture_filter = 1
 position = Vector2(-4.76837e-07, 4.76837e-07)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_4lajn")
+
+[node name="GravitySwitchAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_o36eh")
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]
 [connection signal="body_exited" from="." to="." method="OnBodyExited"]

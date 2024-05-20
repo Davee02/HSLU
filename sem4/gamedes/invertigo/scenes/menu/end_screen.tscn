@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmla5bnj8kd26"]
+
+[ext_resource type="Script" path="res://scenes/menu/end_screen.cs" id="1_suaee"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_suaee")
+
+[node name="CongratsLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 486.0
+offset_top = 140.0
+offset_right = 758.0
+offset_bottom = 204.0
+theme_override_font_sizes/normal_font_size = 43
+text = "You made it!"
+
+[node name="TimeDisplayLabel" type="RichTextLabel" parent="."]
+offset_left = 475.0
+offset_top = 207.0
+offset_right = 862.0
+offset_bottom = 277.0
+theme_override_font_sizes/normal_font_size = 25
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+process_mode = 3
+layout_mode = 0
+offset_left = 477.0
+offset_top = 337.0
+offset_right = 780.0
+offset_bottom = 410.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="Restart Game" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart Game"
+
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Restart Game" to="." method="RestartGame"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="Quit"]
