@@ -1,0 +1,377 @@
+\documentclass{article}
+
+\usepackage[raggedrightboxes]{ragged2e}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{xurl}
+\usepackage[left=2cm,right=2cm,bottom=1.7cm]{geometry}
+\graphicspath{ {./img/} }
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black
+}
+
+\title{%
+Portfolio GAMEDES FS24\\
+\large Zusammenfassende Abgabe der \\
+  wöchenlichen Aufgaben}
+\author{David Hodel}
+\date{20.05.2024}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+\section{SW1: Game vs Toy, Patterns and Tropes, Spassfaktor}
+
+\textbf{Ausgewähltes Spiel:} Portal 2
+\textbf{Beschreibung:} "Portal 2" ist ein Puzzle-Plattformer-Videospiel, entwickelt und veröffentlicht von Valve.
+Es ist der Nachfolger von "Portal" und wurde im Jahr 2011 veröffentlicht. Als Spieler übernimmt man die Rolle der Protagonistin
+Chell in einem dystopischen Forschungslaboratorium, dem Aperture Science Enrichment Center. Das Kernspielprinzip dreht sich um die
+Erstellung von Portalen, um physikbasierte Rätsel zu lösen. Diese Portale verbinden zwei entfernte Flächen und ermöglichen
+unkonventionelle Bewegungen und Lösungswege durch die Spielumgebung.
+\\
+\includegraphics[width=11cm]{01_portal2_lasers.jpg}
+\\
+\includegraphics[width=11cm]{01_portal2_gel.jpg}
+\\
+\textbf{Klassifizierung:}
+\begin{itemize}
+    \item "Portal 2" ist klar als ein Spiel (Game) zu klassifizieren.
+    \item Es hat feste Regeln und Ziele: Spieler müssen Rätsel lösen, um von einem Level zum nächsten zu gelangen.
+    \item Das Spiel bietet eine strukturierte Erfahrung mit einer definierten Handlung und einem vorgegebenen Ende.
+    \item Es gibt wenig Raum für freies, unstrukturiertes Spielen, was typisch für ein Spielzeug (Toy) wäre.
+\end{itemize}
+\bigskip
+\textbf{Aussergewöhnliche Patterns/Tropes:}
+\begin{itemize}
+    \item \textbf{Loads of Loads of Loading:} Portal 2 hat viele Loading Screens, vor allem im ersten Teil des Spiels.
+    Es wird zwar versucht, es mit dem Fahren eines Aufzuges zu verstecken, was aber nicht wirklich gelingt, da trotzdem immer
+    "Loading" angezeigt wird und das Spiel für einen Moment anhält.
+    \item \textbf{First-Person Ghost:} Chell hat weder einen Schatten noch kann man ihre Beine sehen, wenn man hinunterschaut.
+    Schaut man jedoch durch ein Portal, ist ihr ganzer Körper zu sehen.
+    \item \textbf{Magnet Hands:} Chell lässt die Portal-Gun nie los, egal ob sie gerade kopfüber von der Decke fällt oder andere
+    waghalsige Stunts macht.
+\end{itemize}
+\bigskip
+\textbf{Spassfaktor:} Mir gefällt das Lösen von anspruchsvollen Puzzles sehr. Durch das extensive Playtesting, für welches Valve
+bekannt ist, haben die Levels genau den richtigen Schwierigkeitsgrad. Die Lernkurve ist sehr geschickt gewählt.
+Auch das umgebungsbasierte Storytelling und die lustigen (und teilweise nervigen) Charaktere sind interessant.
+
+\section{SW2: Parts, Rules und Loope}
+
+\textbf{Spiel:} Portal 2
+\\
+\textbf{Wichtigste Spielelemente:}
+\begin{itemize}
+    \item \textbf{Portal Gun:} Kernelement des Spieles. Wird verwendet, um Portale zu erstellen, welche zum Lösen der Puzzles
+    verwendet werden.
+    \item \textbf{Testchambers:} Das Spiel besteht aus einer Reihe von Rätseln, die der Spieler lösen muss.
+    \item \textbf{Cubes:} Der Spieler kann ca. 1x1 Meter grosse Würfel aufheben und innerhalb einer Chamber herumtragen, um damit
+    Knöpfe auf dem Boden zu aktivieren, welche das Lösen des Puzzles ermöglichen.
+    \item \textbf{Knöpfe:} Das Drücken von kleinen und grossen Knöpfen löst verschiedene Aktionen in den Chambers aus.
+    \item \textbf{Bewegende Plattformen:} Sich vertikal oder horizontal bewegende Plattformen
+    (ausgelöst durch den Spieler oder standardmässig) erlauben das Erreichen von weiteren Orten im Level.
+\end{itemize}
+\bigskip
+\textbf{Secrets:}
+\begin{itemize}
+    \item Da Portal 2 ein Einzelspieler-Spiel ist, gibt es keine Geheimnisse zwischen Spielern, da es nur einen Spieler gibt.
+    \item Das Spiel verheimlicht dem Spieler die Abfolge von Aktionen, welche zum Lösen einer Testchamber benötigt werden.
+    \item Viele Rätsel lassen sich auf mehrere Wege lösen. Spieler müssen ihre eigene Strategie entwickeln, um Levels zu lösen.
+    Diese Strategie wird vom Spiel nicht vorgegeben oder erzwungen.
+\end{itemize}
+\bigskip
+\textbf{Meta-Loops}
+\begin{itemize}
+    \item Das vorgegebene Spielziel ist das Durchlaufen aller Testchambers.
+    \item Der Spieler möchte ausserdem an die Freiheit / Oberfläche gelangen.
+\end{itemize}
+\bigskip
+\textbf{Macro-Loops}
+\begin{itemize}
+    \item Die einzelnen Testchambers sind die Levels im Spiel und müssen nach Eintreten wieder verlassen werden.
+    \item Bewegen zwischen Testchambers (manchmal nur kurzer Aufzug, manchmal längere Strecke durch Aperture-Labor mit narrativen
+    Elementen).
+\end{itemize}
+\bigskip
+\textbf{Micro-Loops}
+\begin{itemize}
+    \item Analyse der Chamber durch Beobachten und Informationen sammeln.
+    \item Interaktion mit der Umwelt: Platzieren von Portals, Drücken von Knöpfen, Aufheben und Platzieren von Cubes.
+    \item Bewegen durch die Testchambers.
+\end{itemize}
+\bigskip
+\textbf{3 wichtigste Spielregeln}
+\begin{itemize}
+    \item Das Ziel ist das Durchlaufen der Testchambers. Jede Testchamber lässt sich durch das Verlassen durch eine markierte Türe
+    abschliessen. Der Weg zum Ausgang ist jedoch nie direkt machbar. Zum Erreichen der Türe muss die Umgebung der Testchamber
+    verändert werden oder der Spieler muss durch andere Aktionen den Ausgang erreichen.
+    \item Die Spieler können mit der Portal-Gun zwei unterschiedliche Portale erzeugen, ein blaues und ein oranges. Diese Portale
+    sind miteinander verbunden, sodass alles, was in das eine Portal hineingeht, durch das andere herauskommt. Dies beinhaltet den
+    Spieler, Objekte und einige Formen von Energie wie Laserstrahlen. Die Oberflächen, auf denen Portale platziert werden können,
+    sind oft begrenzt, was die Puzzellösung beeinflusst.
+    \item Bewegung durch Portale behält den Impuls bei (oft im Spiel als "Speedy Thing goes in, Speedy Thing comes out" bezeichnet).
+    Dies bedeutet, dass der Spieler und Objekte beim Durchtritt durch Portale ihre Geschwindigkeit und Richtung in Bezug auf das
+    Portal beibehalten, was für das Lösen von Rätseln durch "Flings" oder andere momentum-basierte Tricks wichtig ist.
+\end{itemize}
+
+\includegraphics[width=0.9\textwidth]{02_portal2_gameloop.png}
+
+\section{SW3: Spass und Player Types}
+
+\textbf{4 Keys 2 Fun:} Die Kategorisierung von Spass in vier Hauptbereiche bietet meiner Meinung nach eine intuitive und klar
+strukturierte Methode, um unterschiedliche Spass-Arten zu analysieren und auf eine Vielzahl von Erfahrungen anzuwenden.
+Diese Einteilung hilft, ein Verständnis dafür zu entwickeln, wie Spieler auf diverse Spielmechaniken reagieren, indem
+sie komplexe Erlebnisse vereinfacht darstellt. Während diese Kategorien die Konzepte einfach greifbar machen und eine direkte
+Anwendung auf Spiele ermöglichen, weisen sie auch Grenzen auf. Ich finde, die vereinfachte Sichtweise kann zu einer
+Übersimplifizierung führen, die möglicherweise nicht die gesamte Komplexität / Vielfalt des Spielerlebnisses einfängt.
+Es besteht das Risiko, dass individuelle Vorlieben und nuancierte Aspekte des Spielspasses nicht vollständig erfasst werden.
+\\
+\\
+\textbf{Gamer Motivation Model:} Dieses Modell fängt die vielen verschiedenen Typen für die Motivation, ein Spiel zu spielen,
+meiner Meinung nach besser ein als andere Modelle. Im Vergleich zu "4 Keys 2 Fun" zeigt es nicht nur, was ein Spieler während dem
+Spielen fühlt (welche Art von "Spass"), sondern auch, was ihn überhaupt dazu motiviert, das Spiel anzufassen. Ich finde es wichtig,
+Menschen nicht in Schubladen wie "Herkunft", "Geschlecht", etc. zu stecken. Das Modell setzt dies prima um, indem es diese Faktoren
+gänzlich ignoriert und nur auf die individuellen Präferenzen eingeht. Jedoch besteht auch hier die Gefahr der Übersimplifizierung,
+da sich auch mit feiner granulierteren Kategorien und Motivationen nicht alle Facetten eines Spiels erklären lassen. Ich denke aber,
+dass dies ein allgemeines Problem von jeglichen Modellen ist, da diese immer eine Simplifikation vom echten Leben darstellen.
+\\
+\\
+\textbf{4 Keys 2 Fun anhand Portal 2:}
+\begin{itemize}
+    \item \textbf{Hard Fun}
+    \begin{itemize}
+        \item Die Rätsel, die die Spieler lösen müssen, indem sie die Portal-Gun verwenden, um von einem Ort zum anderen zu gelangen,
+         Objekte zu bewegen oder Fallen zu vermeiden. Die Befriedigung kommt aus dem Gefühl der Leistung, wenn schwierige Rätsel
+         gelöst werden.
+    \end{itemize}
+    \item \textbf{Easy Fun}
+    \begin{itemize}
+        \item Portal 2 bietet dies durch seine faszinierende und oft humorvolle Geschichte, die durch die Erkundung der Aperture
+        Science Einrichtung und das Interagieren mit Charakteren wie GLaDOS und Wheatley erlebt wird. Die Umgebung selbst regt zur
+        Neugier an und ermutigt Spieler, mit den Portalen zu experimentieren, um zu sehen, was passiert.
+    \end{itemize}
+    \item \textbf{Serious Fun}
+    \begin{itemize}
+        \item Spieler können durch Lösen der Rätsel logisches Denken und Problemlösungsfähigkeiten üben und verbessern.
+        Es fördert kognitive Fähigkeiten wie räumliches Vorstellungsvermögen und Planung.
+    \end{itemize}
+    \item \textbf{People Fun}
+    \begin{itemize}
+        \item Im Koop-Modus müssen zwei Spieler zusammenarbeiten, um Rätsel zu lösen, die speziell dafür entworfen wurden, dass sie
+        die Koordination und Kommunikation zwischen den Spielern erfordern.
+        \item Es gibt eine rege Speedrunning-Community für das Spiel, welche zu gegenseitigen Wettkämpfen animiert.
+    \end{itemize}
+\end{itemize}
+
+\section{SW4: MDA-Analyse}
+
+\textbf{Gruppe:} Maiko Trede, Nevin Helfenstein, David Hodel
+\\
+\textbf{Arbeitsraum auf Miro:} \url{https://miro.com/app/board/uXjVNgK4rZY=/}
+\\
+\textbf{Spiele:} \textit{The Witcher 3} vs. \textit{Breath of the Wild}
+\\
+\includegraphics[width=1.0\textwidth]{04_mda.png}
+
+\section{SW5: Game Design Dokument}
+
+Die Analyse der Design-Dokumente für "Wasteland 2," "Rogue Legacy," und "The Nightmares of Edith Finch" zeigt die Vielfalt und
+Individualität in der Spieleentwicklung. "Wasteland 2" betont den Aufbau einer post-apokalyptischen Welt mit detaillierten
+Beschreibungen und Entscheidungsfreiheit, die zu einem komplexen Netz von Ursachen und Wirkungen führt. "Rogue Legacy" fokussiert
+sich auf Charakterentwicklung und -interaktion, wobei die Individualität der NPCs und die Anpassbarkeit der Spielfiguren und der
+Spielwelt hervorgehoben werden. "The Nightmares of Edith Finch" legt großen Wert auf die narrative Struktur und die nichtlineare
+Erzählweise, die durch Erkundung und die Verwendung von Texten eine immersive und emotionale Erfahrung schafft. Diese Unterschiede
+in den Design-Dokumenten reflektieren die verschiedenen Phasen und Zielsetzungen der Spiele und zeigen die Bedeutung gut
+durchdachter Design-Dokumente, die als Grundlage für die kreative Vision dienen. Sie verdeutlichen, dass es keinen universellen
+Ansatz für die Spielentwicklung gibt, sondern dass jedes Dokument den spezifischen Bedürfnissen und Zielen des Projekts angepasst
+wird.
+
+\section{SW6: Paper Prototype}
+
+\textbf{Gruppe:} Maiko Trede, Nevin Helfenstein, David Hodel
+\\
+\textbf{Spiel:} Donkey Kong (NES)
+\\
+\textbf{Video:} \url{https://photos.app.goo.gl/wMDBEoE8J59iffc28}
+\\ \\
+Unser Papier Prototyp ist nahe am originalen Donkey Kong Spiel, welches als typisches "Arcade" / NES Game gilt.
+Wir haben uns von dem originalen Spiel, welches \url{https://www.retrogames.cz/play_001-NES.php}{hier} gespielt werden kann,
+inspirieren lassen.
+\\
+\textbf{Grundlegende Mechaniken, Dynamiken und Ästhetiken:}
+\\
+\textbf{Mechaniken:}
+\begin{itemize}
+    \item Leitermechaniken: Die Fähigkeit des Spielers, Leitern hoch- und runter zu klettern, um verschiedene Plattformen zuerreichen.
+    \item Fass- und Hindernisbewältigung: Wie sich Fässer und andere Hindernisse bewegen und wie der Spieler diese überwinden
+    oder ihnen ausweichen kann.
+    \item Rettungsmechanik: Die Aktionen und Strategien, die erforderlich sind, um Pauline zu erreichen und zu retten.
+    \item Punktesystem und Belohnungen: Die Art und Weise, wie Punkte gesammelt werden, durch das Aufsammeln von Gegenständen,
+    das Überwinden von Hindernissen oder das Erreichen neuer Levels.
+\end{itemize}
+\bigskip
+\textbf{Dynamiken:}
+\begin{itemize}
+    \item Feinddynamiken: Die Bewegungsmuster und Verhaltensweisen der Fässer und anderer Hindernisse, die Donkey Kong wirft.
+    \item Spielerstrategie und Risikobewertung: Wie der Spieler Entscheidungen trifft basierend auf der Position und dem Verhalten
+    der Hindernisse sowie dem Layout der Plattformen.
+    \item Adaptionsdynamik: Wie sich das Spielverhalten ändert, wenn der Spieler fortschreitet, einschließlich der Geschwindigkeit
+    und der Komplexität der Hindernisse.
+\end{itemize}
+\bigskip
+\textbf{Ästhetik:}
+\begin{itemize}
+    \item Grafische Darstellung und Stil: Die Visualisierung von Charakteren, Plattformen, Hindernissen und der Umgebung, um eine
+    einladende und herausfordernde Spielwelt zu schaffen.
+    \item Musik und Soundeffekte: Die Rolle der Audioelemente in der Schaffung einer spannenden Atmosphäre und der Unterstützung
+    der Spielmechaniken.
+    \item Narrative und Charakterdesign: Die Darstellung der Beziehung zwischen den Charakteren (z.B. Mario, Pauline, Donkey Kong)
+    und wie diese die Spielerfahrung und das Engagement beeinflusst.
+\end{itemize}
+\bigskip
+\textbf{Testen des Prototypen:}
+Wir haben das Video und den Papierprototypen mit einer anderen Gruppe besprochen und angeschaut. Die andere Gruppe meinte, dass das
+Design aktuell noch sehr simpel und einfach sei. Weiter bemängelten sie die limitierten Implementationen. Also zum Beispiel,
+dass es nur einen Typ von Fass gibt oder dass die lebendige Flamme, welche Mario jagt, nicht implementiert wurde. Jedoch meinte die
+andere Gruppe, dass das Design sehr kreativ sei und dass David einen wunderschönen Donkey Kong gezeichnet hat.
+Nächster Schritt wäre also die Implementierung verschiedener Fässer, die kleine Flamme, welche Mario jagt, und den Hammer als
+Power-Up, sodass Mario die Fässer, welche ihm entgegenkommen, zerstören kann.
+
+\section{SW7: Interesting Choices}
+
+Bei "Mensch ärgere Dich nicht" startet Jeder Spieler mit vier Spielfiguren auf seinem Startfeld. Das Ziel des Spiels ist es, alle
+eigenen Spielfiguren im Uhrzeigersinn um das Spielfeld zu bewegen und sicher in das Ziel zu bringen. Die Bewegungen der Spielfiguren
+werden durch Würfeln bestimmt. Es muss eine Sechs gewürfelt werden muss, um eine Figur aus dem Startbereich auf das Spielfeld zu
+bringen. Spieler können die Figuren der Gegner in den Startbereich zurückschlagen, indem sie auf das gleiche Feld ziehen.
+\\
+\includegraphics[width=8cm]{07_mensch_aergere_dich_nicht.jpg}
+\\ \\
+Dieses Spiel ist bekannt dafür, dass es stark vom Glück abhängt und oft keine tiefgreifenden strategischen Entscheidungen zu treffen
+gibt. Die Hauptentscheidung im Spiel ist oft, welche Spielfigur bewegt wird. Diese Entscheidung wird jedoch meistens durch die
+Würfe und die Positionen der anderen Spieler auf dem Brett bestimmt. Es handelt sich also um \textbf{offensichtliche
+Entscheidungen} (häufig gibt es eine offensichtlich "richtige" Figur zu bewegen) und \textbf{keine 
+Entscheidungen} (manchmal kann nur eine einzelne Figur bewegt werden, vor allem zu Beginn des Spieles).
+\\ \\
+Man könte das Spiel spannender gestalten, indem man das Bilden von temporären Allianzen zwischen Spielern erlauben würde.
+Solche Allianzen können nützlich sein, um gemeinsam Feinde zu blockieren oder sich gegenseitig sicher durch "gefährliche" Bereiche
+des Bretts zu navigieren.
+Auch könnte man Ressourcenpunkte hinzufügen. Jeder Spieler startet das Spiel mit einer bestimmten Anzahl an Ressourcenpunkten. Diese
+Punkte können verwendet werden, um spezielle Aktionen durchzuführen (zusätzlicher Würferwurf, Barriere errichten, Feind an Start zurückschicken, etc.).
+Spieler können wählen, ob sie Ressourcenpunkte sparen möchten, um sie später für kritische Momente zu brauchen. Sie können die
+Punkte jedoch auch zu Beginn schon ausgeben, um einen "Startboost" zu erhalten und so das Earlygame zu dominieren.
+
+\section{SW8: Balancing}
+
+\textbf{Spiel:} The Legend of Zelda: Breath of the Wild
+
+\subsection{Waterblight Ganon}
+
+\includegraphics[width=10cm]{08_waterblight_ganon.png}
+\\
+\textbf{Stärken:}
+\begin{itemize}
+    \item Kann große Entfernungen überbrücken (Speerangriffe)
+    \item Besitzt die Fähigkeit, Eisblöcke zu beschwören, die dem Spieler Schaden zufügen und behindern
+    \item Starke Angriffe im Wasser, wo er bessere Beweglichkeit und Reichweite hat
+\end{itemize}
+\bigskip
+\textbf{Schwächen:}
+\begin{itemize}
+    \item Anfällig für elektrische Angriffe, besonders effektiv, wenn er im Wasser ist
+    \item Langsam bei Nahkampfangriffen, was ermöglicht, auszuweichen und zu kontern
+    \item Eisblöcke können mit der Cryonis-Rune zerstört werden, um den Angriff abzuwehren oder sogar umzukehren
+\end{itemize}
+\bigskip
+\textbf{Balancing:}
+\begin{itemize}
+    \item Wasserumgebung verstärkt seine Angriffe, stellt jedoch auch eine Schwäche dar (wenn der Spieler elektrische Pfeile oder Waffen nutzt)
+    \item Ermöglicht verschiedene Methoden zum Kämpfen: Fernkampf, Ausweichen und direkten Nahkampf
+\end{itemize}
+
+\subsection{Thunderblight  Ganon}
+
+\includegraphics[width=10cm]{08_thunderblight_ganon.png}
+\\
+\textbf{Stärken:}
+\begin{itemize}
+    \item Extrem schnell und aggressiv, schwer vorhersehbare Bewegungen
+    \item Kann metallische Stacheln beschwören, die elektrische Schläge auslösen
+    \item Kann sich teleportieren, was ihn schwer zu treffen macht
+\end{itemize}
+\bigskip
+\textbf{Schwächen:}
+\begin{itemize}
+    \item Anfällig für Angriffe während seiner Aufladephase, wenn er seine elektrische Energie sammelt
+    \item Sein Schild kann durchschlagen werden, wenn man das richtige Timing beim Angreifen hat
+    \item Schwächer im direkten Nahkampf, sobald sein Schild beschädigt ist
+\end{itemize}
+\bigskip
+\textbf{Balancing:}
+\begin{itemize}
+    \item Schnelligkeit und Teleportation fordern präzises Timing und strategische Platzierung
+    \item Elektrische Angriffe können vermieden oder abgewehrt werden
+    \item Erfordert eine gute Beherrschung des Kampfsystems
+\end{itemize}
+
+\section{SW10: Narration}
+
+\textbf{Spiel:} The Witcher 3: Wild Hunt
+\\
+Die Narration von The Witcher 3 ist eine Kombination von Branching und Threading:
+\begin{enumerate}
+  \item \textbf{Branching}: Dies ist die dominante Struktur in \textit{The Witcher 3}, da die Spieler zahlreiche Entscheidungen
+  treffen, die zu deutlich unterschiedlichen Erzählwegen und Enden führen. Die Geschichte verzweigt sich an vielen Stellen,
+  basierend auf den Entscheidungen, die der Spieler trifft, wie etwa welche Charaktere unterstützt werden, wie Quests gelöst werden
+  und wie mit Schlüsselcharakteren interagiert wird.
+  \item \textbf{Threading}: Zusätzlich zu den vielen Verzweigungen hat das Spiel auch eine verflochtene Erzählung, bei der mehrere
+  Handlungsstränge parallel laufen und sich zu bestimmten Punkten kreuzen oder beeinflussen. Die Nebenquests und Hauptquests sind
+  miteinander verknüpft und haben Auswirkungen aufeinander.
+\end{enumerate}
+\bigskip
+Das Diagramm zeigt einige Schlüsselentscheidungen und Handlungsstränge, die Geralt auf seiner Suche nach seiner Ziehtochter Ciri
+folgt. Die Story verzweigt sich an vielen Punkten, abhängig von Geralts Entscheidungen bezüglich Verbündeter, moralischer Dilemma
+und Questergebnissen. Die Wahl der Entscheidungen führt zu verschiedenen Enden.
+\\
+\includegraphics[width=1.0\textwidth]{10_witcher3_narration.png}
+
+\section{SW11: Design Patterns}
+
+\subsection{Aufgabe 1: Kleines Jumpcrafter-Level}
+
+\href{https://hsluzern-my.sharepoint.com/:u:/g/personal/david_hodel_stud_hslu_ch/Ea4OqG_pyeNEls8wVq7Zn8cB2uJQy9jvlJaBs3AFmZM3cw?e=mSX9NU}{Downloadlink}
+\\ \\
+\includegraphics[width=1.0\textwidth]{11_jumpcrafter_1.png}
+
+\subsection{Aufgabe 3: Kishōtenketsu}
+
+\textbf{Mechanik:} Doppelsprünge erlauben anderes Navigieren
+\\
+\href{https://hsluzern-my.sharepoint.com/:u:/g/personal/david_hodel_stud_hslu_ch/EWiT-lbI3OlHmm16AtbiQrsBpFmHQv5jdMYLqAvznqtalw?e=Had2Mw}{Downloadlink}
+\\ \\
+\textbf{Ki:} Einfaches Einführen von Doppelsprüngen mit nur kleiner Konsequenz (kein Game-Over).
+\\
+\includegraphics[width=10cm]{11_ki.png}
+\\ \\
+\textbf{Sho:} Es kommen nun schwierigere Sprünge und der Spieler kann durch die Spikes sterben. Sprünge müssen präziser sein als vorher.
+\\
+\includegraphics[width=10cm]{11_sho.png}
+\\ \\
+\textbf{Ten:} Der Boden bewegt sich nun auch. Der Spieler muss die bewegenden Plattformen navigieren können. Der Tod ist nun auch
+nicht mehr durch Spikes, sondern durch das Fallen in das Void.
+\\
+\includegraphics[width=10cm]{11_ten.png}
+\\ \\
+\textbf{Ketsu:} Gemütlicher Levelabschluss mit sicherem Boden. Spieler kann Münzen mit Doppelsprüngen einsammeln.
+\\
+\includegraphics[width=10cm]{11_ketsu.png}
+\\ \\
+\textbf{2D Pattern:} Safe Zones, Gap Pattern
+
+\end{document}
