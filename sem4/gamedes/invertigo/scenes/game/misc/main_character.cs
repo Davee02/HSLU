@@ -61,8 +61,8 @@ public partial class main_character : CharacterBody2D
     {
         return (Mathf.Abs(Velocity.X), IsOnFloor()) switch
         {
+            ( > 1, true) => "walking",
             (_, false) => "jumping",
-            ( > 1, _) => "walking",
             (_, _) => "standing"
         };
     }

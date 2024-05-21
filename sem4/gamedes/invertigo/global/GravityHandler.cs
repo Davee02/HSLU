@@ -8,7 +8,7 @@ public partial class GravityHandler : Node
 
     public override void _Ready()
     {
-        _mainCharacter = GetNode<main_character>("/root/Main/MainCharacter");
+        _mainCharacter = GetNode<main_character>("/root/Main/Game/MainCharacter");
         Messanger.Instance.Connect(Messanger.SignalName.GravitySwitched, Callable.From(OnGravitySwitched));
         Messanger.Instance.Connect(Messanger.SignalName.GravitySetToNormal, Callable.From(OnGravitySetToNormal));
         Messanger.Instance.Connect(Messanger.SignalName.GravitySetToInverted, Callable.From(OnGravitySetToInverted));

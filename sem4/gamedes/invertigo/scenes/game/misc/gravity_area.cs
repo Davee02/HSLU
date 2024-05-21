@@ -8,7 +8,7 @@ public partial class gravity_area : Area2D
 
     public override void _Ready()
 	{
-        _mainCharacter = GetNode<main_character>("/root/Main/MainCharacter");
+        _mainCharacter = GetNode<main_character>("/root/Main/Game/MainCharacter");
         Messanger.Instance.Connect(Messanger.SignalName.GravitySwitched, Callable.From(OnGravitySwitched));
     }
 

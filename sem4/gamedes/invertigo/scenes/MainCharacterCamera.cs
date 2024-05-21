@@ -6,7 +6,7 @@ public partial class MainCharacterCamera : Camera2D
 
     public override void _Ready()
 	{
-        _mainCharacter = GetNode<main_character>("/root/Main/MainCharacter");
+        _mainCharacter = GetNode<main_character>("/root/Main/Game/MainCharacter");
     }
 
     public override void _PhysicsProcess(double delta)

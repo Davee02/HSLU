@@ -7,6 +7,7 @@ public partial class next_level : Area2D
     public override void _Ready()
     {
         _finishLevelAudioPlayer = GetNode<AudioStreamPlayer>("FinishLevelAudioPlayer");
+        _finishLevelAudioPlayer.Finished += () => { NextLevel(); };
     }
 
     public void OnBodyEntered(Node body)
@@ -15,7 +16,11 @@ public partial class next_level : Area2D
         {
             GD.Print("Completed a level");
             _finishLevelAudioPlayer.Play();
-            Messanger.Instance.EmitSignal(Messanger.SignalName.LevelCompleted);
         }
+    }
+
+    private void NextLevel()
+    {
+        Messanger.Instance.EmitSignal(Messanger.SignalName.LevelCompleted);
     }
 }

@@ -17,7 +17,7 @@ public partial class end_screen : Control
 	public void OnGameFinished()
 	{
 		GetTree().Paused = true;
-        _timeDisplayLabel.Text = $"It took you {_timeDisplay.ElapsedTime.TotalSeconds} seconds";
+        _timeDisplayLabel.ParseBbcode($"[center]It took you {_timeDisplay.ElapsedTime.TotalSeconds} seconds");
         Show();
 	}
 

@@ -12,14 +12,13 @@ public partial class LevelHandler : Node
         Messanger.Instance.Connect(Messanger.SignalName.LevelCompleted, Callable.From(OnLevelCompleted));
         Messanger.Instance.Connect(Messanger.SignalName.CharacterDied, Callable.From(OnCharacterDied));
         Messanger.Instance.Connect(Messanger.SignalName.GameRestarted, Callable.From(OnGameRestarted));
+        Messanger.Instance.Connect(Messanger.SignalName.GameStarted, Callable.From(OnGameStarted));
 
-        _levelNode = GetNode<Level>("/root/Main/Level");
-        _mainCharacter = GetNode<main_character>("/root/Main/MainCharacter");
+        _levelNode = GetNode<Level>("/root/Main/Game/Level");
+        _mainCharacter = GetNode<main_character>("/root/Main/Game/MainCharacter");
         _endScreen = GetNode<end_screen>("/root/Main/GUI/EndScreen");
 
         _currentLevel = _levelNode.StartWithLevel;
-
-        LoadLevel();
     }
 
     public override void _Process(double delta)
@@ -83,10 +82,14 @@ public partial class LevelHandler : Node
         LoadLevel(); // reload the current level to restart it
     }
 
+    public void OnGameStarted()
+    {
+        LoadLevel();
+    }
+
     public void RestartLevel()
     {
         GD.Print("Restarting level");
-
         Messanger.Instance.EmitSignal(Messanger.SignalName.CharacterDied);
     }
 }
