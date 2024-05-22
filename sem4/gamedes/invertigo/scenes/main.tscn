@@ -21,7 +21,7 @@ script = ExtResource("1_ycgdb")
 
 [node name="Level" type="Node" parent="Game"]
 script = ExtResource("3_3f8qy")
-StartWithLevel = 1
+StartWithLevel = 5
 
 [node name="FallzoneUp" parent="Game" instance=ExtResource("3_tuprg")]
 position = Vector2(0, -355)

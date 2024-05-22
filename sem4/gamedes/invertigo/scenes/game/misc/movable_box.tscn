@@ -1,20 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://drmfm6pha5sp0"]
+[gd_scene load_steps=5 format=3 uid="uid://drmfm6pha5sp0"]
 
 [ext_resource type="Script" path="res://scenes/game/misc/movable_box.cs" id="1_bgwy3"]
 [ext_resource type="PackedScene" uid="uid://dxmty5p8kbln0" path="res://scenes/game/misc/tile_map.tscn" id="1_hpg78"]
+[ext_resource type="AudioStream" uid="uid://dtr0c00gvqsn6" path="res://assets/audio/box_rotate.wav" id="3_yx4np"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dtjmu"]
 size = Vector2(42, 42)
 
 [node name="MovableBox" type="RigidBody2D"]
 collision_mask = 5
-mass = 1.8
+mass = 1.85
 lock_rotation = true
 script = ExtResource("1_bgwy3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dtjmu")
 
 [node name="TileMap" parent="." instance=ExtResource("1_hpg78")]
 position = Vector2(-24, -24)
 layer_0/tile_data = PackedInt32Array(0, 655360, 2)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_dtjmu")
+[node name="BoxRotationAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yx4np")

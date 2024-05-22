@@ -11,6 +11,6 @@ public partial class MainCharacterCamera : Camera2D
 
     public override void _PhysicsProcess(double delta)
     {
-        Position = _mainCharacter.Position;
+        Position = new Vector2(_mainCharacter.Position.X, Position.Y);
     }
 }

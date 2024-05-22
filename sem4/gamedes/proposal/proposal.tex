@@ -14,17 +14,22 @@
 
 \title{%
 Invertigo \\
-\large Game Proposal für GAMEDES \\
+\large Dokumentation Projektarbeit GAMEDES \\
   Abschlussprojekt FS24}
 \author{David Hodel}
-\date{14.05.2024}
+\date{21.05.2024}
 
 \begin{document}
 
 \maketitle
 \newpage
 
-\section{Spielbeschreibung}
+\tableofcontents
+\newpage
+
+\section{Erste Iteration (Projektidee)}
+
+\subsection{Spielbeschreibung}
 Invertigo ist ein 2D-Puzzle-Plattformspiel, bei dem der Spieler die Schwerkraft manipulieren muss,
 um Rätsel zu lösen und durch die Levels zu navigieren.
 Die Spielerperspektive ist seitlich (Side-View), ähnlich wie bei klassischen Plattformspielen.
@@ -36,7 +41,7 @@ die nur unter bestimmten Schwerkraftbedingungen funktionieren.
 Der Titel "Invertigo" spiegelt die desorientierende und verwirrende Erfahrung wider, die die Spieler durchleben,
 wenn sie die Schwerkraft umkehren und somit die gesamte Spielwelt auf den Kopf stellen.
 
-\section{Fokus des Spiels}
+\subsection{Fokus des Spiels}
 
 \begin{itemize}
     \item \textbf{Spielmechanik}: Das zentrale Element des Spiels ist die Schwerkraftwechsel-Mechanik.
@@ -46,7 +51,7 @@ wenn sie die Schwerkraft umkehren und somit die gesamte Spielwelt auf den Kopf s
     Für das Spiel sollen insgesamt 4-6 Levels entwickelt werden.
 \end{itemize}
 
-\section{Elemente}
+\subsection{Elemente}
 
 Die Levels sollen aufeinander aufbauen und eine steigende Schwierigkeit bieten.
 Es sollen verschiedene Elemente eingeführt werden, die das Lösen von neuartigen Problemen ermöglichen.
@@ -62,7 +67,7 @@ Folgende Elemente soll das Spiel enthalten:
     \item \textbf{Schwerkraftfelder}: Bereiche, in denen die Schwerkraft stärker oder schwächer ist, was die Bewegung des Spielers beeinflusst.
 \end{itemize}
 
-\section{Grafikstil und Atmosphäre}
+\subsection{Grafikstil und Atmosphäre}
 
 Der Grafikstil von "Invertigo" ist minimalistisch und abstrakt, um die Schwerpunkt auf die Spielmechanik zu legen. Die Spielwelt besteht aus einfachen geometrischen Formen und klaren Linien.
 Es werden ausschliesslich Sprites in einer 1-Bit-Farbpalette verwendet (schwarz \& weiss) um die visuelle Darstellung zu vereinfachen.
@@ -71,11 +76,11 @@ Der Fokus liegt auf der Klarheit und Lesbarkeit der Spielwelt und auf den Mechan
 Die Atmosphäre des Spiels ist düster und mysteriös, um die desorientierende Natur der Schwerkraftwechsel zu betonen.
 Die Spieler sollen sich absichtlich unwohl fühlen, wenn sie die Schwerkraft umkehren und die Welt auf den Kopf stellen.
 
-\section{Techniken}
+\subsection{Techniken}
 Das Spiel wird in der Engine \href{https://godotengine.org/}{Godot} entwickelt. Die Verwendung von Godot ist kostenlos und es existieren viele Einsteiger-Tutorials für 2D-Spiele.
 Die Entwicklung erfolgt in der Programmiersprache C\#, welche von Godot von Haus aus unterstützt wird.
 
-\section{Vergleich mit anderen Spielen}
+\subsection{Vergleich mit anderen Spielen}
 
 Ähnliche Spiele, wie "VVVVVV" und "Gravity Guy", nutzen Gravitationswechsel als zentrales Spielelement.
 "VVVVVV" verwendet einen kontinuierlichen Wechsel zwischen Boden und Decke, während "Gravity Guy" schnelle Wechsel zwischen Laufen auf dem Boden und der Decke erlaubt.
@@ -88,8 +93,8 @@ Auch "Portal" und "Portal 2" nutzen Gravitation als zentrales Element, um Räume
 Dort liegt jedoch der Fokus ganz klar auf den Portalen. Die Gravitation ist mehr ein Hilfsmittel, um die Portale effektiv zu nutzen.
 Ausserdem sind die Portal-Spiele in 3D, was eine andere Art von Rätseln ermöglicht.
 
-\section{Notwendige Entwicklungsschritte und Assets}
-\subsection{Asset-Liste}
+\subsection{Notwendige Entwicklungsschritte und Assets}
+\subsubsection{Asset-Liste}
 Es wird das kostenfreie \href{https://kenney.nl/assets/1-bit-platformer-pack}{1-Bit Platformer Pack} von Kenney für jegliche Sprites verwendet.
 Dieses enthält insgesamt 400 Tiles in der Grösse 16x16 Pixel und kann direkt in Godot importiert werden.
 \\
@@ -113,7 +118,7 @@ Ein beispielhaftes Level könnte dann wie folgt aussehen:
 
 \includegraphics[width=11cm]{example_level.png}
 
-\subsection{Skripting}
+\subsubsection{Skripting}
 Die Entwicklung von "Invertigo" erfordert die Erstellung von Skripten in C\#, um die Spielmechanik und das Leveldesign zu implementieren.
 Die Skripte umfassen:
 \begin{itemize}
@@ -125,6 +130,118 @@ Die Skripte umfassen:
     \item \textbf{Void-Check}: Überprüfung, ob der Spieler in den "Void" gefallen ist und das Level neu starten
     \item \textbf{Schwerkraftfelder}: Anpassung der Spielerbewegung basierend auf der Schwerkraftstärke
     \item \textbf{Kollisionsabfrage}: Überprüfung der Kollisionen zwischen dem Spieler und den Objekten in der Spielwelt
+\end{itemize}
+
+\newpage
+
+\section{Zweite Iteration}
+
+\subsection{Inhalt}
+
+Diese Iteration beinhaltet die erste spielbare Version des Spiels. Es wurden alle Elemente implementiert, damit die grundlegende Spielmechanik funktioniert
+und die Spieler die ersten Levels spielen können:
+
+\begin{itemize}
+    \item \textbf{Spielersteuerung}: Der Spieler kann sich bewegen und springen.
+    \item \textbf{Gravitationsschalter}: Der Spieler kann die Schwerkraft umkehren, indem er den Schalter betätigt.
+    \item \textbf{Einseitige Plattformen}: Der Spieler kann nur von einer Seite auf die Plattformen zugreifen.
+    \item \textbf{Mobile Kisten}: Der Spieler kann die Kisten bewegen und als Hilfsmittel verwenden, um Hindernisse zu überwinden.
+    \item \textbf{Void-Check}: Der Spieler stirbt, wenn er in den "Void" fällt.
+    \item \textbf{Level-Manager}: Der Spieler kann das Ziel erreichen und das nächste Level starten.
+    \item \textbf{Schwerkratfelder}: Die Schwerkraftfelder beeinflussen die Gravitationsrichtung des Spielers.
+    \item \textbf{Level}: Es wurden insgesamt sechs Levels erstellt, die die verschiedenen Elemente des Spiels einführen und kombinieren.
+\end{itemize}
+
+\subsection{Spielbare Version}
+
+Auf der folgenden Seite kann die spielbare Version zum Testen heruntergeladen werden: \url{https://github.com/Davee02/HSLU/releases/tag/invertigo%2F1.0.0-alpha.1}.
+\textbf{Hinweis:} Es sind nur Builds für Windows und Linux verfügbar, da ich keinen Zugriff auf einen Mac habe, um ein Build für MacOS zu erstellen. Ausserdem ist nur die Windows-Version
+von mir getestet worden. Mit einem gültigen HSLU-Account kann auch \href{https://hsluzern-my.sharepoint.com/:v:/g/personal/david_hodel_stud_hslu_ch/ERNPkmf1C21Gv_LZLtlVvyMBVqpiyUY922O5hHg5LMQeQw?e=HGsUoI&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D}{eine Aufnahme}
+angeschaut werden. 
+
+\subsection{Testfeedbacks}
+
+Ich habe die erste spielbare Version des Spiels an zwei Testpersonen gegeben, um Feedback zu erhalten. Ein Kollege und mein Bruder haben das Spiel getestet.
+Bei beiden Personen handelt es sich um geübte Spieler, die bereits Kontakt mit diversen Plattformspielen hatten und auch regelmässig in ihrer Freizeit Videospiele spielen.
+Mein Kollege hat das Spiel alleine getestet und bei meinem Bruder habe ich zugeschaut. Ich habe ihnen keine Anweisungen gegeben und sie einfach spielen lassen.
+\\
+Die folgenden Feedbacks habe ich erhalten:
+\begin{enumerate}
+    \item Das Spiel macht spass und die Schwerkraftwechsel-Mechanik ist interessant
+    \item Die Levels bieten eine gute Herausforderung und steigern sich in der Schwierigkeit
+    \item Bei Level 1 bilden die falschen Blöcke die rechte Wand
+    \item Bei allen Levels kann man die linke Wand hochspringen
+    \item Die Schwerkraftfelder verhalten sich nicht immer konsistent. Vor allem, wenn in umgekehrter Schwerkraft respawned wird.
+    \item Level 4 kann man durch einen Sprung am Anfang fast gänzlich überspringen
+    \item Bei Level 6 kann man durch das Nutzen eines Schwerkraftfeldes ausserhalb des angedachten Bereiches gelangen
+    \item Es gibt keine Möglichkeit, das Spiel zu beenden oder zu pausieren
+    \item Es fehlt eine Erklärung der Steuerung
+    \item Nach dem letzten Level ist nicht klar, dass das Spiel zu Ende ist, da nur ein schwarzer Bildschirm erscheint
+    \item Das Schieben der mobilen Kisten ist ziemlich mühsam, da sie oft runterfallen und sich zu leicht bewegen. Dies führt zu Frustration
+    \item Ausser zu sterben gibt es keine Möglichkeit, das Level neuzustarten
+    \item Es fehlt die Wiederspielbarkeit, da es keinerlei Bestenliste oder Achievements gibt und die Levels immer gleich sind
+    \item Klares Player-Feedback und "Juice" fehlt (es fühlt sich steril an) bei Aktionen (Schwerkraftwechsel, Kistenbewegung, etc.)
+\end{enumerate}
+
+\bigskip
+Mir sind ausserdem beim Zuschauen bei meinem Bruder aufgefallen, dass die zweite Kiste bei Level 5 eine andere Physik hat, als die erste Kiste. Dies kommt von einer
+alten Test-Implementierung, die ich vergessen habe zu entfernen. Ausserdem hat das sechste Level am Anfang zwei Gravitationsschalter, die nicht benötigt werden.
+
+\subsection{Analyse Feedbacks}
+
+Das Feedback zeigt, dass das Spiel grundsätzlich Spass macht und die Spielmechanik interessant ist. Die Levels bieten eine gute Herausforderung
+und steigern sich in der Schwierigkeit, genau wie geplant.
+\\
+Die Punkte 3 bis und mit 7 sind kleinere Bugs, die mir beim wiederholten Testen des Spiels nicht aufgefallen sind. Diese sollten relativ einfach zu beheben sein.
+\\
+Die Punkte 8 bis und mit 10 zeigen das Fehlen jeglicher UI-Elemente, welche es nicht in die erste spielbare Version geschafft haben. Diese sind jedoch
+essentiell für ein gutes Spielerlebnis und sollten in der nächsten Iteration implementiert werden.
+\\
+Der elfte Punkt ist mir beim Testen auch aufgefallen und ich kann verstehen, dass es zu Frustration führen kann, wenn die Kisten seltsam reagieren. Daran muss
+ich in der nächsten Iteration klar etwas ändern.
+\\
+Der Punkt 13 gehört auch ein Stück weit zu den UI-Elementen, da das Neustarten eines Levels Bestandteil des Pausescreens sein sollte. Beim Zuschauen bei meinem Bruder
+ist mir aufgefallen, dass er oft in schlechte Positionen geraten ist und das Level neu starten wollte. Ich denke, es sollte noch eine schnellere Möglichkeit geben,
+als in das Pausenmenü zu gehen und dort den Neustart zu wählen.
+\\
+Die zwei letzten Punkte sind meiner Meinung nach die gravierendsten. Ich möchte, dass sich mein Spiel auch nach mehrmaligem Spielen noch frisch anfühlt und die Spieler
+motiviert, besser zu werden. Dass das Spiel "steril" / "clean" aussieht und sich auch so anfühlt ist gewissermassen geplant. Ich habe mich bewusst für einen minimalistischen
+Grafikstil entschieden, um die Spielmechanik in den Vordergrund zu stellen. Allerdings sollte es trotzdem Feedback geben, wenn der Spieler eine Aktion ausführt. Dieses
+Feedback kann auch sehr minimalistisch sein, aber es sollte vorhanden sein.
+
+\subsection{Geplante Änderungen}
+
+Für die nächste Iteration sind folgende Änderungen geplant:
+
+\begin{itemize}
+    \item Beheben aller Bugs und Level-Skips, die im Feedback aufgeführt wurden
+    \item Implementierung eines Pausenmenüs mit folgenden Funktionen: Level Neustarten, Spiel neustarten, Spiel beenden, Spiel fortsetzen
+    \item Implementierung eines Startscreens, welcher die Steuerung erklärt
+    \item Implementierung eines Endscreens, welcher anzeigt, dass das Spiel zu Ende ist
+    \item Die Kisten schwerer machen, damit sie nicht so leicht runterfallen und sich nicht so leicht bewegen
+    \item Zusätzlich zum Pausenmenü ein Level-Neustart-Button, der das Level sofort neu startet
+    \item Um die Wieerspielbarkeit zu erhöhen und die Spieler zu motivieren, das Spiel erneut zu spielen, soll ein Timer hinzugefügt werden. Dieser misst ab dem Start des ersten Levels
+    die Zeit, die der Spieler benötigt, um alle Levels zu beenden. Diese Zeit wird dann im Endscreen angezeigt und ermöglicht es den Spielern, sich mit anderen zu messen. Während das Spiel
+    pause ist, soll der Timer angehalten werden.
+    \item Für das Ausführen von Aktionen (Schwerkraftwechsel, Jump, Level beenden, ins Void fallen) sollen minimale Soundeffekte hinzugefügt werden, um dem Spieler Feedback zu geben.
+\end{itemize}
+
+\newpage
+
+\section{Dritte Iteration}
+
+\subsection{Spielbare Version}
+
+\subsection{Testfeedbacks}
+
+\subsection{Analyse Feedbacks}
+
+\subsection{Geplante Änderungen}
+
+Für die nächste Iteration sind folgende Änderungen geplant:
+
+\begin{itemize}
+    \item Abspielen eines Soundeffekts, wenn die bewegliche Kiste nach einem Schwerkraftwechsel auf eine Plattform fällt oder wenn sie sich beim Bewegen um 90° gedreht hat.
 \end{itemize}
 
 \end{document}
