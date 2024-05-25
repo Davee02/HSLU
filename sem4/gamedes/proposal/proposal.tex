@@ -1,5 +1,6 @@
 \documentclass{article}
 
+\renewcommand{\contentsname}{Inhalte}
 \usepackage[raggedrightboxes]{ragged2e}
 \usepackage{hyperref}
 \usepackage{graphicx}
@@ -49,6 +50,8 @@ wenn sie die Schwerkraft umkehren und somit die gesamte Spielwelt auf den Kopf s
     \item \textbf{Leveldesign}: Jedes Level führt neue Elemente ein, die zuerst isoliert vorgestellt und dann in Kombinationen verwendet werden.
     Die vorhandenen Elemente werden in immer komplexeren Rätseln kombiniert, um die Spieler herauszufordern.
     Für das Spiel sollen insgesamt 4-6 Levels entwickelt werden.
+    \item \textbf{Spassformen:} Das Spiel soll vor allem die Spassformen "Herausforderungen" und "Entdeckung" ansprechen. Ersteres durch das Lösen
+    der Rätsel und das Überwinden der Hindernisse und letzteres durch das Entdecken neuer Elemente und Mechaniken in den Levels.
 \end{itemize}
 
 \subsection{Elemente}
@@ -71,14 +74,16 @@ Folgende Elemente soll das Spiel enthalten:
 
 Der Grafikstil von "Invertigo" ist minimalistisch und abstrakt, um die Schwerpunkt auf die Spielmechanik zu legen. Die Spielwelt besteht aus einfachen geometrischen Formen und klaren Linien.
 Es werden ausschliesslich Sprites in einer 1-Bit-Farbpalette verwendet (schwarz \& weiss) um die visuelle Darstellung zu vereinfachen.
-Der Fokus liegt auf der Klarheit und Lesbarkeit der Spielwelt und auf den Mechaniken des Spiels.
+Der Fokus liegt auf der Klarheit und Lesbarkeit der Spielwelt und auf den Mechaniken des Spiels. Es soll möglichst auf Schnickschnack verzichtet werden.
 \\
 Die Atmosphäre des Spiels ist düster und mysteriös, um die desorientierende Natur der Schwerkraftwechsel zu betonen.
 Die Spieler sollen sich absichtlich unwohl fühlen, wenn sie die Schwerkraft umkehren und die Welt auf den Kopf stellen.
 
 \subsection{Techniken}
+
 Das Spiel wird in der Engine \href{https://godotengine.org/}{Godot} entwickelt. Die Verwendung von Godot ist kostenlos und es existieren viele Einsteiger-Tutorials für 2D-Spiele.
-Die Entwicklung erfolgt in der Programmiersprache C\#, welche von Godot von Haus aus unterstützt wird.
+Die Entwicklung erfolgt in der Programmiersprache C\#, welche von Godot von Haus aus unterstützt wird. Ich bin bereits mit der Sprache vertraut, da ich bei meiner 
+Arbeit als Softwareentwickler täglich mit C\# arbeite.
 
 \subsection{Vergleich mit anderen Spielen}
 
@@ -112,11 +117,7 @@ Die folgenden Assets werden aus der Tilemap benötigt
 
 Im folgenden Bild sind alle Assets aus dem 1-Bit Platformer Pack sichtbar:
 
-\includegraphics[width=11cm]{kenney_assets}
-
-Ein beispielhaftes Level könnte dann wie folgt aussehen:
-
-\includegraphics[width=11cm]{example_level.png}
+\includegraphics[width=11cm]{kenney_assets.png}
 
 \subsubsection{Skripting}
 Die Entwicklung von "Invertigo" erfordert die Erstellung von Skripten in C\#, um die Spielmechanik und das Leveldesign zu implementieren.
@@ -132,8 +133,14 @@ Die Skripte umfassen:
     \item \textbf{Kollisionsabfrage}: Überprüfung der Kollisionen zwischen dem Spieler und den Objekten in der Spielwelt
 \end{itemize}
 
-\newpage
+\subsection{Skizzen}
 
+Für die ersten vier Levels habe ich Skizzen erstellt, um die Levelstruktur und die Platzierung der Elemente zu visualisieren. Diese Skizzen dienen
+als Vorlage für die Entwicklung der Levels in Godot. Die Skizzen sind sehr einfach gehalten und dienen nur dazu, die grobe Struktur der Levels zu zeigen.
+
+\includegraphics[width=12cm]{level_skizzes.png}
+
+\newpage
 \section{Zweite Iteration}
 
 \subsection{Inhalt}
@@ -182,7 +189,6 @@ Die folgenden Feedbacks habe ich erhalten:
     \item Es fehlt die Wiederspielbarkeit, da es keinerlei Bestenliste oder Achievements gibt und die Levels immer gleich sind
     \item Klares Player-Feedback und "Juice" fehlt (es fühlt sich steril an) bei Aktionen (Schwerkraftwechsel, Kistenbewegung, etc.)
 \end{enumerate}
-
 \bigskip
 Mir sind ausserdem beim Zuschauen bei meinem Bruder aufgefallen, dass die zweite Kiste bei Level 5 eine andere Physik hat, als die erste Kiste. Dies kommt von einer
 alten Test-Implementierung, die ich vergessen habe zu entfernen. Ausserdem hat das sechste Level am Anfang zwei Gravitationsschalter, die nicht benötigt werden.
@@ -215,14 +221,15 @@ Für die nächste Iteration sind folgende Änderungen geplant:
 
 \begin{itemize}
     \item Beheben aller Bugs und Level-Skips, die im Feedback aufgeführt wurden
-    \item Implementierung eines Pausenmenüs mit folgenden Funktionen: Level Neustarten, Spiel neustarten, Spiel beenden, Spiel fortsetzen
+    \item Implementierung eines Pausenmenüs mit folgenden Funktionen: Level neustarten, Spiel neustarten, Spiel beenden, Spiel fortsetzen
     \item Implementierung eines Startscreens, welcher die Steuerung erklärt
     \item Implementierung eines Endscreens, welcher anzeigt, dass das Spiel zu Ende ist
     \item Die Kisten schwerer machen, damit sie nicht so leicht runterfallen und sich nicht so leicht bewegen
     \item Zusätzlich zum Pausenmenü ein Level-Neustart-Button, der das Level sofort neu startet
     \item Um die Wieerspielbarkeit zu erhöhen und die Spieler zu motivieren, das Spiel erneut zu spielen, soll ein Timer hinzugefügt werden. Dieser misst ab dem Start des ersten Levels
     die Zeit, die der Spieler benötigt, um alle Levels zu beenden. Diese Zeit wird dann im Endscreen angezeigt und ermöglicht es den Spielern, sich mit anderen zu messen. Während das Spiel
-    pause ist, soll der Timer angehalten werden.
+    pause ist, soll der Timer angehalten werden. Dies fügt auch die neue Spassformen "Gemeinschaft" und "Unterwerfung (Grind)" hinzu, da die Spieler sich mit anderen messen können und
+    versuchen können, ihre Zeit zu verbessern.
     \item Für das Ausführen von Aktionen (Schwerkraftwechsel, Jump, Level beenden, ins Void fallen) sollen minimale Soundeffekte hinzugefügt werden, um dem Spieler Feedback zu geben.
 \end{itemize}
 
@@ -232,7 +239,25 @@ Für die nächste Iteration sind folgende Änderungen geplant:
 
 \subsection{Spielbare Version}
 
+Das Spiel mit den implementierten Feedbacks der ersten Iteration kann auf folgender Seite heruntergeladen werden: \url{https://github.com/Davee02/HSLU/releases/tag/invertigo%2F1.0.0-alpha.2}.
+Mit einem gültigen HSLU-Account kann auch \href{www.todo.ch}{eine Aufnahme}
+angeschaut werden.
+
 \subsection{Testfeedbacks}
+
+Die zweite Version des Spiels habe ich wieder an zwei Testpersonen gegeben, einmal wiederum an meinen Bruder und an einen anderen Kollegen.
+Auch bei diesen zwei Personen handelt es sich um langjährige Videospieler.
+\\
+Die folgenden Feedbacks habe ich erhalten:
+
+\begin{enumerate}
+    \item Der Timer ist eine sehr gute Ergänzung und motiviert, das Spiel immer wieder zu spielen um möglichst schnell zu sein
+    \item Das Pausenmenü ist sehr nützlich und die Möglichkeit, das Level direkt neu zu starten, ist sehr praktisch
+    \item Die Kisten sind weniger frustrierend, aber immer noch nicht perfekt. Das Schieben der Kisten fühlt sich immer noch nicht ganz richtig an
+    \item Die Soundeffekte machen das Spiel "crispier". Es ist jedoch schade, dass die Kisten keinerlei Soundeffekte haben
+    \item Nützlicher Startscreen, der die Steuerung erklärt (vor allem der Schwerkraftwechsel und das Neustarten des Levels). Auch gut, dass das Spiel nicht sofort beginnt.
+    \item Zum Spiel fehlt noch ein bisschen eine Hintergrundgeschichte. Es wird nicht klar, warum der Spieler die Levels durchspielt und was das Ziel ist.
+\end{enumerate}
 
 \subsection{Analyse Feedbacks}
 
@@ -243,5 +268,84 @@ Für die nächste Iteration sind folgende Änderungen geplant:
 \begin{itemize}
     \item Abspielen eines Soundeffekts, wenn die bewegliche Kiste nach einem Schwerkraftwechsel auf eine Plattform fällt oder wenn sie sich beim Bewegen um 90° gedreht hat.
 \end{itemize}
+
+\newpage
+\section{Endprodukt}
+
+Das endgültige Spiel kann auf folgender Seite heruntergeladen werden: \url{https://github.com/Davee02/HSLU/releases/tag/invertigo%2F1.0.0}.
+Mit einem gültigen HSLU-Account kann auch \href{www.todo.ch}{eine Aufnahme}
+angeschaut werden.
+
+\subsection{Spielbeschreibung}
+
+Das Spiel beginnt mit einem Startscreen, der den Titel des Spiels enthält und die Steuerung erklärt. Mit einem beliebigen Tastendruck wechselt das Spiel zum nächsten Screen, welcher
+kurz die Hintergrundgeschichte des Spiels erzählt. Der Spieler ist ein Wissenschaftler in einer surrealen Welt, welcher ein mysteriöses Artefakt gefunden hat. Dieses Artefakt erlaubt
+es ihm, die Schwerkraft zu manipulieren. Der Spieler erforscht nun die Geheimnisse dieser Welt.
+\\
+Mit einem weiteren Tastendruck startet das erste Level. Dieses ist sehr einfach gehalten und dient dazu, dem Spieler die Steuerung nahezubringen. Es müssen zwei Sprünge über das Void
+gemacht werden, um das Level zu beenden. Mittels ESC kann jederzeit das Pausenmenü aufgerufen und das Spiel und der Timer, welcher im unteren linken Ecken angezeigt wird, pausiert werden.
+\\
+Im zweiten Level muss das erste mal die Schwerkraft umgekehrt werden, da sich der Levelabschluss an der Decke befindet. Es wird abichtlich nicht ausdrücklich darauf hingewiesen, dass die
+Schwerkraft umgekehrt werden muss, um den Spieler zu zwingen, die Steuerung zu lernen. Der Timer wird weiterhin angezeigt und läuft weiter.
+\\
+Im dritten Level startet man kopfüber und muss mehrere Sprünge in dieser Position meistern, um die Schwerkraft umzukehren. Nach weiteren Sprüngen ist das Level beendet. Dieses Level
+dient dazu, die Spieler an die Schwerkraftwechsel zu gewöhnen und sie zu zwingen, die Schwerkraftwechsel zu nutzen, um das Level zu beenden. Der Schwierigkeitsgrad steigt langsam an.
+\\
+Im vierten Level werden die einseitigen Plattformen eingeführt. Der Spieler muss die Schwerkraft umkehren, um auf den Plattformen zu stehen. Es wurden absichtlich zu viele Gravitationsschalter 
+platziert, welche den Spieler ins Void fallen lassen, um ihn zu zwingen, bewusste Entscheidungen zu treffen. Für das Beenden des Levels gibt es mehrere Wege, wobei der schnellste Weg
+durch mehrmliges Ausprobieren gefunden werden muss.
+\\
+Im fünften Level muss der Spieler das Handling mit den mobilen Kisten lernen, damit er sie nutzen kann, an höher gelegene Plattformen zu gelangen. Es wird auch verlangt, dass er die einseitigen
+Plattformen und die Schwerkraftwechsel beherrscht.
+\\
+Im sechsten und letzten Level werden noch die Schwerkraftfelder eingeführt, welche temporär die Schwerkraft beeinflussen. Ohne das Wissen, wie die Schwerkraftwechsel funktionieren, ist das
+Level nicht zu schaffen.
+\\
+Nach dem Beenden des letzten Levels wird der Endscreen angezeigt, welcher die Zeit in Sekunden anzeigt, die der Spieler benötigt hat, um alle Levels zu beenden. Der Spieler kann nun das Spiel beenden
+oder das Spiel inklusive des Timers neustarten, um zu versuchen, eine bessere Zeit zu erreichen.
+
+\subsection{Gamedesign-Inhalte}
+
+\begin{itemize}
+    \item \textbf{Core-Loops:} Die Core-Loops bestehen aus dem Lösen der Rätsel und Trainieren der Sprünge in den Levels und dem Versuch, die alle Levels nacheinander so schnell wie möglich zu beenden, um eine bessere Zeit zu erreichen.
+    Der Meta Loop besteht darin, das Spiel immer wieder zu spielen, um eine bessere Zeit zu erreichen und sich mit anderen Spielern zu messen.
+    Die Macro-Loops sind die einzelnen Levels des Spiels.
+    Die Micro-Loops sind die einzelnen Aktionen der in den Levels: Laufen, Springen, Schwerkraftwechsel, Kisten bewegen, etc.
+    \item \textbf{Spassformen:} Wie im Kapitel \textit{Fokus des Spiels} beschrieben werden vor allem die Spassformen "Herausforderungen" und "Entdeckung" angesprochen. 
+    Durch die Einführung des Timers nach der zweiten Iteration kommen die Spassformen "Gemeinschaft" und "Unterwerfung (Grind)" hinzu.
+    \item \textbf{Prototyping:} Die im vorhinein erstellten Skizzen zu den ersten vier Levels haben sehr geholfen, die Levels zu designen. Die Skizzen haben als Vorlage gedient und die Platzierung der Elemente.  
+    Das Spiel wurde danach in mehreren Iterationen entwickelt, um die Spielmechanik und das Leveldesign zu testen und zu verbessern.
+    Die Testfeedbacks haben sehr wichtige Sachen aufgezeigt, die ich als Entwickler nicht gesehen habe. Ohne die Testpersonen wäre das Spiel bei weitem nicht so gut geworden.
+    \item \textbf{Interesting Choices:} Zu Beginn des Spiels sind die Entscheidungen noch uninteressant, da es sich um offensichtliche Entscheidungen handelt.
+    Mit zunehmenden Levels werden die Entscheidungen jedoch interessanter und erfordern mehr strategisches Denken. Der Spieler muss bewusst entscheiden, wann er die Schwerkraft umkehren
+    soll, wohin seine Kisten sollen und wann er bei den Schwerkraftfeldern springen soll. Die Entscheidungen sind auch beeinflusst von dem Drang, eine möglichst gute Zeit zu erreichen.
+    In späteren Playthroughs kann der Spieler risikoreichere Routen wählen, um Zeit zu sparen.
+    \item \textbf{Balancing:} Während die Spielfigur immer gleich stark ist und sich gleich bewegt, werden die Levels immer schwieriger. Die Schwierigkeit steigt durch die Einführung neuer Elemente
+    und die Kombination von bereits bekannten Elementen (spielmechanische Weiterentwicklung). Die Levels sind so gestaltet, dass sie nicht zu einfach sind, aber auch nicht zu schwer. Der Spieler soll immer das Gefühl haben, dass er
+    das Level schaffen kann, wenn er es nur oft genug probiert. Es wird vom Spieler verlangt, dass er besser wird. Die Playtests haben sehr geholfen, das Balancing zu verbessern, da so mehrere Meinungen
+    eingeholt werden konnten. \\
+    Ich habe bewusst auf Feedback Loops (Positive und Negative) verzichtet, da ich denke, dass das Spiel auch ohne diese gut funktioniert. Die Spieler sollen sich auf das Spiel konzentrieren und nicht auf die
+    Belohnungen, die sie erhalten. Der Timer ist die einzige Belohnung, die der Spieler erhält, wenn er das Spiel beendet.
+    \item \textbf{Randomness:} Auch den Zufall habe ich bewusst aus dem Spiel gelassen. Die Levels sind immer gleich und es gibt keine zufällig platzierten oder sich bewegenden Elemente.
+    Der Skill des Spielers soll im Vordergrund stehen und nicht das Glück. \\
+    Würden manche Elemente zufällig sein könnte dies leicht zu Frustration führen, wenn man gerade dran ist, eine neue Betzeit aufzustellen und dann durch ein blöd platziertes Element scheitert.
+    \item \textbf{Narration:} Zuerst wollte ich das Narrative komplett weglassen, da ich dachte, dass es nicht nötig ist. Die Testpersonen haben jedoch darauf hingewiesen, dass eine gewisse Hintergrundgeschichte
+    fehlt. Ich habe mich dann entschieden, eine kurze Hintergrundgeschichte zu schreiben, die den Spieler in die Welt einführt und als Leitmotiv dient. Die Story ist dabei in die Kategorie \textit{Voyage and Return}
+    einzuordnen. Der Spieler erforscht eine fremde Welt und will alle Geheimnisse lüften.
+\end{itemize}
+
+\newpage
+\section{Reflexion}
+
+Ich bin sehr zufrieden mit dem Endprodukt. Das Spiel ist so geworden, wie ich es mit vorgestellt habe. Ich konnte das theoretische Wissen, welches ich im Modul erworben habe, gut umsetzen und
+habe ein Spiel entwickelt, welches Spass macht und herausfordernd ist. Die Testfeedbacks haben mir sehr geholfen, das Spiel zu verbessern und ich habe gelernt, wie wichtig es ist, das Spiel immer wieder
+von anderen Personen testen zu lassen. Die positiven Feedbacks und die Verbesserungsvorschläge haben mich sehr motiviert.
+\\
+Das Spiel ist nicht perfekt und es gibt noch viele Dinge, die verbessert werden können. Sicherlich ist das Hinzufügen von weiteren Levels der zentralste Punkt, um das Spiel zu erweitern. Die bestehenden
+Elemente können noch in unzähligen Varianten kombiniert werden. Auch kreative Elemente, wie Portale oder Teleporter, könnten das Spiel noch interessanter machen. Ausserdem gibt es sicherlich
+noch viele unentdeckte Bugs und Level-Skips, die es zu beheben gilt.
+\\
+Das Umsetzen von Invertigo in Godot hat mir gezeigt, was für ein Aufwand hinter jedem Spiel steckt. Eine Idee zu haben, dies in eine Spielmechanik zu verpacken, Levels zu designen und das Spiel zu balancen
+und dazu noch passende Assets, eine Narration und Soundeffekte zu designen is eine Herkulesaufgabe. Ich habe grossen Respekt vor allen Game-Designern und Entwicklern, die solche Spiele entwickeln.
 
 \end{document}
