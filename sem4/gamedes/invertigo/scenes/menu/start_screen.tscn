@@ -12,7 +12,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vxf2r")
 
-[node name="InvertigoTitle" type="RichTextLabel" parent="."]
+[node name="Controls" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="InvertigoTitle" type="RichTextLabel" parent="Controls"]
 offset_left = 326.0
 offset_top = 70.0
 offset_right = 936.0
@@ -22,11 +25,11 @@ theme_override_font_sizes/bold_font_size = 120
 bbcode_enabled = true
 text = "[center][b]Invertigo"
 
-[node name="InvertigoTitle2" type="RichTextLabel" parent="."]
+[node name="ControlsExplanation" type="RichTextLabel" parent="Controls"]
 offset_left = 194.0
 offset_top = 268.0
 offset_right = 1072.0
-offset_bottom = 625.0
+offset_bottom = 543.0
 theme_override_font_sizes/normal_font_size = 27
 bbcode_enabled = true
 text = "[center]Move with [A] and [D] or the arrow keys
@@ -35,4 +38,22 @@ Interact with [E]
 Reset Level with [R]
 Open pause menu with [ESC]
 
-Press any key to start"
+Press any key to continue"
+
+[node name="Story" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="StoryText" type="RichTextLabel" parent="Story"]
+offset_left = 63.0
+offset_top = 115.0
+offset_right = 1226.0
+offset_bottom = 651.0
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]In a distant, surreal world where the laws of physics are constantly challenged, there lives a curious scientist named Liora. One day, she discovers a mysterious artifact in an ancient library – a sphere that can manipulate gravity. However, this power can only be harnessed in specific locations scattered across the world, marked by peculiar gravity-switching blocks.
+
+Determined to unlock the secrets of this strange world, Liora sets out on a perilous journey. The world of Invertigo is filled with treacherous traps and enigmatic mechanisms that can only be overcome by skillfully using these gravity-switching blocks. Each level presents new challenges and gradually reveals the truth about the origins of the gravity sphere and its true power.
+
+Your adventure begins here. Use the gravity-switching blocks to your advantage, solve the puzzles, and help Liora uncover the mysteries of this fascinating world. But be cautious – the world of Invertigo is full of dangers, and one wrong step can mark your death.
+
+Press any key to start your adventure"
