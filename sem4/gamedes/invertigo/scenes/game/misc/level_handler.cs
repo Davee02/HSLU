@@ -1,11 +1,15 @@
 using Godot;
 
-public partial class LevelHandler : Node
+public partial class level_handler : Node
 {
     private int _currentLevel;
-    private Level _levelNode;
     private main_character _mainCharacter;
     private end_screen _endScreen;
+    private Node _levelNode;
+    private AudioStreamPlayer _finishLevelAudioPlayer;
+
+    [Export]
+    public int StartWithLevel { get; set; }
 
     public override void _Ready()
     {
@@ -14,11 +18,12 @@ public partial class LevelHandler : Node
         Messanger.Instance.Connect(Messanger.SignalName.GameRestarted, Callable.From(OnGameRestarted));
         Messanger.Instance.Connect(Messanger.SignalName.GameStarted, Callable.From(OnGameStarted));
 
-        _levelNode = GetNode<Level>("/root/Main/Game/Level");
+        _levelNode = GetNode<Node>("Level");
         _mainCharacter = GetNode<main_character>("/root/Main/Game/MainCharacter");
         _endScreen = GetNode<end_screen>("/root/Main/GUI/EndScreen");
+        _finishLevelAudioPlayer = GetNode<AudioStreamPlayer>("FinishLevelAudioPlayer");
 
-        _currentLevel = _levelNode.StartWithLevel;
+        _currentLevel = StartWithLevel;
     }
 
     public override void _Process(double delta)
@@ -32,6 +37,7 @@ public partial class LevelHandler : Node
     public void OnLevelCompleted()
     {
         GD.Print("Received level completed signal");
+        _finishLevelAudioPlayer.Play();
         _currentLevel++;
         LoadLevel();
     }
@@ -55,14 +61,14 @@ public partial class LevelHandler : Node
         if (!ResourceLoader.Exists(currentLevelScenePath))
         {
             GD.Print($"Level {_currentLevel} does not exist. Assuming it was the last.");
-            Messanger.Instance.EmitSignal(Messanger.SignalName.GameFinished);
+            _finishLevelAudioPlayer.Finished += () => { Messanger.Instance.EmitSignal(Messanger.SignalName.GameFinished); };
             return;
         }
 
         var currentLevelScene = ResourceLoader.Load<PackedScene>(currentLevelScenePath);
         var instance = currentLevelScene.Instantiate<base_level>();
 
-        if(instance.StartWithFlippedGravity)
+        if (instance.StartWithFlippedGravity)
         {
             Messanger.Instance.EmitSignal(Messanger.SignalName.GravitySetToInverted);
         }
@@ -73,7 +79,7 @@ public partial class LevelHandler : Node
         _mainCharacter.Position = instance.CharacterStartPosition;
         _mainCharacter.Velocity = Vector2.Zero;
 
-        _levelNode.CallDeferred(Level.MethodName.AddChild, instance);
+        _levelNode.CallDeferred(MethodName.AddChild, instance);
     }
 
     private void OnCharacterDied()
@@ -82,12 +88,12 @@ public partial class LevelHandler : Node
         LoadLevel(); // reload the current level to restart it
     }
 
-    public void OnGameStarted()
+    private void OnGameStarted()
     {
         LoadLevel();
     }
 
-    public void RestartLevel()
+    private void RestartLevel()
     {
         GD.Print("Restarting level");
         Messanger.Instance.EmitSignal(Messanger.SignalName.CharacterDied);

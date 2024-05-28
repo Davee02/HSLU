@@ -72,7 +72,7 @@ position = Vector2(1948, 305)
 position = Vector2(2044, 305)
 
 [node name="ContextualPlatform8" parent="." instance=ExtResource("5_vmu6s")]
-position = Vector2(2168, 202)
+position = Vector2(2190, 225)
 
 [node name="GravitySwitcher5" parent="." instance=ExtResource("3_403nu")]
 position = Vector2(1693, 375)
@@ -86,4 +86,4 @@ position = Vector2(1535, 68)
 rotation = 3.14159
 
 [node name="NextLevel" parent="." instance=ExtResource("4_iul18")]
-position = Vector2(2145, 184)
+position = Vector2(2167, 207)

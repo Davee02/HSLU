@@ -28,7 +28,7 @@ collision_mask = 3
 script = ExtResource("1_bbvuj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+scale = Vector2(1.5, 1.25)
 shape = SubResource("RectangleShape2D_5sba0")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

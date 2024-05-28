@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1oldyf7tsvx5"]
+[gd_scene load_steps=8 format=3 uid="uid://c1oldyf7tsvx5"]
 
 [ext_resource type="Script" path="res://scenes/game/levels/level_6.cs" id="1_y8t1x"]
 [ext_resource type="PackedScene" uid="uid://dxmty5p8kbln0" path="res://scenes/game/misc/tile_map.tscn" id="2_acn7d"]
@@ -6,40 +6,36 @@
 [ext_resource type="PackedScene" uid="uid://2ytp1cxdg6b3" path="res://scenes/game/misc/gravity_switcher.tscn" id="4_i62xy"]
 [ext_resource type="PackedScene" uid="uid://bpxeug5xguise" path="res://scenes/game/misc/invisible_barrier.tscn" id="6_a4t4u"]
 [ext_resource type="PackedScene" uid="uid://cewuen76uhpf8" path="res://scenes/game/misc/next_level.tscn" id="6_nidrk"]
+[ext_resource type="PackedScene" uid="uid://b7x277p67f52d" path="res://scenes/game/misc/ContextualPlatform.tscn" id="7_i85c1"]
 
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_y8t1x")
 CharacterStartPosition = Vector2(50, 550)
 
 [node name="TileMap" parent="." instance=ExtResource("2_acn7d")]
-layer_0/tile_data = PackedInt32Array(786432, 524288, 4, 786433, 524288, 4, 786434, 524288, 4, 786435, 524288, 4, 786445, 524288, 4, 786446, 524288, 4, 786447, 524288, 4, 786448, 524288, 4, 786449, 524288, 4, 786450, 524288, 4, 786451, 524288, 4, 786436, 524288, 4, 786437, 524288, 4, 786438, 524288, 4, 786439, 524288, 4, 786440, 524288, 4, 786441, 524288, 4, 786442, 524288, 4, 786443, 524288, 4, 786444, 524288, 4, 786458, 524288, 4, 720923, 524288, 4, 720924, 524288, 4, 655388, 524288, 4, 655389, 524288, 4, 655390, 524288, 4, 589854, 524288, 4, 589855, 524288, 4, 720896, 655360, 6, 655360, 655360, 6, 589824, 655360, 6, 524288, 655360, 6, 458752, 655360, 6, 393216, 655360, 6, 327680, 655360, 6, 262144, 655360, 6, 196608, 655360, 6, 131072, 655360, 6, 65536, 655360, 6, 43, 262144, 65540, 44, 262144, 65540, 45, 262144, 65540, 46, 262144, 65540, 47, 262144, 65540, 48, 262144, 65540, 49, 262144, 65540, 42, 262144, 65540, 50, 262144, 65540, 51, 262144, 65540, 262199, 524288, 5, 327736, 524288, 5, 327737, 524288, 5, 327738, 524288, 5, 327739, 524288, 5, 0, 655360, 6)
+layer_0/tile_data = PackedInt32Array(786432, 524288, 4, 786433, 524288, 4, 786434, 524288, 4, 786435, 524288, 4, 786436, 524288, 4, 786437, 524288, 4, 786438, 524288, 4, 720896, 655360, 6, 655360, 655360, 6, 589824, 655360, 6, 524288, 655360, 6, 458752, 655360, 6, 393216, 655360, 6, 327680, 655360, 6, 262144, 655360, 6, 196608, 655360, 6, 131072, 655360, 6, 65536, 655360, 6, 43, 262144, 65540, 44, 262144, 65540, 45, 262144, 65540, 46, 262144, 65540, 47, 262144, 65540, 48, 262144, 65540, 49, 262144, 65540, 42, 262144, 65540, 50, 262144, 65540, 51, 262144, 65540, 262199, 524288, 5, 327736, 524288, 5, 327737, 524288, 5, 327738, 524288, 5, 327739, 524288, 5, 0, 655360, 6, 524295, 524288, 4, 524296, 524288, 4, 524297, 524288, 4, 524298, 524288, 4, 524299, 524288, 4, 589831, 524288, 5, 655367, 524288, 5, 720903, 524288, 5, 786439, 524288, 4, 9, 262144, 65540, 10, 262144, 65540, 11, 262144, 65540, 12, 262144, 65540, 13, 262144, 65540, 14, 262144, 65540, 15, 262144, 65540, 16, 262144, 65540, 720963, 524288, 5, 720964, 524288, 5, 720965, 524288, 5, 720966, 524288, 5, 720967, 524288, 5)
 
 [node name="GravityArea" parent="." instance=ExtResource("3_vu32y")]
-position = Vector2(221, 520)
+position = Vector2(266, 518)
 rotation = -1.5708
 scale = Vector2(0.3, 0.3)
 
 [node name="GravityArea10" parent="." instance=ExtResource("3_vu32y")]
-position = Vector2(561, 520)
+position = Vector2(769, 117)
 scale = Vector2(0.3, 0.3)
 
 [node name="GravityArea2" parent="." instance=ExtResource("3_vu32y")]
-position = Vector2(1074, 574)
+position = Vector2(1240, 518)
 rotation = -1.5708
-scale = Vector2(0.3, 0.3)
-
-[node name="GravityArea3" parent="." instance=ExtResource("3_vu32y")]
-position = Vector2(1627, 376)
-rotation = -1.5708
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.4, 0.4)
 
 [node name="GravityArea4" parent="." instance=ExtResource("3_vu32y")]
-position = Vector2(1798, 321)
+position = Vector2(1748, 372)
 rotation = -1.5708
 scale = Vector2(0.3, 0.3)
 
 [node name="GravityArea5" parent="." instance=ExtResource("3_vu32y")]
-position = Vector2(1947, 208)
+position = Vector2(1932, 230)
 rotation = -1.5708
 scale = Vector2(0.35, 0.35)
 
@@ -53,20 +49,80 @@ position = Vector2(2449, 116)
 scale = Vector2(0.3, 0.3)
 
 [node name="GravityArea9" parent="." instance=ExtResource("3_vu32y")]
-position = Vector2(2861, 403)
+position = Vector2(2887, 360)
+scale = Vector2(0.3, 0.3)
+
+[node name="GravityArea11" parent="." instance=ExtResource("3_vu32y")]
+position = Vector2(3071, 446)
 scale = Vector2(0.3, 0.3)
 
 [node name="GravitySwitcher" parent="." instance=ExtResource("4_i62xy")]
-position = Vector2(2120, 66)
+position = Vector2(2262, 276)
+
+[node name="GravitySwitcher3" parent="." instance=ExtResource("4_i62xy")]
+position = Vector2(1224, 263)
 
 [node name="NextLevel" parent="." instance=ExtResource("6_nidrk")]
-position = Vector2(2946, 501)
+position = Vector2(3439, 600)
 rotation = 3.14159
 
-[node name="GravitySwitcher2" parent="." instance=ExtResource("4_i62xy")]
-position = Vector2(553, 570)
-
 [node name="InvisibleBarrier" parent="." instance=ExtResource("6_a4t4u")]
-position = Vector2(2016, -134)
-rotation = -0.0174533
-scale = Vector2(1, 3)
+position = Vector2(2012, -257)
+rotation = -0.0523599
+scale = Vector2(4, 5)
+
+[node name="GravitySwitcher2" parent="." instance=ExtResource("4_i62xy")]
+position = Vector2(550, 375)
+
+[node name="ContextualPlatform" parent="." instance=ExtResource("7_i85c1")]
+position = Vector2(864, 246)
+rotation = 3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform2" parent="." instance=ExtResource("7_i85c1")]
+position = Vector2(912, 246)
+rotation = 3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform3" parent="." instance=ExtResource("7_i85c1")]
+position = Vector2(1008, 211)
+
+[node name="ContextualPlatform4" parent="." instance=ExtResource("7_i85c1")]
+position = Vector2(1056, 211)
+
+[node name="ContextualPlatform5" parent="." instance=ExtResource("7_i85c1")]
+position = Vector2(1104, 211)
+
+[node name="ContextualPlatform11" parent="." instance=ExtResource("7_i85c1")]
+position = Vector2(1527, 368)
+
+[node name="ContextualPlatform14" parent="." instance=ExtResource("7_i85c1")]
+position = Vector2(2287, 296)
+
+[node name="ContextualPlatform12" parent="." instance=ExtResource("7_i85c1")]
+position = Vector2(1575, 368)
+
+[node name="ContextualPlatform6" parent="." instance=ExtResource("7_i85c1")]
+position = Vector2(1104, 246)
+rotation = -3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform9" parent="." instance=ExtResource("7_i85c1")]
+position = Vector2(1361, 515)
+rotation = -3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform10" parent="." instance=ExtResource("7_i85c1")]
+position = Vector2(1409, 515)
+rotation = -3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform7" parent="." instance=ExtResource("7_i85c1")]
+position = Vector2(1152, 246)
+rotation = -3.14159
+WorkOnlyInFlippedGravity = true
+
+[node name="ContextualPlatform8" parent="." instance=ExtResource("7_i85c1")]
+position = Vector2(1200, 246)
+rotation = -3.14159
+WorkOnlyInFlippedGravity = true

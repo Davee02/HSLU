@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://scenes/game.cs" id="1_ycgdb"]
 [ext_resource type="PackedScene" uid="uid://dvdna1vfv60lj" path="res://scenes/game/misc/parallax_background.tscn" id="2_ma3k4"]
-[ext_resource type="Script" path="res://scenes/Level.cs" id="3_3f8qy"]
 [ext_resource type="PackedScene" uid="uid://j8xyb3l6qkul" path="res://scenes/game/misc/fallzone.tscn" id="3_tuprg"]
+[ext_resource type="PackedScene" uid="uid://dx3mjomny5b2i" path="res://scenes/game/misc/level_handler.tscn" id="3_wwox5"]
 [ext_resource type="PackedScene" uid="uid://cvcr1sjube4rj" path="res://scenes/game/misc/main_character.tscn" id="4_0wuj7"]
 [ext_resource type="Script" path="res://scenes/MainCharacterCamera.cs" id="5_kfevq"]
 [ext_resource type="PackedScene" uid="uid://cgpd0u0a1h32j" path="res://scenes/menu/time_display.tscn" id="6_i81w6"]
@@ -17,11 +17,10 @@
 visible = false
 script = ExtResource("1_ycgdb")
 
-[node name="ParallaxBackground" parent="Game" instance=ExtResource("2_ma3k4")]
+[node name="Background" parent="Game" instance=ExtResource("2_ma3k4")]
 
-[node name="Level" type="Node" parent="Game"]
-script = ExtResource("3_3f8qy")
-StartWithLevel = 5
+[node name="LevelHandler" parent="Game" instance=ExtResource("3_wwox5")]
+StartWithLevel = 1
 
 [node name="FallzoneUp" parent="Game" instance=ExtResource("3_tuprg")]
 position = Vector2(0, -355)

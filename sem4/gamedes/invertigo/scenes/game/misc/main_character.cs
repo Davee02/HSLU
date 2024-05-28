@@ -4,6 +4,7 @@ public partial class main_character : CharacterBody2D
 {
     private AnimatedSprite2D _animatedSprite;
     private AudioStreamPlayer _jumpAudioPlayer;
+    private Timer _coyoteTimer;
 
     public const float Speed = 300.0f;
     public const float JumpVelocity = -400.0f;
@@ -16,6 +17,7 @@ public partial class main_character : CharacterBody2D
     {
         _animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         _jumpAudioPlayer = GetNode<AudioStreamPlayer>("JumpAudioPlayer");
+        _coyoteTimer = GetNode<Timer>("CoyoteTimer");
     }
 
     public override void _PhysicsProcess(double delta)
@@ -34,7 +36,7 @@ public partial class main_character : CharacterBody2D
         }
 
         // Handle Jump.
-        if (Input.IsActionJustPressed("jump") && IsOnFloor())
+        if (Input.IsActionJustPressed("jump") && (IsOnFloor() || !_coyoteTimer.IsStopped()))
         {
             velocity.Y = gravityDirection.Y * JumpVelocity;
             _jumpAudioPlayer.Play();
@@ -53,8 +55,15 @@ public partial class main_character : CharacterBody2D
 
         Velocity = velocity;
 
+        var wasOnFLoor = IsOnFloor();
         MoveAndSlide();
         HandleRigidBodyCollisions();
+
+        if (wasOnFLoor && !IsOnFloor() && !Input.IsActionJustPressed("jump"))
+        {
+            // start the coyote timer if the player was on the floor before moving and is not on the floor now
+            _coyoteTimer.Start();
+        }
     }
 
     private string GetAnimationToPlay()

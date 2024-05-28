@@ -16,6 +16,7 @@ script = ExtResource("1_vxf2r")
 anchors_preset = 0
 
 [node name="InvertigoTitle" type="RichTextLabel" parent="Controls"]
+layout_mode = 0
 offset_left = 326.0
 offset_top = 70.0
 offset_right = 936.0
@@ -26,6 +27,7 @@ bbcode_enabled = true
 text = "[center][b]Invertigo"
 
 [node name="ControlsExplanation" type="RichTextLabel" parent="Controls"]
+layout_mode = 0
 offset_left = 194.0
 offset_top = 268.0
 offset_right = 1072.0
@@ -33,7 +35,7 @@ offset_bottom = 543.0
 theme_override_font_sizes/normal_font_size = 27
 bbcode_enabled = true
 text = "[center]Move with [A] and [D] or the arrow keys
-Jump with [space]
+Jump with [Space], [W] or [Arrow up]
 Interact with [E]
 Reset Level with [R]
 Open pause menu with [ESC]
@@ -44,6 +46,7 @@ Press any key to continue"
 anchors_preset = 0
 
 [node name="StoryText" type="RichTextLabel" parent="Story"]
+layout_mode = 0
 offset_left = 63.0
 offset_top = 115.0
 offset_right = 1226.0

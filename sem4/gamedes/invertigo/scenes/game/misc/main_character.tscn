@@ -71,3 +71,7 @@ autoplay = "standing"
 
 [node name="JumpAudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_st61k")
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true

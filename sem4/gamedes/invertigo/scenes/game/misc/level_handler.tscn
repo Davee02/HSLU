@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx3mjomny5b2i"]
+
+[ext_resource type="Script" path="res://scenes/game/misc/level_handler.cs" id="1_6bls6"]
+[ext_resource type="AudioStream" uid="uid://cy5wigasul7lf" path="res://assets/audio/finish_level.wav" id="2_pmi1l"]
+
+[node name="LevelHandler" type="Node"]
+script = ExtResource("1_6bls6")
+
+[node name="Level" type="Node" parent="."]
+
+[node name="FinishLevelAudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_pmi1l")
