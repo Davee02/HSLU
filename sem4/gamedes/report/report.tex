@@ -18,7 +18,7 @@ Invertigo \\
 \large Dokumentation Projektarbeit GAMEDES \\
   Abschlussprojekt FS24}
 \author{David Hodel}
-\date{21.05.2024}
+\date{28.05.2024}
 
 \begin{document}
 
@@ -174,7 +174,7 @@ Mein Kollege hat das Spiel alleine getestet und bei meinem Bruder habe ich zuges
 \\
 Die folgenden Feedbacks habe ich erhalten:
 \begin{enumerate}
-    \item Das Spiel macht spass und die Schwerkraftwechsel-Mechanik ist interessant
+    \item Das Spiel macht Spass und die Schwerkraftwechsel-Mechanik ist interessant
     \item Die Levels bieten eine gute Herausforderung und steigern sich in der Schwierigkeit
     \item Bei Level 1 bilden die falschen Blöcke die rechte Wand
     \item Bei allen Levels kann man die linke Wand hochspringen
@@ -231,16 +231,19 @@ Für die nächste Iteration sind folgende Änderungen geplant:
     pause ist, soll der Timer angehalten werden. Dies fügt auch die neue Spassformen "Gemeinschaft" und "Unterwerfung (Grind)" hinzu, da die Spieler sich mit anderen messen können und
     versuchen können, ihre Zeit zu verbessern.
     \item Für das Ausführen von Aktionen (Schwerkraftwechsel, Jump, Level beenden, ins Void fallen) sollen minimale Soundeffekte hinzugefügt werden, um dem Spieler Feedback zu geben.
+    Es soll das \href{https://kronbits.itch.io/freesfx}{200 Free SFX Soundpack} von \textit{Kronbits} verwendet werden.
 \end{itemize}
 
 \newpage
 
 \section{Dritte Iteration}
 
+Diese Iteration beinhaltet die zweite spielbare Version des Spiels. Es wurden alle geplanten Änderungen aus der zweiten Iteration implementiert.
+
 \subsection{Spielbare Version}
 
 Das Spiel mit den implementierten Feedbacks der ersten Iteration kann auf folgender Seite heruntergeladen werden: \url{https://github.com/Davee02/HSLU/releases/tag/invertigo%2F1.0.0-alpha.2}.
-Mit einem gültigen HSLU-Account kann auch \href{www.todo.ch}{eine Aufnahme}
+Mit einem gültigen HSLU-Account kann auch \href{https://hsluzern-my.sharepoint.com/:v:/g/personal/david_hodel_stud_hslu_ch/EcKRx5NXzzFCiwn0xVOLA04BylXdBGg6la7ceVz9dLMMdA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=h7Vkq7}{eine Aufnahme}
 angeschaut werden.
 
 \subsection{Testfeedbacks}
@@ -253,27 +256,60 @@ Die folgenden Feedbacks habe ich erhalten:
 \begin{enumerate}
     \item Der Timer ist eine sehr gute Ergänzung und motiviert, das Spiel immer wieder zu spielen um möglichst schnell zu sein
     \item Das Pausenmenü ist sehr nützlich und die Möglichkeit, das Level direkt neu zu starten, ist sehr praktisch
-    \item Die Kisten sind weniger frustrierend, aber immer noch nicht perfekt. Das Schieben der Kisten fühlt sich immer noch nicht ganz richtig an
     \item Die Soundeffekte machen das Spiel "crispier". Es ist jedoch schade, dass die Kisten keinerlei Soundeffekte haben
     \item Nützlicher Startscreen, der die Steuerung erklärt (vor allem der Schwerkraftwechsel und das Neustarten des Levels). Auch gut, dass das Spiel nicht sofort beginnt.
+    \item Wenn man bei invertierter Gravitation stirb, verhaltet sich der Respawn seltsam. Man startet zwar an der richtigen Stelle, aber die Gravitation ist im ersten Moment noch invertiert
+    und man fällt auf die falsche Seite.
+    \item Man kann ein Teil vom Level 5 skippen, indem man in der invertierten Gravitation ganz oben rechts auf einer Kiste steht und direkt ins Ziel springt
+    \item Der Sound für ein Levelabschluss klingt abgeschnitten / abgehakt
+    \item Manchmel werden nicht alle Sprünge registriert, vor allem wenn man von einer Kant springt / fällt
+    \item Man kann nur mit der Leertaste springen. Es wäre gut, wenn man auch mit "W" oder "Pfeil nach oben" springen könnte, da man so die Hand nicht von der Pfeiltasten nehmen muss
     \item Zum Spiel fehlt noch ein bisschen eine Hintergrundgeschichte. Es wird nicht klar, warum der Spieler die Levels durchspielt und was das Ziel ist.
+    \item Das letzte Level ist verwirrend, da die Funktion der Schwerkraftfelder nicht klar ist. Vor allem wenn die Schwerkraft normal ist und das Schwerkraftfeld nach unten zeigt ist die Funktion unklar.
+    Ausserdem ist der Abschluss vom Level frustrierend, da der Levelabschluss nicht auf einer Plattform ist, sondern in der Luft schwebt.
 \end{enumerate}
 
 \subsection{Analyse Feedbacks}
+
+Die getätigten Änderungen sind sehr gut angekommen und haben das Spielerlebmis verbessert. Der Timer motiviert die Spieler, das Spiel immer wieder zu spielen und sich zu verbessern.
+Auch die Soundeffekte haben das Spiel aufgewertet, obwohl die Kisten noch keine Soundeffekte haben. Dies sollte in der nächsten Iteration behoben werden.
+\\
+Natürlich sind auch wieder einige Bugs aufgetreten, die in der nächsten Iteration behoben werden müssen. Die Punkte 6, 7 und 8 gehören dazu.
+\\
+Punkt 9 ist etwas, was mir auch immer wieder aufgefallen ist. Das Problem ist, dass der Player-Character zum Zeitpunkt des Sprungs nicht mehr auf der Plattform ist, da er sich schon in der Luft befindet.
+Dies führt dazu, dass der Sprung nicht registriert wird, obwohl der Spieler eigentlich springen wollte. Dies macht das Spiel weniger responsive. Ich will in der nächsten Iteration die sogenannte
+\textit{Coyote Time} implementieren. Dies ist ein kurzer Zeitraum nach dem der Spieler von einer Plattform fällt, in dem er noch springen kann. Dies erhöht die Responsivität und macht das Spiel flüssiger.
+\\
+Die zusätzlichen Steuerungsmöglichkeiten (Punkt 10) sind eine gute Idee und sollten in der nächsten Iteration implementiert werden.
+\\
+Eine kurze Hintergrundgeschichte für die Narration will ich auch noch hinzufügen. Dies sollte relativ kurz und einfach sein, dem Spiel aber trotzdem etwas mehr Tiefe geben.
+\\
+Der letzte Punkt ist sicherlich der grösste Kritikpunkt. Das letzte Level kommt nicht gut an da die dort neu eingeführte Mechanik unklar ist und sich in den Augen der Spieler nicht
+konsistent verhält. Auch der Levelaufbau an sich ist unoptimal. Ich werde in der nächsten Iteration das Level komplett überarbeiten, damit die Schwerkraftfelder sich besser präsentieren können
+und der Levelabschluss klarer ist.
 
 \subsection{Geplante Änderungen}
 
 Für die nächste Iteration sind folgende Änderungen geplant:
 
 \begin{itemize}
+    \item Beheben aller Bugs und Level-Skips, die im Feedback aufgeführt wurden
     \item Abspielen eines Soundeffekts, wenn die bewegliche Kiste nach einem Schwerkraftwechsel auf eine Plattform fällt oder wenn sie sich beim Bewegen um 90° gedreht hat.
+    \item Hinzufügen der Coyote-Time
+    \item Hinzufügen von alternativen Steuerungsmöglichkeiten für das Springen (W, Pfeil nach oben)
+    \item Beim Start vom Spiel wird ein kurzer Text eingeblendet, der die Hintergrundgeschichte erzählt
+    \item Komplettes Redesign des letzten Levels
 \end{itemize}
 
 \newpage
 \section{Endprodukt}
 
+Diese Iteration beinhaltet die dritte spielbare und somit endgültige Version des Spiels. Es wurden alle geplanten Änderungen aus der dritten Iteration implementiert.
+
+\subsection{Spielbare Version}
+ 
 Das endgültige Spiel kann auf folgender Seite heruntergeladen werden: \url{https://github.com/Davee02/HSLU/releases/tag/invertigo%2F1.0.0}.
-Mit einem gültigen HSLU-Account kann auch \href{www.todo.ch}{eine Aufnahme}
+Mit einem gültigen HSLU-Account kann auch \href{https://hsluzern-my.sharepoint.com/:v:/g/personal/david_hodel_stud_hslu_ch/EX3T2xgSuBZCghjt5XcuOzQBevE-ReQYlXj5H_SDUirOFg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=mWlCaB}{eine Aufnahme}
 angeschaut werden.
 
 \subsection{Spielbeschreibung}
@@ -342,8 +378,9 @@ habe ein Spiel entwickelt, welches Spass macht und herausfordernd ist. Die Testf
 von anderen Personen testen zu lassen. Die positiven Feedbacks und die Verbesserungsvorschläge haben mich sehr motiviert.
 \\
 Das Spiel ist nicht perfekt und es gibt noch viele Dinge, die verbessert werden können. Sicherlich ist das Hinzufügen von weiteren Levels der zentralste Punkt, um das Spiel zu erweitern. Die bestehenden
-Elemente können noch in unzähligen Varianten kombiniert werden. Auch kreative Elemente, wie Portale oder Teleporter, könnten das Spiel noch interessanter machen. Ausserdem gibt es sicherlich
-noch viele unentdeckte Bugs und Level-Skips, die es zu beheben gilt.
+Elemente können noch in unzähligen Varianten kombiniert werden. Auch kreative Elemente, wie Portale oder Teleporter, könnten das Spiel noch interessanter machen. Ein weiterer interessanter Punkt wäre sicherlich auch
+das Einführen von Online-Leaderboards, um sich mit anderen Spielern zu messen. Dies würde die Motivation, das Spiel immer wieder zu spielen, noch erhöhen.
+Ausserdem gibt es sicherlich noch viele unentdeckte Bugs und Level-Skips, die es zu beheben gilt.
 \\
 Das Umsetzen von Invertigo in Godot hat mir gezeigt, was für ein Aufwand hinter jedem Spiel steckt. Eine Idee zu haben, dies in eine Spielmechanik zu verpacken, Levels zu designen und das Spiel zu balancen
 und dazu noch passende Assets, eine Narration und Soundeffekte zu designen is eine Herkulesaufgabe. Ich habe grossen Respekt vor allen Game-Designern und Entwicklern, die solche Spiele entwickeln.
