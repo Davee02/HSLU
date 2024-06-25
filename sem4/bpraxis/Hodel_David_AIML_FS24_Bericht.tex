@@ -1,0 +1,119 @@
+%!TEX program = lualatex
+\documentclass{bpraxis}
+
+\begin{document}
+
+\thispagestyle{empty}
+~\vspace{5cm}
+
+\ColoredText{gray}{15}{Hochschule Luzern - Informatik}\\[5mm]
+\ColoredText{gray}{30}{Bericht Praxistätigkeit FS24}\\[3mm]
+\SizedText{24}{David Hodel}
+
+\newpage
+
+\SizedText{17}{\textbf{Abkürzungsverzeichnis}}
+
+{\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\linewidth}{p{4cm}X}
+\hline
+\rowcolor{lightgray}
+\textbf{Kürzel} & \textbf{Beschreibung} \\\hline
+ReST & Representational State Transfer \\\hline
+API & Application Programming Interface \\\hline
+GitOps & BLa \\\hline
+LLM & Large Language Model \\\hline
+\end{tabularx}
+}
+
+\bigbreak
+
+{
+  \hypersetup{linkcolor=black}
+  \setlength{\parskip}{0pt}
+  \tableofcontents
+}
+
+\newpage
+
+
+\section{Einleitung}
+
+\subsection{Firma \& Geschäftsfeld}
+
+Die Firma Leuchter Software Engineering AG befindet sich im Herzen der Neustadt Luzern und beschäftigt um die 20 Mitarbeiter.
+Sie ist ein Tochterunternehmen der Leuchter IT Solutions AG und somit Teil der Leuchter Holding Struktur, welche noch sechs weitere Firmen beinhaltet.
+
+Das Unternehmen ist in zwei Entwicklungsteams aufgeteilt. Das erste Team kümmert sich um die Individualentwicklung für unterschiedliche Kunden.
+Das zweite kümmert sich um Produkte in der Microsoft Office Welt und entwickelt und betreibt das Produkt Docugate.
+
+Docugate ist eine Software für eine zentrales Vorlagenmanagement und eine intuitieve Dokumentenerstellung mit dynamisch ausgefüllten Platzhaltern.
+Docugate bietet sowohl eine Desktop-Version als auch eine webbasierte Lösung an an. Die Desktop-Version wird inzwischen als Legacy erachtet und erhält nur noch Bugfixes und Security-Updates.
+Die Entwicklung konzentriert sich auf die webbasierte Cloudlösung.
+
+\subsection{Stellenbezeichnung}
+
+Als Entwickler im Docugate Team ist man mit modernen Technologien in Kontakt, da die Software mit einer Microservices Architektur aufgebaut ist und in einem Kubernetes-Cluster deployed wird.
+Die einzelnen Services sind in C\# auf der jeweils neusten Version von .NET (zur Zeit .NET 8) geschrieben.
+Für die Kommunikation zwischen Services wird Event-Sourcing benutzt, welches mit dem Eventstore Apache Kafka umgesetzt wird.
+Für die persistenten Daten wird die Dokumentendatenbank MongoDB und für die indexierten durchsuchbaren Daten Elasticsearch verwendet.
+
+Die Services ermöglichen die Verwaltung und Erstellung von diverse Vorlagen-Typen wie Microsoft Word, Excel, PowerPoint, Visio, PDF und auch LaTeX.
+
+Alle Funktionen der Plattform sind über die ReST API Endpunkte abgedeckt. Viele Kunden binden die API direkt an ihre Umsysteme an.
+Für eine benutzerfreundliche Benutzung steht auch ein auf React.js basierendes Webfrontend zur Verfügung.
+
+Als Software Engineer & Architect bin ich verantwortlich, mit dem PO von Docugate Kundenanforderungen und -wünsche zu besprechen, diese auf technischer Ebene zu verarbeiten und die Folgen für die
+Architektur der Software im Auge zu behalten. Weiter leite ich Anforderungen ab und erstelle Tickets für die Entwickler. Ich setzte ausserdem auch selber Features um und stehe regelmässig im Austausch
+mit meinen Teamkollegen, um Hilfestellungen zu bieten. Weiter bin ich auch grösstenteils für den Bereich Operations zuständig, also alles was mit dem Kubernetes-Cluster, Autoskalierung, Aktualisieren von
+Drittkomponenten usw. zu tun hat.
+
+\section{Meine Tätigkeiten im FS24}
+
+Meine Arbeit in den letzten Monaten war vielseitig. Zum einen war natürlich das Daily Business allgegenwärtig. Dazu gehört das Besprechen und Abklären mit dem PO on neuen Features und Kundenwünschen,
+das Beheben von allerlei Bugs und das Betreuen von Lehrlingen und des Praktikanten im Team.
+
+\subsection{Optimierung der Deployments}
+
+Einen grossen Teil der Zeit habe ich mit dem Optimieren der Deployments von Docugate Cloud verbracht. Bis anhinh lag beinahe die gesamte Verantwortung für die Deployments in den Kubernetes-Cluster bei mir,
+da ich über das meiste Wissen über die Infrastruktur verfügte. Dies führte dazu, dass ich oft in der Situation war, dass ich die Deployments alleine durchführen musste und dass auf Deployments verzichtet werden musste,
+falls ich abwesend war. Dies war natürlich keine ideale Situation und so habe ich mich daran gemacht, die Deployments vermehrt zu automatisieren und zu vereinfachen.
+Das Resultat ist eine verbesserte CI/CD-Pipeline, eine vereinfachte Struktur unseres GitOps-Repos mithilfe vom Tool Kustomize \ref{lit:kustomize}, automatisierte Updates von Drittkomponenten mit dem Renovate-Bot \ref{lit:renovatebot},
+viel Dokumentation und eine Schulung der Teammitglieder. Inzwischen können alle Teammitglieder einfache Deployments durchführen und ich bin nicht mehr der Single Point of Failure.
+
+\subsection{RAG mit LangChain}
+
+Einen weiteren Task, welche ich in den letzten Monaten umgesetzt habe, ist ein Prototyp eines RAGs (Retrieval-Augmented Generation) mit LangChain. Ein RAG ein Chatbot, welcher auf der Basis eines KI-Modells (typischerweise ein LLM)
+Antworten auf Fragen generieren kann. Der Chatbot kann dabei auf eine Wissensdatenbank zugreifen und so auch Fragen beantworten, welche nicht im Trainingsdatensatz des Modells enthalten sind.
+LangChain unterstützt die Erstellung von RAGs und bietet Werkzeuge und Schnittstellen, um die Wissensdatenbank zu erstellen und zu pflegen und mit dem Modell zu verknüpfen.
+
+Meine Aufgabe war das Erstellen eines Prototyps für einen Chatbot, welche die Mitarbeiter vom Servicedesk von Docugate unterstützen soll. Der Chatbot sollte einfache und oft gestellte Fragen beantworten können.
+Wichtig anzumerken ist, dass der Chatbot nicht direkt von den Kunden benutzt wird, sondern nur von den Mitarbeitern vom Servicedesk. Der Chatbot soll die Mitarbeiter entlasten.
+
+Als Grundlage für den Chatbot habe ich das Modell GPT-3.5 von OpenAI verwendet, welches über die Azure OpenAI API \ref{lit:azure-openai} angesprochen wird. Dies aus dem Grund, weil GPT-3.5 eine gute Balance zwischen
+Leistung und Kosten bietet. Da wir auf Azure bereits viele andere Ressourcen haben, war es auch naheliegend, die OpenAI API von Azure zu verwenden.
+
+\section{Reflexion}
+
+\subsection{Reflexion in Bezug auf Unterrichtsmodule}
+
+\subsection{Rückblick und Lessons Learned}
+
+
+
+% \section{Anhang}
+
+
+\section{Quellenverzeichnis}
+
+\textit{LaTeX Vorlage & Styles}, zur Verfügung gestellt von meinem Arbeitskollegen Marino Toscano, 24.06.2024\label{lit:latex-vorlage}
+
+\textit{Renovate-Bot}, \href{https://docs.renovatebot.com/}{https://docs.renovatebot.com/}\label{lit:renovatebot}
+
+\textit{Kustomize}, \href{https://kustomize.io/}{https://kustomize.io/}\label{lit:kustomize}
+
+\textit{LangChain}, \href{https://python.langchain.com/v0.1/docs/}{https://python.langchain.com/v0.1/docs/}\label{lit:langchain}
+
+\textit{Azure OpenAI}, \href{https://azure.microsoft.com/en-us/products/ai-services/openai-service}{https://azure.microsoft.com/en-us/products/ai-services/openai-service}\label{lit:azure-openai}
+
+\end{document}
