@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{praxis}[Praxis]
+\ProvidesClass{bpraxis}[BPraxis]
 \LoadClass[12pt]{article}
 
 \RequirePackage[
@@ -42,9 +42,9 @@ headsep=1cm,
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{Bericht Praxistätigkeit HS23}
+\fancyhead[L]{Bericht Praxistätigkeit FS24}
 \fancyfoot[L]{\hypersetup{linkcolor=black}Seite \thepage{} von \pageref{LastPage}}
-\fancyfoot[R]{14.01.2024}
+\fancyfoot[R]{13.07.2024}
 
 \titlespacing*{\section}{0pt}{0pt}{0pt}
 \titlespacing*{\subsection}{0pt}{0pt}{-4pt}
@@ -72,7 +72,7 @@ headsep=1cm,
 \setlength{\arrayrulewidth}{0.5pt}
 
 \lstset{
-  language=C++,
+  language=Python,
   aboveskip=3mm,
   belowskip=3mm,
   showstringspaces=false,
@@ -169,6 +169,6 @@ headsep=1cm,
 
 \newcommand{\Code}[1]{\sethlcolor{lightergray}\hl{\texttt{#1}}}
 
-\newcommand{\ImportCode}[3][C++]{
+\newcommand{\ImportCode}[3][Python]{
   \lstinputlisting[language=#1,caption={#2},label={lst:#3}]{code/#3}
 }

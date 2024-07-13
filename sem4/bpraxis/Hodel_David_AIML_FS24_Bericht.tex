@@ -6,24 +6,26 @@
 \thispagestyle{empty}
 ~\vspace{5cm}
 
-\ColoredText{gray}{15}{Hochschule Luzern - Informatik}\\[5mm]
-\ColoredText{gray}{30}{Bericht Praxistätigkeit FS24}\\[3mm]
-\SizedText{24}{David Hodel}
+\ColoredText{gray}{15}{Hochschule Luzern - Informatik - Bachelor in Artificial Intelligence \& Machine Learning}\\[5mm]
+\SizedText{30}{Bericht Praxistätigkeit FS24}\\[3mm]
+\SizedText{24}{David Hodel}\\[3mm]
+\ColoredText{gray}{15}{13.07.2024}
 
 \newpage
 
 \SizedText{17}{\textbf{Abkürzungsverzeichnis}}
 
 {\renewcommand{\arraystretch}{1.3}
-\begin{tabularx}{\linewidth}{p{4cm}X}
-\hline
-\rowcolor{lightgray}
-\textbf{Kürzel} & \textbf{Beschreibung} \\\hline
-ReST & Representational State Transfer \\\hline
-API & Application Programming Interface \\\hline
-GitOps & BLa \\\hline
-LLM & Large Language Model \\\hline
-\end{tabularx}
+  \begin{tabularx}{\linewidth}{p{4cm}X}
+    \hline
+    \rowcolor{lightgray}
+    \textbf{Kürzel} & \textbf{Beschreibung}                                                                         \\\hline
+    ReST            & Representational State Transfer                                                               \\\hline
+    API             & Application Programming Interface                                                             \\\hline
+    GitOps          & Git Operations (operatives Framework, das auf DevOps-Praktiken und Versionskontrolle basiert) \\\hline
+    LLM             & Large Language Model                                                                          \\\hline
+    RNN             & Recurrent Neural Network                                                                      \\\hline
+  \end{tabularx}
 }
 
 \bigbreak
@@ -63,14 +65,14 @@ Die Services ermöglichen die Verwaltung und Erstellung von diverse Vorlagen-Typ
 Alle Funktionen der Plattform sind über die ReST API Endpunkte abgedeckt. Viele Kunden binden die API direkt an ihre Umsysteme an.
 Für eine benutzerfreundliche Benutzung steht auch ein auf React.js basierendes Webfrontend zur Verfügung.
 
-Als Software Engineer & Architect bin ich verantwortlich, mit dem PO von Docugate Kundenanforderungen und -wünsche zu besprechen, diese auf technischer Ebene zu verarbeiten und die Folgen für die
+Als Software Engineer \& Architect bin ich verantwortlich, mit dem PO von Docugate Kundenanforderungen und -wünsche zu besprechen, diese auf technischer Ebene zu verarbeiten und die Folgen für die
 Architektur der Software im Auge zu behalten. Weiter leite ich Anforderungen ab und erstelle Tickets für die Entwickler. Ich setzte ausserdem auch selber Features um und stehe regelmässig im Austausch
 mit meinen Teamkollegen, um Hilfestellungen zu bieten. Weiter bin ich auch grösstenteils für den Bereich Operations zuständig, also alles was mit dem Kubernetes-Cluster, Autoskalierung, Aktualisieren von
 Drittkomponenten usw. zu tun hat.
 
 \section{Meine Tätigkeiten im FS24}
 
-Meine Arbeit in den letzten Monaten war vielseitig. Zum einen war natürlich das Daily Business allgegenwärtig. Dazu gehört das Besprechen und Abklären mit dem PO on neuen Features und Kundenwünschen,
+Meine Arbeit in den letzten Monaten war vielseitig. Zum einen war natürlich das Daily Business allgegenwärtig. Dazu gehört das Besprechen und Abklären mit dem PO von neuen Features und Kundenwünschen,
 das Beheben von allerlei Bugs und das Betreuen von Lehrlingen und des Praktikanten im Team.
 
 \subsection{Optimierung der Deployments}
@@ -88,25 +90,91 @@ Antworten auf Fragen generieren kann. Der Chatbot kann dabei auf eine Wissensdat
 LangChain unterstützt die Erstellung von RAGs und bietet Werkzeuge und Schnittstellen, um die Wissensdatenbank zu erstellen und zu pflegen und mit dem Modell zu verknüpfen.
 
 Meine Aufgabe war das Erstellen eines Prototyps für einen Chatbot, welche die Mitarbeiter vom Servicedesk von Docugate unterstützen soll. Der Chatbot sollte einfache und oft gestellte Fragen beantworten können.
-Wichtig anzumerken ist, dass der Chatbot nicht direkt von den Kunden benutzt wird, sondern nur von den Mitarbeitern vom Servicedesk. Der Chatbot soll die Mitarbeiter entlasten.
+Wichtig anzumerken ist, dass der Chatbot nicht direkt von den Kunden benutzt wird, sondern nur von den Mitarbeitern vom Servicedesk.
 
 Als Grundlage für den Chatbot habe ich das Modell GPT-3.5 von OpenAI verwendet, welches über die Azure OpenAI API \ref{lit:azure-openai} angesprochen wird. Dies aus dem Grund, weil GPT-3.5 eine gute Balance zwischen
 Leistung und Kosten bietet. Da wir auf Azure bereits viele andere Ressourcen haben, war es auch naheliegend, die OpenAI API von Azure zu verwenden.
+
+Ich habe für den Chatbot ein prototypisches Python-Skript erstellt. Die folgenden Codeschnipsel zeigen die wichtigsten Teile des Skripts.
+\\
+\ImportCode[Python]{Setzen von Umgebungsvariablen}{set-environment-variables.py}
+
+Zuerst werden sensible Daten (API-Key und URL zur Azure OpenAI-API) in Umgebungsvariablen gespeichert.
+
+\ImportCode[Python]{Laden der Onlinedocs-Artikel}{load-docs.py}
+
+Als Datengrundlage habe ich die Onlinedocs von Docugate verwendet, welche unter der URL \href{https://docs.docugate.cloud}{https://docs.docugate.cloud} erreichbar sind.
+Der \Code{RecursiveUrlLoader} besucht rekursiv alle Unterseiten der Seite und extrahiert mit der HTML-Library \textit{Beautiful Soup} \ref{lit:beautiful-soup} den Text der Artikel.
+
+\ImportCode[Python]{Aufsplitten des Texts}{split-texts.py}
+
+Damit die Artikel vom Modell verarbeitet werden können, müssen sie in kleinere Textstücke aufgeteilt werden. Dies wird mit dem \Code{ecursiveCharacterTextSplitter} gemacht,
+welcher den Text in Avatare von maximal 1000 Zeichen aufteilt und dabei versucht, Paragraphen und Sätze nicht zu trennen.
+
+\ImportCode[Python]{Embedden und Speichern}{embed-and-store.py}
+
+Die aufgeteilten Textstücke werden mit dem Embedding Modell \href{https://platform.openai.com/docs/guides/embeddings}{text-embedding-3-large von OpenAI} embedded. Dabei jeder Teil des Textes in einen Vektor mit 3072 Dimensionen umgewandelt,
+welcher der Inhalt des Textes möglichst genau zu repräsentieren versucht. Dies macht es einfach, die Ähnlichkeit zwischen zwei Textstücken zu berechnen und weitere ähnliche Passagen zu finden.
+Später werden diese Vektoren vom LLM verwendet, um weitere Informationen über gewisse Stichwörter zu erhalten.
+
+Damit die Embeddings nicht bei jedem Aufruf des Skripts neu berechnet werden müssen, wird ein Cache erstellt. Dieser speichert die Embeddings mit der Vektordatenbank-Library \textit{faiss} \ref{lit:faiss} ab.
+
+\ImportCode[Python]{Erstellen des LLMs}{create-llm.py}
+
+Anhand des Namens der Azure-Ressource und der OpenAI-API-Version wird ein Objekt der Klasse \Code{AzureChatOpenAI} erstellt. Diese Klasse stellt Methoden zur Verfügung, um die Azure OpenAI API anzusprechen.
+Die \Code{temperature} wurde auf 0.1 gesetzt, um die Antworten des Modells konservativer zu machen. Dies führt dazu, dass die Antworten weniger kreativ und dafür präziser sind.
+
+\ImportCode[Python]{Erstellen der Chain}{create-chain.py}
+
+Ein zentraler Bestandteil von LangChain ist die Chain. Eine Chain ist eine Sequenz von Operationen, die nacheinander ausgeführt werden und jeweils auf das Resultat der vorherigen Operation aufbauen.
+
+\newpage
+Die von mir erstellte Chain führt folgende Operationen aus:
+\begin{enumerate}
+  \item \textbf{Retriever}: Der Retriever sucht in der Vektordatenbank nach ähnlichen Textstücken und gibt die besten Treffer zurück.
+  \item \textbf{Prompt}: Kombiniert die Frage des Benutzers mit dem besten Treffer des Retriever und gibt das Resultat zurück.
+  \item \textbf{LLM}: Gibt den Prompt an das vorher erstellte LLM weiter und gibt die Antwort zurück.
+  \item \textbf{Output Parser}: Bereitet die Antwort des LLMs für die Ausgabe auf und gibt einen formatierten Text zurück.
+\end{enumerate}
+
+Die Chain nimmt also eine Frage entgegen, sucht nach ähnlichen Texten, kombiniert die Frage mit dem besten Treffer, gibt das Resultat an das LLM weiter und gibt die Antwort formatiert zurück.
+
+\ImportCode[Python]{Ausführen der Chain}{run-chain.py}
+
+Die Chain kann nun ausgeführt werden. Dazu wird die Frage des Benutzers eingegeben und die Chain wird durchlaufen. Die Antwort auf die gestellte Frage wird wahrheitsgemäss mit
+\textit{The v2alpha1 endpoint for functions was deprecated in October 2023.} beantwortet.
 
 \section{Reflexion}
 
 \subsection{Reflexion in Bezug auf Unterrichtsmodule}
 
+Da ich im geschäftlichen Alltag bisher noch keine Erfahrungen mit Python machen konnte, war das Modul \textit{Programming for Data Science}, welches ich im ersten Semester besucht habe, sehr hilfreich.
+Dort habe ich die Grundlagen von Python gelernt, welche ich nun in der Praxis anwenden konnte.
+
+Das Modul \textit{Advanced Machine Learning} vom aktuellen Semester hat mir geholfen, die Hintergründe von ML Models zu verstehen. Zu Beginn meiner Arbeit mit LangChain war mir die Funktionsweise eines LLMs
+noch völlig unklar und eine komplette Blackbox. Im Laufe des Semesters habe ich immer mehr gelernt und begonnen zu verstehen, wie man von einem Perzeptron zu einem künstlichen neuronalen Netz kommt und wie
+diverse Weitentwicklungen zu RNNs, Encoder-Decoder-Modellen, Transformer und schliesslich zu Decoder-Only Transformer-Modellen wie GPT-3.5 geführt haben.
+Ausserdem wurde mir bewusst, wie wichtig eine gewissenhafte Datenvorverarbeitung ist und wie abhängig heutige Modelle von qualitativ hochwertigen Daten sind.
+Auch die Funktionsweise von Embedding-Modellen und Vektordatenbanken war mir vorher unbekannt. Nun verstehe ich, wie das Umwandeln von Texten in Vektoren funktioniert und warum dies für die Arbeit mit ML-Modellen
+unverzichtbar ist.
+
 \subsection{Rückblick und Lessons Learned}
 
+Wie üblich konnte ich auch im Verlauf des letzten halben Jahres wieder vielseitige Arbeiten erledigen und mich in verschiedenen Bereichen weiterbilden.
 
+Das Optimieren der Deployments war zwar eine eher langwierige und mühsame Arbeit, hat sich aber gelohnt. Die Automatisierung der Deployments hat die Arbeit für mich und meine Teamkollegen vereinfacht und
+die Ausfallwahrscheinlichkeit reduziert. Auch die Schulung der Teammitglieder war eine gute Erfahrung und hat mir gezeigt, dass ich auch in der Lage bin, Wissen weiterzugeben und andere zu unterstützen. Dass
+ich nicht mehr der Single Point of Failure bin, gibt mir ein gutes Gefühl und ich bin froh, dass ich diese Arbeit gemacht habe.
 
-% \section{Anhang}
-
+Das Erstellen des RAG-Prototyps war mein persönliches Highlight bei der Arbeit. Ich finde es immer wieder spannend, mich mit mir unbekannten Technologien und Tools auseinanderzusetzen und diese zu verstehen.
+Das Timing der Arbeit war auch sehr gut, da ich direkt Brücken zum im Studium gelernten Wissen schlagen konnte. Als ich das erste Mal eine Antwort vom Chatbot erhalten habe, war ich sehr stolz und zufrieden.
+Die Zukunft des Projekts ist noch ungewiss. Einserseits konnte ich erfolgreich einen einfachen Prototypen erstellen und beweisen, dass LLMs mit Docugate-spezifischen Daten umgehen können. Andererseits muss
+für eine produktive Nutzung noch viel getan werden. Es müssen weitere Wissensdaten gesammelt und aufbereitet werden, die Chain muss weiter optimiert und getestet werden und es muss ein Konzept für die
+Integration in die bestehende Software erstellt werden. Ich hoffe, dass sich das Management für eine Fortführung des Projekts entscheidet und ich weiter daran arbeiten kann.
 
 \section{Quellenverzeichnis}
 
-\textit{LaTeX Vorlage & Styles}, zur Verfügung gestellt von meinem Arbeitskollegen Marino Toscano, 24.06.2024\label{lit:latex-vorlage}
+\textit{LaTeX Vorlage \& Styles}, zur Verfügung gestellt von meinem Arbeitskollegen Marino Toscano, 24.06.2024\label{lit:latex-vorlage}
 
 \textit{Renovate-Bot}, \href{https://docs.renovatebot.com/}{https://docs.renovatebot.com/}\label{lit:renovatebot}
 
@@ -115,5 +183,9 @@ Leistung und Kosten bietet. Da wir auf Azure bereits viele andere Ressourcen hab
 \textit{LangChain}, \href{https://python.langchain.com/v0.1/docs/}{https://python.langchain.com/v0.1/docs/}\label{lit:langchain}
 
 \textit{Azure OpenAI}, \href{https://azure.microsoft.com/en-us/products/ai-services/openai-service}{https://azure.microsoft.com/en-us/products/ai-services/openai-service}\label{lit:azure-openai}
+
+\textit{Beautiful Soup}, \href{https://beautiful-soup-4.readthedocs.io/en/latest/}{https://beautiful-soup-4.readthedocs.io/en/latest/}\label{lit:beautiful-soup}
+
+\textit{Faiss}, \href{https://faiss.ai/}{https://faiss.ai/}\label{lit:faiss}
 
 \end{document}
