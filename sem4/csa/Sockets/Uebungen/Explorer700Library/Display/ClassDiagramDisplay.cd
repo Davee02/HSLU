@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Explorer700Library.Display">
+    <Position X="4.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQAAAABAAAAAAAAAAIAAAAICAAAAAAAABAAAABAAAA=</HashCode>
+      <FileName>Display\Display.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="disp" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Explorer700Library.I2CtoSPI">
+    <Position X="10.25" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAgAACAggEAAAAAAAEAAAAAEAAAQ=</HashCode>
+      <FileName>Display\I2CtoSPI.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Explorer700Library.SSD1306">
+    <Position X="7" Y="2.25" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Explorer700Library.SSD1306.DisplayModel" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Display\SSD1306.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="Explorer700Library.SSD1306.VccSourceMode" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Display\SSD1306.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="Explorer700Library.SSD1306.Command" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Display\SSD1306.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AYARABAQRCMAE0AAGAAAAESAAAEAAgQQCDhAEAgCAII=</HashCode>
+      <FileName>Display\SSD1306.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Explorer700Library.Program">
+    <Position X="1.5" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Explorer700Library.Explorer700">
+    <Position X="1.5" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>IAEAAQAIAAAAAAAAAAAAAQAAAAAAAAAAAAAABAABAAA=</HashCode>
+      <FileName>Explorer700.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Display" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

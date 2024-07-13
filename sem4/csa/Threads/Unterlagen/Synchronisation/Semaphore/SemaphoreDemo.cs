@@ -6,7 +6,7 @@ namespace Synchronization;
 class SemaphoreDemo
 {
 
-    private static readonly Semaphore sema = new Semaphore(3, 3);
+    private static readonly Semaphore sema = new Semaphore(1, 1);
 
     static void Main()
     {

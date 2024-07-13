@@ -34,6 +34,7 @@ namespace ThreadBeenden
             Console.WriteLine("3. " + t.ThreadState);
             t.Join();
             Console.WriteLine("4. " + t.ThreadState);
+            Console.ReadKey();
         }
     }
 }

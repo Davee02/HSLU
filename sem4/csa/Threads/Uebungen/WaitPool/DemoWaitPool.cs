@@ -12,6 +12,10 @@ class DemoWaitPool
         MyThread myThread = new MyThread(synch);
         new Thread(myThread.Run).Start();
         Thread.Sleep(1000);
-        Monitor.Pulse(synch);
+        lock (synch)
+        {
+            Monitor.Pulse(synch);
+        }
+
     }
 }

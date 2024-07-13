@@ -9,16 +9,14 @@ class BlackHole
 
     public void Put(string thing)
     {
-        lock (this)
-        {
+
             queue.Enqueue(thing);
-        }
+        
     }
     public String Get()
     {
-        lock (this)
-        {
+        
             return queue.Dequeue();
-        }
+        
     }
 }

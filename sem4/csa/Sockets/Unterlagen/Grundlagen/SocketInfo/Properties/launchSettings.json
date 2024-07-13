@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "SocketInfo": {
+      "commandName": "Project",
+      "commandLineArgs": "hslu.ch"
+    }
+  }
+}

@@ -6,13 +6,17 @@ namespace Synchronization;
 class BasicWaitHandle
 {
 
-    private static readonly EventWaitHandle wh = new AutoResetEvent(false);
+    private static readonly EventWaitHandle wh = new ManualResetEvent(false);
 
     static void Main()
     {
-        new Thread(Waiter).Start();
+        var t1 = new Thread(Waiter);
+        var t2 = new Thread(Waiter);
+        t1.Start();
+        t2.Start();
         Thread.Sleep(1000);
         wh.Set();
+        //wh.Set();
     }
     static void Waiter()
     {

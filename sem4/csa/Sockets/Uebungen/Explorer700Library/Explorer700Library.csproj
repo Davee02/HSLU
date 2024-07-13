@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Explorer700Library</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Ressources\AsciiFontPng" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Ressources\AsciiFontPng" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="8.0.4" />
+    <PackageReference Include="Unosquare.Raspberry.IO" Version="0.27.1" />
+    <PackageReference Include="Unosquare.RaspberryIO.Peripherals" Version="0.5.0" />
+    <PackageReference Include="Unosquare.WiringPi" Version="0.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Ressources\test.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="rem cd $(TargetDir)&#xD;&#xA;rem $(SolutionDir)\SecureUpload.exe . pi-csa:netcore/$(ProjectName)" />
+  </Target>
+
+</Project>

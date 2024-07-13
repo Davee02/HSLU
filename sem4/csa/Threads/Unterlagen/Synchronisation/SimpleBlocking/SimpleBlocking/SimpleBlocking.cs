@@ -20,11 +20,11 @@ class SimpleBlocking
         });
         summieren.Start();
         // Variante 1
-        while (!fertig) ;
+        //while (!fertig) ;
         // Variante 2
-        //Thread.Sleep(10);
+        //Thread.Sleep(10000);
         // Variante 3
-        //t.Join();
+        summieren.Join();
         Console.WriteLine("Summe = {0}", sum);
     }
 }

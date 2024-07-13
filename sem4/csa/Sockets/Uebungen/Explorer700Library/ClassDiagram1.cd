@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Explorer700Library.Explorer700">
+    <Position X="7.75" Y="5.25" Width="1.5" />
+    <AssociationLine Name="Led1" Type="Explorer700Library.LedBase" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.75" Y="6.371" />
+        <Point X="5" Y="6.371" />
+        <Point X="5" Y="5.497" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>IAEAAQAIAAAAAAAAAAAAAQAAAAAAAAAAAAAABAABAAA=</HashCode>
+      <FileName>Explorer700.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Buzzer" />
+      <Property Name="Joystick" />
+      <Property Name="Led1" />
+      <Property Name="Led2" />
+      <Property Name="Pcf8574" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Explorer700Library.Buzzer">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAACAAAAEAAAAAAAAAABAAA=</HashCode>
+      <FileName>Buzzer\Buzzer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Explorer700Library.Joystick">
+    <Position X="10.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAEAAAACAAAAAAAAAAAAAAAAAAACAABAAI=</HashCode>
+      <FileName>Joystick\Joystick.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Explorer700Library.LedBase">
+    <Position X="3" Y="3.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Led\LedBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Explorer700Library.Led.LedGpio">
+    <Position X="2.25" Y="7" Width="1.5" />
+    <InheritanceLine Type="Explorer700Library.LedBase" FixedFromPoint="true">
+      <Path>
+        <Point X="3.938" Y="5.497" />
+        <Point X="3.938" Y="6.625" />
+        <Point X="3" Y="6.625" />
+        <Point X="3" Y="7" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAQAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Led\LedGpio.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Explorer700Library.Led.LedI2C">
+    <Position X="4" Y="7" Width="1.5" />
+    <InheritanceLine Type="Explorer700Library.LedBase" FixedFromPoint="true">
+      <Path>
+        <Point X="3.938" Y="5.497" />
+        <Point X="3.938" Y="6.625" />
+        <Point X="4.75" Y="6.625" />
+        <Point X="4.75" Y="7" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Led\LedI2C.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Explorer700Library.Pcf8574">
+    <Position X="7.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAACAAAgAAgAAAAAAAAAACQAAEAAAA=</HashCode>
+      <FileName>Pcf8574.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -13,7 +13,7 @@ class MyThread {
     public void Run() {
         Console.WriteLine("warten...");
         lock (synch) {
-            Monitor.Wait(this);
+            Monitor.Wait(synch);
         }
         Console.WriteLine("...aufgewacht");
     }

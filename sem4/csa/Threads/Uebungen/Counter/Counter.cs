@@ -3,11 +3,14 @@ using System.Threading;
 
 class Counter
 {
-
+    private readonly static object lockObject = new object();
     private int count = 0;
     public int NextNumber()
     {
-        count++;
-        return count;
+        lock (lockObject)
+        {
+            count++;
+            return count;
+        }
     }
 }
